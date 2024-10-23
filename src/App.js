@@ -43,7 +43,7 @@ function App() {
       {/* About Section */}
       <section id="about">
         <h2>About Me</h2>
-        <p>I am a software engineering student in my final year. I specialize in building full-stack applications, with a focus on React, Node.js, and scalable web applications.</p>
+        <p>I am a software engineering student in my final year. I specialize in building full-stack applications, with a focus on React, Node.js, and scalable web applications, I'm into AL and ML as well.</p>
       </section>
 
       {/* Projects Section */}
