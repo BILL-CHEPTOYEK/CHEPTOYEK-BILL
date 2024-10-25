@@ -27,7 +27,7 @@ function App() {
             <li><a
               href="#projects" onClick={toggleMenu}>Projects</a></li>
             <li><a href="#cv"
-              onClick={toggleMenu}>CV</a></li>
+              onClick={toggleMenu}>Resume</a></li>
             <li><a href="#contact" onClick={toggleMenu}>Contact</a></li>
           </ul>
         </nav>
