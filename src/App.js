@@ -43,8 +43,19 @@ function App() {
       {/* About Section */}
       <section id="about">
         <h2>About Me</h2>
-        <p>I am a software engineering student in my final year. I specialize in building full-stack applications, with a focus on React, Node.js, and scalable web applications, I'm into AL and ML as well.</p>
+        <div class="about-content">
+          <p>
+            Hey there! I'm a final-year Software Engineering student, deeply passionate about automating everyday tasks and redefining how humans live through technology. My expertise? Well, let's just say I can **flirt** with any application or operating system using **Flutter** and **Node.js**, effortlessly syncing up with any backend. And don’t worry, I’ll always be **React-ing** to your user interface needs with style!
+          </p>
+          <p>
+            Armed with my superpowers in **React**, **Node.js**, **Flutter**, **AI**, **ML**, **Data Science**, and now a growing obsession with **blockchain**, I’m confident that the future of tech is literally at my fingertips. Whether it’s building scalable, cutting-edge apps or exploring the realms of decentralized tech, I’m all in.
+          </p>
+          <p>
+            Oh, and don’t be surprised if you find me diving into **DevOps**, making sure the pipeline is as smooth as my code. Together, I believe we can shape a future where tech doesn’t just enhance lives—it transforms them.
+          </p>
+        </div>
       </section>
+
 
       {/* Projects Section */}
       <section id="projects">
