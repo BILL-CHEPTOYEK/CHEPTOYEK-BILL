@@ -1,3 +1,4 @@
+/* General Body Styling */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -9,11 +10,18 @@ body {
   padding: 20px;
 }
 
-/* Navbar styling */
+/* Container to constrain content width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  /* Provides padding for small screens */
+}
+
+/* Navbar Styling */
 header {
   background-color: #800000;
   padding: 15px 0;
-  /* Increased padding for better height */
   width: 100%;
   position: fixed;
   top: 0;
@@ -21,13 +29,11 @@ header {
   z-index: 1000;
 }
 
-/* Hamburger Menu */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
   margin-left: 20px;
-  /* Removed background color for a more minimal look */
 }
 
 .hamburger .bar {
@@ -36,15 +42,6 @@ header {
   background-color: #fff;
   margin: 5px 0;
   transition: 0.3s;
-}
-
-/* Adjusted for a slight color difference between the bars */
-.bar-top {
-  background-color: #800000;
-}
-
-.bar-middle {
-  background-color: #a52a2a;
 }
 
 /* Navbar Links */
@@ -72,19 +69,6 @@ nav ul li a:hover {
   background-color: #a52a2a;
 }
 
-/* Hamburger active state (animation) */
-.navbar.active .bar:nth-child(1) {
-  transform: rotate(-45deg) translate(-5px, 5px);
-}
-
-.navbar.active .bar:nth-child(2) {
-  opacity: 0;
-}
-
-.navbar.active .bar:nth-child(3) {
-  transform: rotate(45deg) translate(-5px, -5px);
-}
-
 /* Small Screen (Mobile View) */
 @media (max-width: 768px) {
   nav ul {
@@ -101,12 +85,10 @@ nav ul li a:hover {
     transition: transform 0.3s ease-in;
   }
 
-  /* Slide down menu when opened */
   .nav-links.open {
     transform: translateY(0);
   }
 
-  /* Hamburger visible on smaller screens */
   .hamburger {
     display: flex;
   }
@@ -124,7 +106,6 @@ nav ul li a:hover {
 /* Home Section */
 .home-section {
   background: linear-gradient(135deg, #800000, #a52a2a);
-  /* Gradient Maroon */
   color: white;
   padding: 150px 50px;
   min-height: 100vh;
@@ -179,6 +160,46 @@ h2 {
   color: #800000;
 }
 
+/* About Section */
+.about-content p {
+  font-size: 1.2em;
+  line-height: 1.8;
+  margin: 20px 0;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* Project Section */
+.project {
+  background-color: #f1f1f1;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* CV Section */
+#cv button {
+  background-color: #800000;
+  color: white;
+  border: none;
+  padding: 15px 30px;
+  border-radius: 5px;
+  font-size: 1.2em;
+  transition: background-color 0.3s ease;
+}
+
+#cv button:hover {
+  background-color: #a52a2a;
+}
+
+/* Contact Section */
+#contact p {
+  font-size: 1.2em;
+}
+
+/* Responsive Styles */
 @media (max-width: 768px) {
   section {
     padding: 100px 20px;
