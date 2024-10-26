@@ -66,56 +66,56 @@ function App() {
           <div class="project">
             <h3>Bus Ticketing System (BSE25-18)</h3>
             <p>A collaborative, well-architected bus ticketing system with an integrated CI/CD pipeline. This project automates ticket bookings, user management, and trip scheduling, leveraging Django to ensure scalable, reliable deployments.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/BSE25-18" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/BSE25-18" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Hotel Management System API</h3>
             <p>Developed a comprehensive RESTful API to manage hotel operations including reservations, customer data, and room assignments. Built with Node.js and MongoDB for robust data handling and quick query response times.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/hotelms-api" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/hotelms-api" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Digital Verification System</h3>
             <p>An advanced academic verification system for universities, built with React.js and Node.js. Employers can authenticate transcripts and certifications securely, and users are managed via JWT authentication.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/Digital-Verification-System" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/Digital-Verification-System" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Land Sale and Purchase System</h3>
             <p>A secure system for managing property sales and purchases, featuring user authentication, document management, and transaction tracking. This project ensures transparent and efficient property transactions.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/land-sale-system" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/land-sale-system" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Aquifer Foundation Website</h3>
             <p>The official website for Aquifer Foundation, a non-profit focused on water resource management. Built with HTML, CSS, and JavaScript, the site highlights projects, impact stories, and donor opportunities.</p>
-            <p><a href="https://github.com/BILL-CHEPTOYEK/aquifer-foundation-website" target="_blank">View Project</a> </p>
+            <p><a href="https://github.com/BILL-CHEPTOYEK/aquifer-foundation-website" target="_blank" rel="noopener noreferrer">View Project</a> </p>
             <a href='https://aquifer-foundation.org/' target='blank'>View website</a>
           </div>
 
           <div class="project">
             <h3>Loan Management System</h3>
             <p>An efficient system for loan application and management, featuring loan request tracking, repayment scheduling, and borrower profiling. Designed to simplify loan processes for financial institutions.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/loan-management-system" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/loan-management-system" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Recess Term 2 Projects</h3>
             <p>A set of Data Science and ML projects developed during an academic term. Includes analyses on crime statistics and heart disease datasets, applying predictive modeling techniques.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/RECESS-TERM-2" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/RECESS-TERM-2" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Anka Business Services System</h3>
             <p>A Laravel-based business management system, providing client management, invoicing, and project tracking for business operations. Built for adaptability, ensuring scalable growth.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/Anka-Business-services-System" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/Anka-Business-services-System" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
             <h3>Medical Diagnosis AI - Prostate Cancer</h3>
             <p>Developed an AI model using Python for diagnosing prostate cancer, utilizing data-driven algorithms to enhance early detection accuracy.</p>
-            <a href="https://github.com/BILL-CHEPTOYEK/MEDICAL-DIAGNOSIS-AI-PROSTATE-CANCER-" target="_blank">View Project</a>
+            <a href="https://github.com/BILL-CHEPTOYEK/MEDICAL-DIAGNOSIS-AI-PROSTATE-CANCER-" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
         </div>
@@ -139,16 +139,16 @@ function App() {
           <h2>Contact Me</h2>
           <p>Email: <a href="mailto:billcheptoyek60@gmail.com">billcheptoyek60@gmail.com</a></p>
           <div className="social-links">
-            <a href="https://www.linkedin.com/in/cheptoyekbill1" className="social-btn" target="_blank">
+            <a href="https://www.linkedin.com/in/cheptoyekbill1" className="social-btn" target="_blank" rel="noopener noreferrer">
               <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
             </a>
-            <a href="https://stackoverflow.com/users/yourprofile" className="social-btn" target="_blank">
+            <a href="https://stackoverflow.com/users/yourprofile" className="social-btn" target="_blank" rel="noopener noreferrer">
               <img src="https://img.shields.io/badge/Stack_Overflow-FE7A16?style=for-the-badge&logo=stack-overflow&logoColor=white" alt="Stack Overflow" />
             </a>
-            <a href="https://www.kaggle.com/cheptoyekbill" className="social-btn" target="_blank">
+            <a href="https://www.kaggle.com/cheptoyekbill" className="social-btn" target="_blank" rel="noopener noreferrer">
               <img src="https://img.shields.io/badge/Kaggle-20BEFF?style=for-the-badge&logo=kaggle&logoColor=white" alt="Kaggle" />
             </a>
-            <a href="https://x.com/trojan__bill" className="social-btn" target="_blank">
+            <a href="https://x.com/trojan__bill" className="social-btn" target="_blank" rel="noopener noreferrer">
               <img src="https://img.shields.io/badge/X-000000?style=for-the-badge&logo=x&logoColor=white" alt="X (formerly Twitter)" />
             </a>
           </div>
