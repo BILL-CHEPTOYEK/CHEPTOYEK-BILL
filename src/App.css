@@ -217,3 +217,111 @@ strong {
     font-size: 1.2em;
   }
 }
+
+/* Contact Section Styling */
+#contact {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
+}
+
+#contact p {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.social-btn img {
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.social-btn img:hover {
+  transform: scale(1.1);
+}
+
+/* About and Projects Background */
+#about,
+#projects {
+  background-color: #f1f1f1;
+  /* Light gray background */
+  padding: 70px 50px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin: 20px 0;
+}
+
+/* Headings for Sections */
+h2 {
+  font-size: 2.5em;
+  color: #800000;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* About Section Text Styling */
+.about-content p {
+  font-size: 1.2em;
+  line-height: 1.8;
+  color: #333;
+  margin: 20px 0;
+}
+
+/* Project Item Styling */
+.project {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project h3 {
+  font-size: 1.8em;
+  color: #333;
+}
+
+.project p {
+  font-size: 1em;
+  line-height: 1.6;
+  color: #555;
+}
+
+.project a {
+  display: inline-block;
+  color: #0077B5;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.project a:hover {
+  text-decoration: underline;
+  color: #005582;
+}
+
+/* Responsive Styles for About and Projects */
+@media (max-width: 768px) {
+
+  #about,
+  #projects {
+    padding: 50px 20px;
+  }
+
+  .project h3 {
+    font-size: 1.6em;
+  }
+
+  .project p {
+    font-size: 1em;
+  }
+}
