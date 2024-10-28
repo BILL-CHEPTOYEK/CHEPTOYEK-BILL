@@ -34,9 +34,7 @@ function App() {
       {/* Home Section */}
       <section id="home" className="home-section">
         <div className="container">
-
           <img src="/dp.jpeg" alt="Cheptoyek Bill" className="profile-image" />
-
           <h1>Hi, I'm <span className="highlight">Cheptoyek Bill</span></h1>
           <p>A passionate <span className="highlight">Software Engineer</span> & Full-Stack Developer</p>
           <a href="#projects" className="btn-main">VIEW MY WORK</a>
