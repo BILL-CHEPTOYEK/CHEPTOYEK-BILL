@@ -128,7 +128,7 @@ function App() {
           <h2>Curriculum Vitae</h2>
           <p>Download my CV below:</p>
           <a href="/cv.pdf" download>
-            <button>Download my CV (PDF)</button>
+            <button>Download my Resume (PDF)</button>
           </a>
         </div>
       </section>
