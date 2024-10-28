@@ -375,18 +375,3 @@ h2 {
   background-color: #a52a2a;
   transform: scale(1.05);
 }
-
-/* Profile Image Styling in Home Section */
-.profile-image {
-  width: 150px;
-  /* Adjust size as needed */
-  height: 150px;
-  border-radius: 50%;
-  /* Makes the image circular */
-  margin-bottom: 20px;
-  /* Space between image and name */
-  border: 4px solid #800000;
-  /* Optional: adds a border for a polished look */
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-  /* Adds a soft shadow */
-}
