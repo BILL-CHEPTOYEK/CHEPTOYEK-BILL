@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/CHEPTOYEK-BILL/precache-manifest.6f7ae8aecfe481ba3b28e0788d53576f.js"
+  "/CHEPTOYEK-BILL/precache-manifest.77550e1c9b68a77c5692cbc25791f18f.js"
 );
 
 self.addEventListener('message', (event) => {
