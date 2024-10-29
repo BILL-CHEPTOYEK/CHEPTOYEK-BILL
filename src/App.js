@@ -35,7 +35,6 @@ function App() {
       {/* Home Section */}
       <section id="home" className="home-section">
         <div className="container">
-          <img src="/dp.jpeg" alt="." className="profile-image" />
           <h1>Hi, I'm <span className="highlight">Cheptoyek Bill</span></h1>
           <p>A passionate <span className="highlight">Software Engineer</span> & Full-Stack Developer</p>
           <a href="#projects" className="btn-main">VIEW MY WORK</a>
@@ -133,7 +132,7 @@ function App() {
           <div className="cv-button-wrapper">
             <a href="/cv.pdf" download>
               <button className="download-btn">
-                <span> Download Resume (PDF)</span>
+                <span role="img" aria-label="download icon">📄</span> Download Resume (PDF)
               </button>
             </a>
           </div>
