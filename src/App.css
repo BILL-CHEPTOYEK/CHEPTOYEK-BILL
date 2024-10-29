@@ -375,3 +375,10 @@ h2 {
   background-color: #a52a2a;
   transform: scale(1.05);
 }
+
+.profile-image {
+  display: block;
+  width: 150px;
+  height: auto;
+  border: 1px solid red;
+}
