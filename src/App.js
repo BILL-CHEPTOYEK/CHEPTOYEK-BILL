@@ -92,7 +92,7 @@ function App() {
 
           <div class="project">
             <h3>Aquifer Foundation Website</h3>
-            <p>The official website for Aquifer Foundation, a non-profit focused on water resource management. Built with HTML, CSS, and JavaScript, the site highlights projects, impact stories, and donor opportunities.</p>
+            <p>The official website for Aquifer Foundation, a non-profit focused on water resource management. Built with the react javascript, the site highlights more about Aquifer foundation, projects, impact stories.</p>
             <p><a href="https://github.com/BILL-CHEPTOYEK/aquifer-foundation-website" target="_blank" rel="noopener noreferrer">View Project</a> </p>
             <a href='https://aquifer-foundation.org/' target='blank'>View website</a>
           </div>
@@ -101,6 +101,12 @@ function App() {
             <h3>Loan Management System</h3>
             <p>An efficient system for loan application and management, featuring loan request tracking, repayment scheduling, and borrower profiling. Designed to simplify loan processes for financial institutions.</p>
             <a href="https://github.com/BILL-CHEPTOYEK/loan-management-system" target="_blank" rel="noopener noreferrer">View Project</a>
+          </div>
+
+          <div class="project">
+            <h3>  Sabiny English AI translation model</h3>
+            <p>The Sabiny-English AI Translation Model is a pioneering initiative designed to bridge the language gap for the Sabiny-speaking Sebei community, an underrepresented language group. Due to the limited availability of linguistic resources for Sabiny, this AI model was developed to provide accurate translations between Sabiny and English. By leveraging machine learning, this project aims to preserve cultural heritage and improve accessibility for speakers of this indigenous language. Explore the project and contribute to enhancing language diversity in AI.</p>
+            <a href="https://github.com/BILL-CHEPTOYEK/Sabiny-English-translation-model" target="_blank" rel="noopener noreferrer">View Project</a>
           </div>
 
           <div class="project">
