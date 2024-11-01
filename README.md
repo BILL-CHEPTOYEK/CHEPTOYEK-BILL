@@ -1,69 +1,71 @@
-# Getting Started with Create React App
+Cheptoyek Bill's Personal Website 🌐
 
+Welcome to my personal portfolio website repository, built with React! This site showcases my work as a software engineering student and full-stack developer, including a dedicated section for my resume, projects, and a dynamic contact section. Explore my skills, projects, and journey in tech.
+Features
 
-## Available Scripts
+    Responsive Design: The website is fully responsive, optimized for viewing across various devices.
+    Projects Section: Highlights my key projects, each with detailed descriptions and links to GitHub repositories.
+    Curriculum Vitae Download: Provides an easy download button for my CV in PDF format.
+    Interactive Contact Section: Connect with me via LinkedIn, GitHub, and other platforms.
+    Smooth Navigation: Hamburger menu for smooth navigation on mobile devices.
 
-In the project directory, you can run:
+Tech Stack
 
-### `npm start`
+    React: Frontend framework for building the user interface.
+    CSS: Custom styles for responsive design and aesthetic appeal.
+    GitHub Pages: Deployed on GitHub Pages for easy accessibility.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Live Demo
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Check out the live site here: https://bill-cheptoyek.github.io/CHEPTOYEK-BILL/
+Getting Started
 
-### `npm test`
+To set up the project locally, follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    Clone the Repository:
 
-### `npm run build`
+    bash
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+git clone https://github.com/BILL-CHEPTOYEK/CHEPTOYEK-BILL.git
+cd CHEPTOYEK-BILL
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Install Dependencies:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+bash
 
-### `npm run eject`
+npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Run the Development Server:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+bash
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+npm start
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Open http://localhost:3000 to view it in your browser.
 
-## Learn More
+Build for Production:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+bash
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    npm run build
 
-### Code Splitting
+    This command creates an optimized production build in the build folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Project Structure
 
-### Analyzing the Bundle Size
+    src/: Contains main components for each section (e.g., Home, About, Projects).
+    public/: Holds static files, including images and index.html.
+    App.js: Main component managing page layout and routing.
+    App.css: Contains styling for components.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Key Sections
 
-### Making a Progressive Web App
+    Home: Introduces my profile with a welcome message and navigation to other sections.
+    About: Provides an overview of my background, skills, and interests in software engineering.
+    Projects: Showcases projects with descriptions and links to GitHub repositories.
+    Resume: Downloadable resume in PDF format.
+    Contact: Social media and contact options with visually appealing icons.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Contributing
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Contributions are welcome! Feel free to submit pull requests for improvements.
