@@ -20,7 +20,7 @@ body {
 
 /* Navbar Styling */
 header {
-  background-color: #800000;
+  background-color: #000000;
   padding: 15px 0;
   width: 100%;
   position: fixed;
@@ -107,8 +107,8 @@ nav ul li a:hover {
 .home-section {
   background: linear-gradient(135deg, #800000, #a52a2a);
   color: white;
-  padding: 150px 50px;
-  min-height: 100vh;
+  padding: 80px 30px;
+  height: auto; /* or height: 500px */
   display: flex;
   flex-direction: column;
   justify-content: center;
