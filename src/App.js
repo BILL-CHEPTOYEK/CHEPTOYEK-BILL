@@ -77,7 +77,7 @@ function App() {
         <div className="container">
           <h2>Skills <span role="img" aria-label="tools"></span></h2>
           <ul className="skills-list">
-            <li>JavaScript (ES6+)</li>
+            <li>JavaScript</li>
             <li>React.js</li>
             <li>Node.js & Express</li>
             <li>Flutter</li>
