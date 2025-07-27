@@ -17,11 +17,11 @@ function App() {
       <header>
         <nav className={`navbar ${menuOpen ? 'active' : ''}`}>
           <div className="navbar-brand">
-            <img
+            {/* <img
               src="/dp.jpg"
               alt="Logo"
               className="navbar-logo"
-            />
+            /> */}
             <span className="navbar-title">Cheptoyek Bill</span>
           </div>
           <div className="hamburger" onClick={toggleMenu}>
