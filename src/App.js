@@ -88,7 +88,7 @@ function App() {
             <li>DevOps</li>
             <li>Git & GitHub</li>
             <li>REST APIs</li>
-            <li>Agile</li>
+            <li>Agil</li>
           </ul>
         </div>
       </section>
