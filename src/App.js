@@ -88,7 +88,7 @@ function App() {
             <li>DevOps</li>
             <li>Git & GitHub</li>
             <li>REST APIs</li>
-            <li>Ag</li>
+            <li>Agi</li>
           </ul>
         </div>
       </section>
