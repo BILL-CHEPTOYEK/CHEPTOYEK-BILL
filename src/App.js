@@ -58,7 +58,7 @@ function App() {
         </p>
         <p>
           My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockchain. I thrive on
-          innovation and continuous grow
+          innovation and continuous gro
         </p>
       </section>
 
