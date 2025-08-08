@@ -1,4 +1,4 @@
-// App.js 
+// App.js (updated)
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
@@ -48,52 +48,29 @@ function App() {
         </div>
       </section>
 
-     {/* Flow container with line and sections */}
-<section className="flow-wrapper">
-  {/* The vertical line that runs continuously */}
-  <div className="vertical-line"></div>
+      {/* About */}
+      <section id="about" className="section fade-up">
+        <h2>About Me</h2>
+        <p>
+          I am a results-driven Software Engineer with a strong background in full-stack development,
+          cloud technologies, and modern web frameworks. Passionate about clean code, performance,
+          and user experience.
+        </p>
+        <p>
+          My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockchain. I thrive on
+          innovation and continuous growth.
+        </p>
+      </section>
 
-  {/* About Section */}
-  <section id="about" className="flow-section">
-    <h2>About Me</h2>
-    <p>
-      I am a results-driven Software Engineer with a strong background in full-stack development,
-      cloud technologies, and modern web frameworks. Passionate about clean code, performance,
-      and user experience.
-    </p>
-    <p>
-      My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockchain. I thrive on
-      innovation and continuous growth.
-    </p>
-  </section>
-{/* 
-  Connector curved line
-  <div className="connector-curve"></div> */}
-
-  {/* Skills Section */}
-  <section id="skills" className="flow-section1">
-    <h2>Skills</h2>
-    <ul className="skills-list">
-      {[
-        'JavaScript',
-        'React.js',
-        'Node.js & Express',
-        'Flutter',
-        'Python',
-        'AI & ML',
-        'Data Science',
-        'Blockchain',
-        'DevOps',
-        'Git & GitHub',
-        'REST APIs',
-        'Agile & Scrum',
-      ].map((skill) => (
-        <li key={skill}>{skill}</li>
-      ))}
-    </ul>
-  </section>
-</section>
-
+      {/* Skills */}
+      <section id="skills" className="section fade-up">
+        <h2>Skills</h2>
+        <ul className="skills-list">
+          {['JavaScript', 'React.js', 'Node.js & Express', 'Flutter', 'Python', 'AI & ML', 'Data Science', 'Blockchain', 'DevOps', 'Git & GitHub', 'REST APIs', 'Agile & Scrum'].map(skill => (
+            <li key={skill}>{skill}</li>
+          ))}
+        </ul>
+      </section>
 
       {/* Projects */}
       <section id="projects" className="section fade-up">
