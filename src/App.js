@@ -87,7 +87,7 @@ function App() {
             description="Comprehensive RESTful API for hotel operations using Node.js and MongoDB."
             github="https://github.com/BILL-CHEPTOYEK/hotelms-api"
           />
-          {/* Add othe */}
+          {/* Add oth */}
         </div>
       </section>
 
