@@ -57,7 +57,7 @@ function App() {
           and user experience.
         </p>
         <p>
-          My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockchai
+          My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockcha
         </p>
       </section>
 
