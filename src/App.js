@@ -57,7 +57,7 @@ function App() {
           and user experience.
         </p>
         <p>
-          My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockchain. I t
+          My toolkit includes React, Node.js, Python, Flutter, AI, ML, and blockchain. I 
         </p>
       </section>
 
