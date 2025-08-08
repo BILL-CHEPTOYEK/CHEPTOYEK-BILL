@@ -56,9 +56,7 @@ function App() {
           cloud technologies, and modern web frameworks. Passionate about clean code, performance,
           and user experience.
         </p>
-        <p>
-          My toolkit includes React, Node.js, Python, Flutter, AI, ML, and b
-        </p>
+       
       </section>
 
       {/* Skills */}
