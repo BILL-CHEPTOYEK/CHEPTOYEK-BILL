@@ -64,7 +64,8 @@ function App() {
       <section id="home" className="hero-section">
         <div className="hero-overlay" />
         <div className="hero-content container">
-          <img src="/dp.jpg" alt="Cheptoyek Bill" className="profile-image" />
+          {/* IMPORTANT: For this image to load, ensure 'dp.jpg' is in your project's 'public' folder. */}
+          <img src="/dp.jpg" alt="Cheptoyek Bill" className="profile-image" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/180x180/ADD8E6/000000?text=Profile"; }} />
           <h1>Cheptoyek Bill</h1>
           <p className="subtitle">Software Engineer & Full-Stack Developer</p>
           <a href="#projects" className="btn-primary">Explore My Work</a>
@@ -100,7 +101,9 @@ function App() {
             title="Accounting System"
             description="A robust web-based accounting system for managing financial transactions, generating reports (General Ledger, Balance Sheet, Income Statement), and ensuring double-entry principle compliance."
             github="https://github.com/BILL-CHEPTOYEK/Accounting-for-software-engineers-Resources" // Assuming this is the relevant repo
+            // IMPORTANT: For this image to load, ensure 'accountingsystem.png' is in your project's 'public' folder.
             imageSrc="/accountingsystem.png"
+            placeholderSrc="https://placehold.co/400x250/AEC9FF/000000?text=Accounting+System"
           />
 
           {/* TricReality Project */}
@@ -108,7 +111,9 @@ function App() {
             title="TricReality - Real Estate & Project Management"
             description="A comprehensive real estate and project management system streamlining condominium project setup, financial tracking, sales management, payment scheduling, and customer relations. Built with Node.js, Express, PostgreSQL, and React."
             github="https://github.com/TricsoftTechnologies/TricRealty"
+            // IMPORTANT: For this image to load, ensure 'tricreality.png' is in your project's 'public' folder.
             imageSrc="/tricreality.png"
+            placeholderSrc="https://placehold.co/400x250/B8F2E6/000000?text=TricReality"
           />
 
           {/* FarmConnect Project */}
@@ -116,7 +121,9 @@ function App() {
             title="FarmConnect - Farmer-to-Market Mobile App"
             description="A Flutter mobile app empowering smallholder farmers in Uganda with direct access to urban produce markets via trusted local agents, ethical delivery, and escrow payments."
             github="https://github.com/BILL-CHEPTOYEK/FarmConnect" // Assuming this is the relevant repo
+            // IMPORTANT: For this image to load, ensure 'farmconnect.png' is in your project's 'public' folder.
             imageSrc="/farmconnect.png"
+            placeholderSrc="https://placehold.co/400x250/FFD8BE/000000?text=FarmConnect"
           />
 
           {/* Existing Project 1 */}
@@ -165,14 +172,23 @@ function App() {
 }
 
 // ProjectCard Component - now accepts an imageSrc prop
-function ProjectCard({ title, description, github, imageSrc }) {
+function ProjectCard({ title, description, github, imageSrc, placeholderSrc }) {
+  // Use a fallback to a more descriptive placeholder if the provided imageSrc fails
+  const handleError = (e) => {
+    e.target.onerror = null; // Prevent infinite loop if placeholder also fails
+    e.target.src = placeholderSrc || "https://placehold.co/400x250/cccccc/333333?text=Image+Not+Found";
+  };
+
   return (
     <div className="project-card">
-      {imageSrc && (
-        <div className="project-image-container">
-          <img src={imageSrc} alt={title} className="project-image" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x250/cccccc/333333?text=Image+Not+Found"; }} />
-        </div>
-      )}
+      <div className="project-image-container">
+        <img
+          src={imageSrc}
+          alt={title}
+          className="project-image"
+          onError={handleError}
+        />
+      </div>
       <h3>{title}</h3>
       <p>{description}</p>
       <a href={github} target="_blank" rel="noopener noreferrer" className="btn-secondary">View Project</a>
