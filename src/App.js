@@ -1,6 +1,5 @@
-// App.js
 import React, { useState, useEffect } from 'react';
-import './App.css';
+import './App.css'; // This import now has a corresponding CSS file
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,8 +12,32 @@ function App() {
       setScrolled(window.scrollY > 50);
     };
     window.addEventListener('scroll', handleScroll);
+    // Cleanup event listener on component unmount
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Function to add fade-up animation on scroll for sections
+  useEffect(() => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        } else {
+          entry.target.classList.remove('visible');
+        }
+      });
+    }, {
+      threshold: 0.1 // Trigger when 10% of the item is visible
+    });
+
+    const fadeUpElements = document.querySelectorAll('.fade-up');
+    fadeUpElements.forEach(el => observer.observe(el));
+
+    return () => {
+      fadeUpElements.forEach(el => observer.unobserve(el));
+    };
+  }, []);
+
 
   return (
     <div className="App">
@@ -56,7 +79,6 @@ function App() {
           cloud technologies, and modern web frameworks. Passionate about clean code, performance,
           and user experience.
         </p>
-       
       </section>
 
       {/* Skills */}
@@ -73,18 +95,45 @@ function App() {
       <section id="projects" className="section fade-up">
         <h2>Projects</h2>
         <div className="projects-grid">
-          {/* Example project card */}
+          {/* Accounting System Project */}
+          <ProjectCard
+            title="Accounting System"
+            description="A robust web-based accounting system for managing financial transactions, generating reports (General Ledger, Balance Sheet, Income Statement), and ensuring double-entry principle compliance."
+            github="https://github.com/BILL-CHEPTOYEK/Accounting-for-software-engineers-Resources" // Assuming this is the relevant repo
+            imageSrc="/accountingsystem.png"
+          />
+
+          {/* TricReality Project */}
+          <ProjectCard
+            title="TricReality - Real Estate & Project Management"
+            description="A comprehensive real estate and project management system streamlining condominium project setup, financial tracking, sales management, payment scheduling, and customer relations. Built with Node.js, Express, PostgreSQL, and React."
+            github="https://github.com/TricsoftTechnologies/TricRealty"
+            imageSrc="/tricreality.png"
+          />
+
+          {/* FarmConnect Project */}
+          <ProjectCard
+            title="FarmConnect - Farmer-to-Market Mobile App"
+            description="A Flutter mobile app empowering smallholder farmers in Uganda with direct access to urban produce markets via trusted local agents, ethical delivery, and escrow payments."
+            github="https://github.com/BILL-CHEPTOYEK/FarmConnect" // Assuming this is the relevant repo
+            imageSrc="/farmconnect.png"
+          />
+
+          {/* Existing Project 1 */}
           <ProjectCard
             title="Bus Ticketing System (BSE25-18)"
             description="A collaborative, scalable bus ticketing system with integrated CI/CD and Django backend."
             github="https://github.com/BILL-CHEPTOYEK/BSE25-18"
+            imageSrc="https://placehold.co/400x250/ADE8F4/000000?text=Bus+Ticketing+System" // Placeholder image
           />
+
+          {/* Existing Project 2 */}
           <ProjectCard
             title="Hotel Management System API"
             description="Comprehensive RESTful API for hotel operations using Node.js and MongoDB."
             github="https://github.com/BILL-CHEPTOYEK/hotelms-api"
+            imageSrc="https://placehold.co/400x250/C1E1C1/000000?text=Hotel+API" // Placeholder image
           />
-      
         </div>
       </section>
 
@@ -115,9 +164,15 @@ function App() {
   );
 }
 
-function ProjectCard({ title, description, github }) {
+// ProjectCard Component - now accepts an imageSrc prop
+function ProjectCard({ title, description, github, imageSrc }) {
   return (
     <div className="project-card">
+      {imageSrc && (
+        <div className="project-image-container">
+          <img src={imageSrc} alt={title} className="project-image" onError={(e) => { e.target.onerror = null; e.target.src = "https://placehold.co/400x250/cccccc/333333?text=Image+Not+Found"; }} />
+        </div>
+      )}
       <h3>{title}</h3>
       <p>{description}</p>
       <a href={github} target="_blank" rel="noopener noreferrer" className="btn-secondary">View Project</a>
@@ -125,6 +180,7 @@ function ProjectCard({ title, description, github }) {
   );
 }
 
+// SocialLink Component (remains unchanged)
 function SocialLink({ href, label, color }) {
   return (
     <a href={href} target="_blank" rel="noopener noreferrer" className="social-link" style={{ borderColor: color }}>
