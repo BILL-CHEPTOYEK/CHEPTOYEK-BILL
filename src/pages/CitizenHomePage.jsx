@@ -47,7 +47,7 @@ export default function CitizenHomePage() {
         id="home"
         className="w-full relative flex items-center min-h-[360px] md:min-h-[460px] lg:min-h-[560px] py-12 px-4 md:px-12"
         style={{
-          backgroundImage: `linear-gradient(rgba(235, 233, 243, 0.85), rgba(7, 1, 1, 0.85)), url('/dp2.jpg')`,
+          backgroundImage: `linear-gradient(rgba(235, 233, 243, 0.85), rgba(7, 1, 1, 0.85)), url('dp2.jpg')`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -70,7 +70,7 @@ export default function CitizenHomePage() {
           {/* DP Image */}
           <div className="flex-shrink-0 flex items-center justify-center relative z-20">
             <div className="w-66 h-66 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full overflow-hidden border-2 border-white shadow-2xl bg-white transform-gpu">
-              <img src="/dp.jpg" alt="Cheptoyek Bill" className="w-full h-full object-cover grayscale contrast-75 hover:grayscale-0 transition-filter duration-300" />
+              <img src="dp.jpg" alt="Cheptoyek Bill" className="w-full h-full object-cover grayscale contrast-75 hover:grayscale-0 transition-filter duration-300" />
             </div>
           </div>
 
@@ -301,7 +301,7 @@ export default function CitizenHomePage() {
                 description="A web accounting suite built for small businesses to manage transactions, reconcile ledgers, and produce standard financial statements. Includes CSV import/export, role-based access, and customizable reporting templates to accelerate bookkeeping workflows."
                 href="https://github.com/BILL-CHEPTOYEK/Accounting-for-software-engineers-Resources"
                 tech={["React", "Node.js", "PostgreSQL"]}
-                imageSrc="/accountingsystem.png"
+                imageSrc="accountingsystem.png"
               />
 
               <ProjectCard
@@ -309,7 +309,7 @@ export default function CitizenHomePage() {
                 description="Enterprise-grade platform for condominium project lifecycle: setup, financial tracking, sales management, payment scheduling, and customer relations. Supports multi-role workflows and integrates real-time negotiation chat for sales teams."
                 href="https://tricreality.tricsoftdemos.com"
                 tech={["React", "Node.js", "PostgreSQL", "Socket.io"]}
-                imageSrc="/tricreality.png"
+                imageSrc="tricreality.png"
               />
 
               <ProjectCard
@@ -317,7 +317,7 @@ export default function CitizenHomePage() {
                 description="A Flutter-based app connecting smallholder farmers to urban buyers through trusted agents, providing escrow payments and delivery coordination to reduce intermediaries and increase farmer margins. Features offline caching and simple UX for low-literacy users."
                 href="https://github.com/BILL-CHEPTOYEK/FarmConnect"
                 tech={["Flutter", "Dart", "Firebase"]}
-                imageSrc="/farmconnect.png"
+                imageSrc="farmconnect.png"
               />
 
               <ProjectCard
@@ -325,7 +325,7 @@ export default function CitizenHomePage() {
                 description="Scalable bus ticketing platform with seat selection, booking management, and operator dashboards. Built with CI/CD processes and a Django backend for reliability and fast iteration."
                 href="https://github.com/BILL-CHEPTOYEK/BSE25-18"
                 tech={["Django", "PostgreSQL", "Docker"]}
-                imageSrc="/busticketing.svg"
+                imageSrc="busticketing.svg"
               />
 
               <ProjectCard
@@ -333,7 +333,7 @@ export default function CitizenHomePage() {
                 description="RESTful API for hotel operations—reservations, room management, billing, and reporting—designed for easy integration with web and mobile frontends. Optimized for reliability and horizontal scaling."
                 href="https://github.com/BILL-CHEPTOYEK/hotelms-api"
                 tech={["Node.js", "MongoDB", "Express"]}
-                imageSrc="/hotelapi.svg"
+                imageSrc="hotelapi.svg"
               />
             </div>
 
