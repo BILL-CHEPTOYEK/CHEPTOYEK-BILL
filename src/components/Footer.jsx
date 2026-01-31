@@ -29,7 +29,7 @@ export default function Footer() {
             <li><a href="/contact" className="hover:text-blue-200">Contact</a></li>
           </ul>
         </div>
-        {/* Why */}
+        {/* Wh */}
         <div className="flex-1 min-w-[220px]">
           <h4 className="font-extrabold mb-2 text-base font-poppins tracking-tight">About this site</h4>
           <p className="text-sm opacity-90 mb-2 font-inter">
