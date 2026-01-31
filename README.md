@@ -66,4 +66,4 @@ npm run build
 
 ---
 
-For backend/API setup, see the `../backend/README.md`.
+For backend/API setup, see the `../backend/README.md`..
