@@ -337,14 +337,14 @@ export default function CitizenHomePage() {
               />
             </div>
 
-            <div className="flex justify-center mt-8 px-4">
+            {/* <div className="flex justify-center mt-8 px-4">
               <Link
                 to="/projects"
                 className="inline-block bg-white/20 text-white font-semibold px-6 py-2 shadow hover:bg-white/40 transition text-sm sm:text-base font-poppins tracking-wide border border-blue-200"
               >
                 See All Projects
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
