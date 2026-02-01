@@ -349,7 +349,7 @@ export default function CitizenHomePage() {
         </div>
       </section>
 
-      {/* W*/}
+      {/* */}
       {/* <section className="w-full bg-blue-50 py-10 px-4">
         <div className="max-w-5xl mx-auto text-center">
           <h2 className="text-2xl md:text-3xl font-extrabold text-blue-900 mb-7 font-poppins tracking-tight drop-shadow-sm">
