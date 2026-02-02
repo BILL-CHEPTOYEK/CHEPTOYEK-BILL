@@ -359,7 +359,7 @@ export default function CitizenHomePage() {
             <div className="flex-1 bg-white rounded-2xl p-6 shadow hover:shadow-xl transition flex flex-col items-center border border-blue-100">
               <Video className="text-blue-700 w-9 h-9 mb-2" />
               <h4 className="font-bold text-blue-900 mb-1 font-poppins text-base">Multimedia</h4>
-              <p className="text-gray-700 text-sm font-inter">Attach videos and audio to provide compre</p>
+              <p className="text-gray-700 text-sm font-inter">Attach videos and audio to provide compr</p>
             </div>
             <div className="flex-1 bg-white rounded-2xl p-6 shadow hover:shadow-xl transition flex flex-col items-center border border-blue-100">
               <Mic className="text-blue-700 w-9 h-9 mb-2" />
