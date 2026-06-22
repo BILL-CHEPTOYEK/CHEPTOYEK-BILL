@@ -20,7 +20,7 @@ function AppRoutes() {
 
 export default function App() {
   return (
-    <BrowserRouter basename="/CHEPTOYEK-BILL">
+    <BrowserRouter basename="/">
       <AppRoutes />
     </BrowserRouter>
   );
