@@ -22,8 +22,6 @@ import FloatingChatButton from "../components/FloatingChatButton";
 // Always at least two images for swipe effect, even if identical
 const heroImages = [firstSlide, firstSlide];
 
-// Personal site: removed government lists; this page now highlights projects and contact info.
-
 export default function CitizenHomePage() {
   // Carousel state
   const [current, setCurrent] = useState(0);
