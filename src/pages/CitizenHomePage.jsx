@@ -96,7 +96,7 @@ export default function CitizenHomePage() {
          {/* Tech stack chips */}
          <h2 className="text-2xl md:text-3xl font-extrabold font-poppins text-center mb-6 text-white tracking-tight drop-shadow-sm">Tech Stack</h2>
         <div className="flex flex-wrap gap-3 justify-center mt-2">
-          {['Node.js', 'Express.js', 'React.js', 'Tailwind CSS', 'PostgreSQL', 'MongoDB', 'Docker', 'Django', '.NET Core', 'Flutter', 'Kotlin', 'AI/ML', 'Data Science'].map((tech) => (
+          {['Node.js', 'Express.js', 'React.js', 'Tailwind CSS', 'PostgreSQL', 'MongoDB', 'Docker', 'Django', 'Java', 'AI/ML', 'Data Science'].map((tech) => (
             <span key={tech} className="inline-flex items-center px-3 py-1.5 bg-white border border-gray-100 rounded-2xl shadow-sm text-sm font-semibold text-gray-800">
               {tech}
             </span>
