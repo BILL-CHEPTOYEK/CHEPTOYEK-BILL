@@ -114,22 +114,22 @@ export default function CitizenHomePage() {
               <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4">
                 <div className="md:flex-1">
                   <h3 className="text-lg font-semibold text-blue-900">Tricsoft Technologies Ltd</h3>
-                  <div className="text-sm text-gray-600 mt-1">Software Developer — <span className="font-medium">June 2025 - Present</span></div>
+                  <div className="text-sm text-gray-600 mt-1">Software Developer — <span className="font-medium">June 2025 - May 2026</span></div>
                   <div className="text-sm text-gray-600">Kampala, Uganda</div>
-                  <a href="https://tricsoft.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-700 mt-2 inline-block">tricsoft.com</a>
+                  {/* <a href="https://tricsoft.com/" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-700 mt-2 inline-block">tricsoft.com</a> */}
 
                   <div className="mt-4 text-sm text-gray-700 space-y-3">
                     <p>Developed software including a project management system. Tech stack: React.js, Node.js, Express.js, PostgreSQL, Tailwind CSS.</p>
-                    <p>Built a full-stack marketplace with real-time chat negotiation, 3-language support (EN/ES/RU), and role-based architecture for Admins, Merchants, and Customers. Implemented product reviews, sales analytics, payment integration (PayPal/Stripe), and RESTful APIs. Tech stack: React 18, Node.js, PostgreSQL, Socket.io, Redis, Tailwind CSS. Live Demo: <a href="https://thekalna.com" target="_blank" rel="noopener noreferrer" className="text-blue-700">thekalna.com</a></p>
-                    <p>Built a real-time business intelligence web portal enabling remote monitoring and analytics for TillDesk POS systems. Implemented 15+ interactive reports including financial statements, stock management, customer/supplier analytics, and adaptive time-series charts. Features offline-first architecture with IndexedDB, role-based authentication, and comprehensive data export. Tech Stack: React 18, Chart.js, IndexedDB, Tailwind CSS, REST APIs. Live Demo: <a href="https://portal.tilldesk.com" target="_blank" rel="noopener noreferrer" className="text-blue-700">portal.tilldesk.com</a></p>
-                    <p>Contributed to the development of the frontend of a citizen engagement platform for the Ugandan Parliament enabling direct communication between citizens and representatives. Developed comprehensive admin dashboard with role-based access, real-time AI chatbot integration, polls/surveys management, and complaint tracking with multi-status workflows. Tech Stack: React.js, React Router, WebSocket, Tailwind CSS, Context API, Vite. Live Demo: <a href="http://154.72.217.2:8791/client/login" target="_blank" rel="noopener noreferrer" className="text-blue-700">GCIC portal</a></p>
+                    <p>Built a full-stack marketplace with real-time chat negotiation, 3-language support (EN/ES/RU), and role-based architecture for Admins, Merchants, and Customers. Implemented product reviews, sales analytics, payment integration (PayPal/Stripe), and RESTful APIs. Tech stack: React 18, Node.js, PostgreSQL, Socket.io, Redis, Tailwind CSS.</p>
+                    <p>Built a real-time business intelligence web portal enabling remote monitoring and analytics for an existing POS systems. Implemented 15+ interactive reports including financial statements, stock management, customer/supplier analytics, and adaptive time-series charts. Features offline-first architecture with IndexedDB, role-based authentication, and comprehensive data export. Tech Stack: React 18, Chart.js, IndexedDB, Tailwind CSS, REST APIs.</p>
+                    <p>Contributed to the development of the frontend of a citizen engagement platform for the Ugandan Parliament enabling direct communication between citizens and representatives. Developed comprehensive admin dashboard with role-based access, real-time AI chatbot integration, polls/surveys management, and complaint tracking with multi-status workflows. Tech Stack: React.js, React Router, WebSocket, Tailwind CSS, Context API, Vite.</p>
                   </div>
                 </div>
 
                 <div className="md:w-56 flex-shrink-0 mt-2 md:mt-0">
                   <div className="text-sm text-gray-600">Tech highlights</div>
                   <div className="mt-3 flex flex-wrap gap-2">
-                    {['React', 'Node.js', 'PostgreSQL', 'Socket.io', 'Redis', 'Tailwind'].map(t => (
+                    {['React', 'Node.js', 'PostgreSQL', 'Socket.io', 'Redis', 'Django', 'Tailwind'].map(t => (
                       <span key={t} className="inline-flex items-center px-3 py-1.5 bg-white border border-gray-100 rounded-2xl shadow-sm text-xs font-semibold text-gray-800">{t}</span>
                     ))}
                   </div>
@@ -302,13 +302,13 @@ export default function CitizenHomePage() {
                 imageSrc="accountingsystem.png"
               />
 
-              <ProjectCard
+              {/* <ProjectCard
                 title="TricReality — Real Estate & Project Management"
                 description="Enterprise-grade platform for condominium project lifecycle: setup, financial tracking, sales management, payment scheduling, and customer relations. Supports multi-role workflows and integrates real-time negotiation chat for sales teams."
                 href="https://tricreality.tricsoftdemos.com"
                 tech={["React", "Node.js", "PostgreSQL", "Socket.io"]}
                 imageSrc="tricreality.png"
-              />
+              /> */}
 
               <ProjectCard
                 title="FarmConnect — Farmer-to-Market Mobile App"
