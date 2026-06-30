@@ -18,6 +18,13 @@
   }
 }
 
+@font-face {
+  font-family: "Heathergreen";
+  src: url("/fonts/Heathergreen-Regular.otf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 .animate-shimmer {
   animation: shimmer 2s infinite linear;
 }
