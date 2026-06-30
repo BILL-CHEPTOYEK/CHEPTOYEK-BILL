@@ -3,19 +3,23 @@ import Navbar from './components/Navbar';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import React from 'react';
 import CitizenHomePage from './pages/CitizenHomePage';
-// Personal website: removed service/admin pages that were part of the original app.
+import LandingPage from './pages/LandingPage';
 
 function AppRoutes() {
-  // Personal site: always show the navbar for now
-  return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<CitizenHomePage />} />
-        {/* Add about, Projects, Contact pages as needed */}
-      </Routes>
-    </>
-  );
+    const location = useLocation();
+
+    const hideNavbar = location.pathname === "/";
+
+    return (
+        <>
+            {!hideNavbar && <Navbar />}
+
+            <Routes>
+                <Route path="/" element={<LandingPage />} />
+                <Route path="/home" element={<CitizenHomePage />} />
+            </Routes>
+        </>
+    );
 }
 
 export default function App() {
