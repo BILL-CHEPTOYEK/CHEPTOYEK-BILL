@@ -33,9 +33,12 @@ export default function LandingPage() {
     <main className="min-h-screen bg-neutral-50 flex items-center justify-center px-6">
       <div className="max-w-3xl w-full text-center">
 
-        <h1 className="text-4xl md:text-6xl font-heathergreen tracking-tight text-neutral-900">
+        <h1
+          className="text-4xl md:text-6xl font-semibold tracking-tight text-neutral-900"
+          style={{ fontFamily: "Heathergreen, sans-serif" }}
+        >
            {typed}
-           <span className="animate-pulse">|</span>
+          <span className="animate-pulse">|</span>
         </h1>
 
         <p
