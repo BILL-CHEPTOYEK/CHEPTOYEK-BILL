@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-
+import { Link } from 'react';
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -19,7 +19,11 @@ const Navbar = () => {
     // Navbar
     <header className={`navbar fixed top-0 left-0 right-0 z-50 transition-shadow ${scrolled ? 'shadow-md bg-white/95 backdrop-blur-sm' : 'bg-transparent'}`}>
       <div className="navbar-container max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between h-16">
-        <div className="navbar-brand text-lg font-extrabold text-gray-900">CHEPTOYEK BILL</div>
+        <div className="navbar-brand text-lg font-extrabold text-gray-900">
+          <Link to="/" className="hover:text-blue-700 transition-colors">
+            CHEPTOYEK BILL
+          </Link>
+        </div>
 
         <nav className={`nav-links hidden md:flex gap-6 items-center`}>
           {['home', 'about', 'skills', 'projects', 'cv', 'contact'].map((section) => (
