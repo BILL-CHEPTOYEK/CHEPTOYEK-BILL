@@ -39,11 +39,11 @@ export default function CitizenHomePage() {
           {/* Navigation */}
           <div className="pt-12 space-y-3">
 
-            <NavItem label="Projects" onClick={() => navigate("/projects")} />
-            <NavItem label="Products" onClick={() => window.open("https://docs.cheptoyek.com", "_blank")} />
-            <NavItem label="Experience" onClick={() => navigate("/experience")} />
-            <NavItem label="Writing" onClick={() => navigate("/writing")} />
-            <NavItem label="Contact" onClick={() => navigate("/contact")} />
+            {/* <NavItem label="Projects" onClick={() => navigate("/projects")} /> */}
+            {/* <NavItem label="Products" onClick={() => window.open("https://docs.cheptoyek.com", "_blank")} /> */}
+            {/* <NavItem label="Experience" onClick={() => navigate("/experience")} /> */}
+            {/* <NavItem label="Writing" onClick={() => navigate("/writing")} /> */}
+            {/* <NavItem label="Contact" onClick={() => navigate("/contact")} /> */}
 
           </div>
 
