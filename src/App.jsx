@@ -8,7 +8,8 @@ import LandingPage from './pages/LandingPage';
 function AppRoutes() {
     const location = useLocation();
 
-    const hideNavbar = location.pathname === "/";
+    const hideNavbar = location.pathname === "/", "/home";
+    
 
     return (
         <>
