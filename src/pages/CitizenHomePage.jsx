@@ -11,8 +11,8 @@ export default function CitizenHomePage() {
         {/* Identity */}
         <div className="space-y-6">
 
-          <div>
-            <h1 className="text-4xl md:text-5xl text-center font-semibold tracking-tight">
+          <div text-center>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
               CHEPTOYEK BILL
             </h1>
 
