@@ -1,7 +1,7 @@
 
 # CHEPTOYEK BILL - Personal website
 
-This repository contains my personal website built with React, Vite, and Tailwind CSS. It showcases projects, a blog, and contact information. It's been adapted from a previous template; unnecessary app-specific pages were removed to focus on a professional portfolio.
+This repository contains my personal website built with React, Vite, and Tailwind CSS. It showcases projects, a blog, and contact information. It's been adapted from a previous template; unnecessary app-specific pages were removed to focus on a professional portfolio.. 
 
 ## 🚀 Getting Started
 
