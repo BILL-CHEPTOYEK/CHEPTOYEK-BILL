@@ -40,7 +40,7 @@ export default function LandingPage() {
            {typed}
           <span className="animate-pulse">|</span>
         </h1>
-
+        <h3 className="text-xl text-neutral-500">Software Engineer</h3>
         <p
           className={`mt-8 text-lg md:text-xl text-neutral-700 transition-all duration-700 ${
             showSecond
