@@ -34,13 +34,12 @@ export default function LandingPage() {
       <div className="max-w-3xl w-full text-center">
 
         <h1
-          className="text-4xl md:text-6xl font-semibold tracking-tight text-neutral-900"
-          style={{ fontFamily: "Heathergreen, sans-serif" }}
+          className="text-4xl md:text-6xl font-semibold font-heathergreen tracking-tight text-neutral-900"
         >
            {typed}
           <span className="animate-pulse">|</span>
         </h1>
-        <h3 className="text-xl text-neutral-500">Software Engineer</h3>
+        <h3 className="text-xl text-neutral-500 font-oswald">Software Engineer</h3>
         <p
           className={`mt-8 text-lg md:text-xl text-neutral-700 transition-all duration-700 ${
             showSecond
