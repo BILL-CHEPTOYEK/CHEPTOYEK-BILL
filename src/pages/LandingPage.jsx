@@ -40,7 +40,7 @@ export default function LandingPage() {
           <span className="animate-pulse">|</span>
         </h1>
         <p>
-          <h3 className="text-3xl mt-5 text-neutral-500 font-oswald">Software Engineer</h3>
+          <h3 className="text-3xl mt-7 text-neutral-500 font-oswald">Software Engineer</h3>
         </p>
         
         <p
