@@ -11,15 +11,15 @@ export default function CitizenHomePage() {
         {/* Identity */}
         <div className="space-y-6">
 
-          <div className="text-center">
-            {/* <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
+          {/* <div className="text-center">
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight">
               CHEPTOYEK BILL
-            </h1> */}
+            </h1>
 
             <p className="mt-3 text-2xl text-center text-neutral-600">
               Software Engineer
             </p>
-          </div>
+          </div> */}
 
           {/* Philosophy */}
           <div className="space-y-4 text-center">
