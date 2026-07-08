@@ -5,12 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-  extend: {
-    fontFamily: {
-      heathergreen: ["Heathergreen", "sans-serif"],
-      Oswald
+    extend: {
+      fontFamily: {
+        heathergreen: ["Heathergreen", "sans-serif"],
+        oswald: ["Oswald", "sans-serif"],
+      },
     },
   },
-}
   plugins: [],
 }
