@@ -37,7 +37,7 @@ export default function CitizenHomePage() {
           </div>
 
           {/* Navigation */}
-          <div className="pt-12 space-y-3">
+          <div className="pt-10 space-y-1">
 
             <NavItem label="Projects" onClick={() => navigate("/projects")} />
             <NavItem label="Products" onClick={() => window.open("https://docs.cheptoyek.com", "_blank")} />
