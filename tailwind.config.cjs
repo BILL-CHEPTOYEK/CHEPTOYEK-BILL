@@ -8,6 +8,7 @@ export default {
   extend: {
     fontFamily: {
       heathergreen: ["Heathergreen", "sans-serif"],
+      Oswald
     },
   },
 }
