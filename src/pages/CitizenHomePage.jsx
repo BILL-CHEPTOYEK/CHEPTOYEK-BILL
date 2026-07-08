@@ -24,7 +24,7 @@ export default function CitizenHomePage() {
           {/* Philosophy */}
           <div className="space-y-2 text-center">
             <p className="text-4xl font-semibold leading-relaxed text-neutral-800">
-              I build, I learn, I refine.
+              I build, I learn, I refine..
             </p>
 
             <p className="text-lg leading-relaxed text-neutral-600">
