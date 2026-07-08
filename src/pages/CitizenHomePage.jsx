@@ -23,7 +23,7 @@ export default function CitizenHomePage() {
 
           {/* Philosophy */}
           <div className="space-y-2 text-center">
-            <p className="text-6xl font-bold leading-relaxed text-neutral-800">
+            <p className="text-5xl font-bold leading-relaxed text-neutral-800">
               I build, I learn, I refine..
             </p>
 
@@ -37,7 +37,7 @@ export default function CitizenHomePage() {
           </div>
 
           {/* Navigation */}
-          <div className="pt-10 space-y-1">
+          <div className="pt-4 space-y-1">
 
             <NavItem label="Projects" onClick={() => navigate("/projects")} />
             <NavItem label="Products" onClick={() => window.open("https://docs.cheptoyek.com", "_blank")} />
