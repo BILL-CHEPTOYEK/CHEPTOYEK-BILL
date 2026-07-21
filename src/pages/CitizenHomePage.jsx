@@ -22,7 +22,7 @@ export default function CitizenHomePage() {
           </div> */}
 
           {/* Philosophy */}
-          <div className="space-y-2 text-center">
+          <div className="space-y-2 text-center border border-gray-200">
             <p className="text-5xl font-bold leading-relaxed text-neutral-800">
               I build, I learn, I refine..
             </p>
