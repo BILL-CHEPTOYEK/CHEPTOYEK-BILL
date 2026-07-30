@@ -1,0 +1,8 @@
+name = "cheptoyek-blog-proxy"
+main = "blog-proxy-worker.js"
+compatibility_date = "2026-07-31"
+
+routes = [
+  { pattern = "cheptoyek.com/blog", zone_name = "cheptoyek.com" },
+  { pattern = "cheptoyek.com/blog/*", zone_name = "cheptoyek.com" },
+]

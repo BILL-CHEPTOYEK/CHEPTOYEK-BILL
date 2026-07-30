@@ -48,9 +48,9 @@ export default function HomePage() {
       <ArrowButton side="left" disabled={index === 0} onClick={() => goTo(index - 1)} />
       <ArrowButton side="right" disabled={index === PANELS.length - 1} onClick={() => goTo(index + 1)} />
 
-      <div className="flex-1 flex items-center justify-center px-6 overflow-y-auto scrollbar-hide">
-        <div key={index} className="animate-panel-in w-full max-w-xl">
-          {index === 0 && <Philosophy />}
+      <div className="flex-1 flex items-center justify-center px-6 md:px-12 overflow-y-auto scrollbar-hide">
+        <div key={index} className="animate-panel-in w-full">
+          {index === 0 && <Philosophy onNext={() => goTo(1)} />}
           {index === 1 && <Projects />}
           {index === 2 && <Contact />}
         </div>
@@ -97,9 +97,26 @@ function Eyebrow({ index, children }) {
   );
 }
 
-function Philosophy() {
+function PillButton({ children, onClick, href }) {
+  const className =
+    "inline-block px-7 py-2.5 bg-black text-white text-sm rounded-full font-medium hover:bg-neutral-800 transition-all duration-300 hover:scale-105";
+  if (href) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+        {children}
+      </a>
+    );
+  }
   return (
-    <div className="text-center">
+    <button onClick={onClick} className={className}>
+      {children}
+    </button>
+  );
+}
+
+function Philosophy({ onNext }) {
+  return (
+    <div className="max-w-xl mx-auto text-center">
       <Eyebrow index={1}>Philosophy</Eyebrow>
       <p className="text-3xl md:text-5xl font-normal font-heathergreen leading-tight text-neutral-900">
         I build, I learn, I refine.
@@ -109,44 +126,83 @@ function Philosophy() {
         codebase better than I found it.
       </p>
       <p className="mt-8 text-xs tracking-[0.3em] text-neutral-400">RELIABLE</p>
+
+      <div className="mt-10">
+        <PillButton onClick={onNext}>My work →</PillButton>
+      </div>
+    </div>
+  );
+}
+
+function ProjectCard({ name, tagline, description, href, cta, status }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group flex flex-col text-left border border-neutral-100 rounded-2xl p-6 md:p-8 hover:border-neutral-200 transition-colors"
+    >
+      <div className="flex items-center justify-between gap-3">
+        <h3 className="text-xl md:text-2xl font-normal font-heathergreen text-neutral-900">
+          {name}
+        </h3>
+        {status && (
+          <span className="shrink-0 text-[10px] tracking-[0.15em] uppercase text-neutral-400 border border-neutral-100 rounded-full px-2.5 py-1">
+            {status}
+          </span>
+        )}
+      </div>
+      <p className="mt-1 text-sm text-neutral-500">{tagline}</p>
+      <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600">
+        {description}
+      </p>
+      <span className="mt-5 inline-block w-fit text-sm font-medium text-neutral-900 border-b border-neutral-900 group-hover:text-neutral-500 group-hover:border-neutral-300 transition-colors">
+        {cta} ↗
+      </span>
+    </a>
+  );
+}
+
+function ComingSoonCard() {
+  return (
+    <div className="flex flex-col items-center justify-center text-center border border-dashed border-neutral-100 rounded-2xl p-6 md:p-8">
+      <p className="text-[11px] tracking-[0.2em] uppercase text-neutral-300">Next up</p>
+      <p className="mt-3 text-sm md:text-base leading-relaxed text-neutral-500 max-w-xs">
+        More projects are in the works. Check back soon.
+      </p>
     </div>
   );
 }
 
 function Projects() {
   return (
-    <div className="text-center">
+    <div className="max-w-5xl mx-auto text-center">
       <Eyebrow index={2}>Projects</Eyebrow>
 
-      <div className="border-t border-neutral-200 pt-8">
-        <h2 className="text-2xl md:text-3xl font-normal font-heathergreen text-neutral-900">MasterDocs</h2>
-        <p className="mt-2 text-neutral-500">Master your documents.</p>
-        <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600 max-w-md mx-auto">
-          Merge, split, compress, and convert PDFs - fast, private, and never stored.
-        </p>
-
-        <p className="mt-5 text-[11px] tracking-[0.2em] uppercase text-neutral-400">
-          Merge · Split · Compress · PDF → Image · Image → PDF
-        </p>
-
-        <a
+      <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
+        <ProjectCard
+          name="MasterDocs"
+          tagline="Master your documents."
+          status="Live"
+          description="Merge, split, compress, and convert PDFs - fast, private, and never stored."
           href="https://docs.cheptoyek.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mt-6 inline-block text-sm font-medium text-neutral-900 border-b border-neutral-900 hover:text-neutral-500 hover:border-neutral-300 transition-colors"
-        >
-          Visit docs.cheptoyek.com ↗
-        </a>
+          cta="Visit docs.cheptoyek.com"
+        />
+        <ComingSoonCard />
       </div>
 
-      <p className="mt-10 text-xs text-neutral-300">More, as they ship.</p>
+      <div className="mt-10 flex items-center justify-center gap-6 tracking-[0.15em] text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">
+        <a href="/blog" className="hover:text-neutral-800 transition-colors">Blog</a>
+        <Link to="/tools" className="hover:text-neutral-800 transition-colors">Tools</Link>
+        <Link to="/github" className="hover:text-neutral-800 transition-colors">GitHub</Link>
+      </div>
     </div>
   );
 }
 
 function Contact() {
   return (
-    <div className="text-center">
+    <div className="max-w-xl mx-auto text-center">
       <Eyebrow index={3}>Contact</Eyebrow>
       <p className="text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">Say hello.</p>
       <p className="mt-4 text-neutral-500 max-w-sm mx-auto">
@@ -154,12 +210,9 @@ function Contact() {
         that last.
       </p>
 
-      <a
-        href="mailto:billcheptoyek60@gmail.com"
-        className="mt-8 inline-block text-lg font-medium text-neutral-900 border-b border-neutral-900 hover:text-neutral-500 hover:border-neutral-300 transition-colors"
-      >
-        billcheptoyek60@gmail.com
-      </a>
+      <div className="mt-8">
+        <PillButton href="mailto:billcheptoyek60@gmail.com">Email me →</PillButton>
+      </div>
 
       <div className="mt-6 flex items-center justify-center gap-5 text-xs tracking-[0.15em] uppercase text-neutral-400">
         <a href="https://github.com/BILL-CHEPTOYEK" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-800 transition-colors">GitHub</a>
