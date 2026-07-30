@@ -101,7 +101,7 @@ function Philosophy() {
   return (
     <div className="text-center">
       <Eyebrow index={1}>Philosophy</Eyebrow>
-      <p className="text-3xl md:text-5xl font-semibold leading-tight text-neutral-900">
+      <p className="text-3xl md:text-5xl font-normal font-heathergreen leading-tight text-neutral-900">
         I build, I learn, I refine.
       </p>
       <p className="mt-6 text-base md:text-lg leading-relaxed text-neutral-500">
@@ -119,7 +119,7 @@ function Projects() {
       <Eyebrow index={2}>Projects</Eyebrow>
 
       <div className="border-t border-neutral-200 pt-8">
-        <h2 className="text-2xl md:text-3xl font-semibold text-neutral-900">MasterDocs</h2>
+        <h2 className="text-2xl md:text-3xl font-normal font-heathergreen text-neutral-900">MasterDocs</h2>
         <p className="mt-2 text-neutral-500">Master your documents.</p>
         <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600 max-w-md mx-auto">
           Merge, split, compress, and convert PDFs - fast, private, and never stored.
@@ -148,7 +148,7 @@ function Contact() {
   return (
     <div className="text-center">
       <Eyebrow index={3}>Contact</Eyebrow>
-      <p className="text-3xl md:text-4xl font-semibold text-neutral-900">Say hello.</p>
+      <p className="text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">Say hello.</p>
       <p className="mt-4 text-neutral-500 max-w-sm mx-auto">
         Open to conversations about software, products, and building things
         that last.
