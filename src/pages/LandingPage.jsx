@@ -7,7 +7,6 @@ export default function LandingPage() {
   const text = "I'm Cheptoyek Bill.";
   const [typed, setTyped] = useState("");
   const [showSecond, setShowSecond] = useState(false);
-  const [showThird, setShowThird] = useState(false);
   const [showButton, setShowButton] = useState(false);
 
   useEffect(() => {
@@ -21,8 +20,7 @@ export default function LandingPage() {
         clearInterval(timer);
 
         setTimeout(() => setShowSecond(true), 400);
-        setTimeout(() => setShowThird(true), 900);
-        setTimeout(() => setShowButton(true), 1500);
+        setTimeout(() => setShowButton(true), 1100);
       }
     }, 90);
 
@@ -34,28 +32,19 @@ export default function LandingPage() {
       <div className="max-w-3xl w-full text-center">
 
         <h1
-          className="text-4xl md:text-6xl font-semibold font-heathergreen tracking-tight text-neutral-900"
+          className="text-4xl md:text-6xl font-normal font-heathergreen text-neutral-900"
         >
            {typed}
           <span className="animate-pulse">|</span>
         </h1>
-        <p>
-          <h3 className="text-3xl mt-7 text-neutral-500 font-oswald">Software Engineer</h3>
-        </p>
-        
-        <p
-          className={`mt-8 text-lg md:text-xl text-neutral-700 transition-all duration-700 ${
-            showSecond
-              ? "opacity-100 translate-y-0"
-              : "opacity-0 translate-y-3"
-          }`}
-        >
-          I value humanity.
+
+        <p className="mt-5 text-xs md:text-sm tracking-[0.3em] uppercase text-neutral-400">
+          Software Engineer
         </p>
 
         <p
-          className={`mt-3 text-lg md:text-xl text-neutral-500 transition-all duration-700 ${
-            showThird
+          className={`mt-8 text-lg md:text-xl text-neutral-700 transition-all duration-700 ${
+            showSecond
               ? "opacity-100 translate-y-0"
               : "opacity-0 translate-y-3"
           }`}

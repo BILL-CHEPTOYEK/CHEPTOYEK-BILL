@@ -1,31 +1,14 @@
-import './App.css';
-import Navbar from './components/Navbar';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
-import React from 'react';
-import CitizenHomePage from './pages/CitizenHomePage';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
-
-function AppRoutes() {
-    const location = useLocation();
-
-    const hideNavbar = ["/", "/home"].includes(location.pathname);
-
-    return (
-        <>
-            {!hideNavbar && <Navbar />}
-
-            <Routes>
-                <Route path="/" element={<LandingPage />} />
-                <Route path="/home" element={<CitizenHomePage />} />
-            </Routes>
-        </>
-    );
-}
+import HomePage from './pages/HomePage';
 
 export default function App() {
   return (
     <BrowserRouter basename="/">
-      <AppRoutes />
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/home" element={<HomePage />} />
+      </Routes>
     </BrowserRouter>
   );
 }
