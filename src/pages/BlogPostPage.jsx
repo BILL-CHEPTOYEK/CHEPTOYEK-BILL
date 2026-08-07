@@ -39,8 +39,8 @@ export default function BlogPostPage() {
   const date = formatDate(post.date);
 
   return (
-    <main className="min-h-screen bg-neutral-50 px-6 py-16 md:py-24">
-      <div className="max-w-2xl mx-auto">
+    <main className="min-h-screen bg-neutral-50 px-8 md:px-12 py-16 md:py-24">
+      <div className="max-w-xl mx-auto">
         <Link
           to="/blog"
           className="text-xs tracking-[0.2em] uppercase text-neutral-400 hover:text-neutral-700 transition-colors"
