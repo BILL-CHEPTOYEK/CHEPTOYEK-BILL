@@ -1,69 +1,66 @@
+# cheptoyek.com
 
-# CHEPTOYEK BILL - Personal website
+Personal site — React 19, Vite, Tailwind v4. Static, no backend, no database.
 
-This repository contains my personal website built with React, Vite, and Tailwind CSS. It showcases projects, a blog, and contact information. It's been adapted from a previous template; unnecessary app-specific pages were removed to focus on a professional portfolio.. 
+The system it runs on is documented, with an interactive diagram, at
+[`/architecture`](https://cheptoyek.com/architecture). That page is the
+authoritative description of how hosting, DNS, caching and CI/CD fit together;
+this file only covers working on the code.
 
-## 🚀 Getting Started
+## Getting started
 
-### Prerequisites
-- node.js (v18+ recommended)
-- npm (v9+ recommended)
-
-### Installation
 ```bash
-cd client-side
 npm install
+npm run dev      # http://localhost:5173
+npm run build    # → dist/
+npm run lint
+npm test         # config diff engine + diagram geometry
 ```
 
-### Running the Development Server
-```bash
-npm run dev
+Node 20.19.0 is what CI pins.
+
+## Layout
+
 ```
-The app will be available at `http://localhost:5173` by default.
-
-### Building for Production
-```bash
-npm run build
+src/
+  architecture/        System model, layout maths and flow playback for /architecture.
+                       Pure JS — model.js is the single source of truth for the
+                       diagram, the node inspector and the narration.
+  lib/config-diff/     The semantic diff engine behind /tools/config-diff.
+                       Parsers, diff, JSON Patch and report output. No React.
+  components/          Shared UI, plus one folder per feature.
+  pages/               One component per route.
+  blog/                Markdown posts and the Blogger/local post sources.
+cloudflare/            The Worker that reverse-proxies /blog onto Blogger.
+.github/workflows/     Build and publish to the gh-pages branch.
 ```
 
-## 📁 Project Structure
+Two conventions worth knowing:
 
-- `src/pages/` – Main page components (Home, About, Projects, Contact, etc.)
-- `src/components/` – Reusable UI components (Navbar, Footer, FloatingChatButton, etc.)
-- `src/assets/` – Images and static assets
-- `src/App.jsx` – Main app routing
-- `public/` – Static files
+- **Pure logic lives outside `components/`.** `src/architecture/*.js` and
+  `src/lib/**` have no React imports, which is what lets them be tested with
+  plain `node` and no test framework.
+- **Those modules use explicit `.js` import extensions** so they run under Node
+  directly. JSX files follow the extensionless style used elsewhere.
 
-## ✅ Features – Completed
+## Tests
 
-- Citizen Home Page with hero, carousel, and feature cards
-- Authentication: Login, Register, Forgot Password (with background images and overlays)
-- Projects, blog and contact pages
--- Responsive Navbar and Footer
--- Floating contact button
--- Modern, responsive UI with Tailwind CSS
+There is no test runner — the two suites are plain Node scripts that exit
+non-zero on failure:
 
-## 📝 To-Do / Planned Features
+- `src/lib/config-diff/diff.test.mjs` — parsing, diff semantics, array
+  alignment, patch and report output.
+- `src/architecture/layout.test.mjs` — diagram geometry: no overlapping nodes,
+  no wire crossing an unrelated box, every node reachable by a flow.
 
-- [ ] Add blog and project detail pages
-- [ ] Improve SEO and meta tags
-- [ ] Add contact form backend integration
-- [ ] Accessibility improvements (a11y)
-- [ ] Unit and integration tests
-- [ ] Documentation for any API integration
-- [ ] Improved error handling and loading states
-- [ ] Accessibility improvements (a11y)
-- [ ] Unit and integration tests
-- [ ] Documentation for API integration
+The second one exists because a hand-placed diagram breaks silently when a row
+moves, and that is not something code review catches.
 
-## 🤝 Contributing
+## Deploying
 
-1. Fork this repo and create a new branch for your feature or bugfix.
-2. Follow the existing code style (React functional components, Tailwind CSS for styling).
-3. Add your new page/component in `src/pages` or `src/components` as appropriate.
-4. Test your changes locally.
-5. Submit a pull request with a clear description of your changes.
+Push to `main`. GitHub Actions builds and force-pushes `dist/` to `gh-pages`;
+Cloudflare picks it up on the next cache miss. Asset filenames are
+content-hashed, so no purge step is needed.
 
----
-
-For backend/API setup, see the `../backend/README.md`..
+The `/blog` path is owned by the Cloudflare Worker in production, not by the
+router — see the "what's still wrong with it" section on `/architecture`.

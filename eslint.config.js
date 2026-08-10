@@ -26,4 +26,17 @@ export default defineConfig([
       'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
     },
   },
+  {
+    // Workers run on workerd, not in a browser: HTMLRewriter and friends are
+    // globals there and nowhere else.
+    files: ['cloudflare/**/*.js'],
+    languageOptions: {
+      globals: { ...globals.serviceworker, HTMLRewriter: 'readonly' },
+    },
+  },
+  {
+    // Plain Node scripts — the test runner has no DOM.
+    files: ['**/*.test.mjs'],
+    languageOptions: { globals: globals.node },
+  },
 ])

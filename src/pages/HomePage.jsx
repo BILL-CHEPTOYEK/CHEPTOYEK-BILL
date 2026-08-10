@@ -191,9 +191,11 @@ function Projects() {
         <ComingSoonCard />
       </div>
 
-      <div className="mt-10 flex items-center justify-center gap-6 tracking-[0.15em] text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 tracking-[0.15em] text-2xl sm:text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">
         <a href="/blog" className="hover:text-neutral-800 transition-colors">Blog</a>
+        <Link to="/notes" className="hover:text-neutral-800 transition-colors">Notes</Link>
         <Link to="/tools" className="hover:text-neutral-800 transition-colors">Tools</Link>
+        <Link to="/architecture" className="hover:text-neutral-800 transition-colors">Architecture</Link>
         <Link to="/github" className="hover:text-neutral-800 transition-colors">GitHub</Link>
       </div>
     </div>

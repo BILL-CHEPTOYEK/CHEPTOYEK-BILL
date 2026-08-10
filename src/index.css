@@ -42,6 +42,36 @@ body {
   display: none;
 }
 
+/* --- Architecture diagram (/architecture) --- */
+
+/* The live wire. Dash offset marches against the packet's direction of travel,
+   so the line reads as carrying something rather than just being highlighted. */
+@keyframes edgeFlow {
+  to { stroke-dashoffset: -22; }
+}
+
+.architecture-edge-live {
+  animation: edgeFlow 700ms linear infinite;
+}
+
+.architecture-node:focus {
+  outline: none;
+}
+
+.architecture-node:focus-visible rect:first-of-type {
+  stroke: #171717;
+  stroke-width: 1.6;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .architecture-edge-live {
+    animation: none;
+  }
+  .animate-panel-in {
+    animation: none;
+  }
+}
+
 /* Article typography for the /blog reading view */
 .doc-content {
   color: #404040;

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import PageShell from "../../components/PageShell";
 
 export default function JsonFormatterPage() {
   const [input, setInput] = useState("");
@@ -28,23 +28,13 @@ export default function JsonFormatterPage() {
   };
 
   return (
-    <main className="min-h-screen bg-neutral-50 px-6 py-16 md:py-24">
-      <div className="max-w-3xl mx-auto">
-        <Link
-          to="/tools"
-          className="text-xs tracking-[0.2em] uppercase text-neutral-400 hover:text-neutral-700 transition-colors"
-        >
-          ← Tools
-        </Link>
-
-        <h1 className="mt-8 text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">
-          JSON Formatter
-        </h1>
-        <p className="mt-3 text-neutral-500">
-          Paste JSON below. Runs entirely in your browser — nothing is sent anywhere.
-        </p>
-
-        <div className="mt-10 flex flex-wrap gap-3">
+    <PageShell
+      backTo="/tools"
+      backLabel="Tools"
+      title="JSON formatter"
+      subtitle="Paste JSON below. Runs entirely in your browser — nothing is sent anywhere."
+    >
+      <div className="mt-10 flex flex-wrap gap-3">
           <button
             onClick={() => format(2)}
             className="px-5 py-2 bg-black text-white rounded-full text-sm font-medium hover:bg-neutral-800 transition-colors"
@@ -72,21 +62,18 @@ export default function JsonFormatterPage() {
           </button>
         </div>
 
-        {error && (
-          <p className="mt-4 text-sm text-red-500">Invalid JSON — {error}</p>
-        )}
+      {error && <p className="mt-4 text-sm text-red-500">Invalid JSON — {error}</p>}
 
-        <textarea
-          value={input}
-          onChange={(event) => {
-            setInput(event.target.value);
-            setError("");
-          }}
-          spellCheck={false}
-          placeholder='{ "hello": "world" }'
-          className="mt-6 w-full h-[28rem] resize-y rounded-xl border border-neutral-200 bg-white p-5 font-mono text-sm text-neutral-800 leading-relaxed focus:outline-none focus:border-neutral-400 transition-colors"
-        />
-      </div>
-    </main>
+      <textarea
+        value={input}
+        onChange={(event) => {
+          setInput(event.target.value);
+          setError("");
+        }}
+        spellCheck={false}
+        placeholder='{ "hello": "world" }'
+        className="mt-6 w-full h-[28rem] resize-y rounded-xl border border-neutral-200 bg-white p-5 font-mono text-sm text-neutral-800 leading-relaxed focus:outline-none focus:border-neutral-400 transition-colors"
+      />
+    </PageShell>
   );
 }
