@@ -63,7 +63,6 @@ There is another way to see this, especially if you follow football.
 
 A player does not usually manage transfers alone. There is an agent involved. The agent speaks to clubs, negotiates deals, filters opportunities, and controls how communication happens.
 
-> *Become a Medium member*
 
 The player focuses on playing. The agent handles everything else.
 
