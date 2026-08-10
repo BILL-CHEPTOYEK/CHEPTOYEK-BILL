@@ -1,25 +1,138 @@
 ---
-title: Proxying is just a very committed lie
-date: 2026-08-10
-excerpt: A proxy's whole job is to make one thing look like another. The trouble starts when it forgets which lie it's telling.
+title: Understanding Proxy Servers Using Real Life Examples (A Simple Guide with Nginx)
+author: Cheptoyek Bill
+date: Apr 9, 2026
+excerpt: Learn how proxy servers work using relatable real-life examples from Kampala brokers to football agents, and see a basic Nginx configuration in action.
 ---
 
-Every proxy is the same trick wearing a different costume: a client asks for something, and instead of getting it from where it actually lives, it gets an answer from something pretending to be that place. Reverse proxy, forward proxy, CDN edge, `/blog` rewrite in a worker script - it's all one move. The interesting part isn't the routing. It's what happens when the lie is only half-finished.
+If you’ve lived in Kampala long enough, you know that getting things done is rarely a straight line.
 
-## The lie has to be total
+You don’t always go directly to the source. You ask someone who knows someone. You find a person who understands the process, who can connect you faster, who can quietly handle the parts you don’t want to deal with.
 
-A proxy that forwards the request but not the headers is a proxy that got caught. I've shipped rewrites that stripped `Host` and left the origin server issuing redirects back to itself under its own internal hostname - technically correct, completely useless to a browser that has no idea that hostname exists. The client doesn't experience "mostly proxied." It experiences broken.
+That idea, as ordinary as it feels, is at the heart of how a big part of the internet works.
 
-Same story with cookies, with `X-Forwarded-For`, with content-length after you've rewritten the body. Half a disguise is worse than none, because it fails in the client's face instead of failing loudly in yours.
+It’s called a proxy server.
 
-## Statelessness is the actual feature
+### So what is a proxy server, really?
 
-The reason a proxy is boring infrastructure instead of a liability is that it isn't supposed to remember anything. The moment a proxy starts caching a decision - "this user was authenticated five requests ago," "this route always resolves to origin A" - it's stopped being a proxy and started being a second, worse copy of your application state, one that drifts from the real thing in exactly the way you won't notice until it matters.
+At its simplest, a proxy server is a **middleman**.
 
-The proxies I trust are the ones I could restart mid-afternoon without anyone noticing. If restarting it is an incident, it wasn't a proxy - it was a load-bearing wall wearing a proxy's clothes.
+When you try to access a website or an application, you don’t always talk to it directly. Instead, your request can go to a proxy first. The proxy then passes that request to the actual server, gets the response, and brings it back to you.
 
-## Where it actually breaks
+From your side, everything feels direct and seamless. But there is something in between making it all work.
 
-Not at the routing rule. Routing rules are easy to test. It breaks at the edges of the disguise: TLS termination that drops a header the origin needs to trust the connection, a body-rewriting rule that forgets to update `Content-Length`, a fallback path with no rule for it at all, so the request just hits the origin looking foreign and gets rejected by something that was never told to expect it.
+---
 
-Test the seams, not the happy path. The happy path is just the client believing the lie. The seams are where it stops being believable.
+## Think of a broker in Kampala: Let’s make it real.
+
+Say you are looking for a rental house in Kampala. You could try to search on your own, moving from place to place, asking around, taking chances.
+
+Or you could go through a broker.
+
+You tell the broker what you need. They already know the area. They know who is renting, who is serious, and who is wasting time. They make a few calls, move around on your behalf, and come back with options.
+
+Sometimes, you don’t even interact much with the landlord at first. The broker manages that connection.
+
+That is exactly how a proxy behaves.
+
+You are not dealing with the source directly. You are dealing with someone who sits in between and handles the interaction more efficiently than you could on your own.
+
+### Bringing that idea online
+
+Now replace yourself with your browser.
+Replace the broker with a proxy server.
+Replace the landlord or seller with an application running somewhere on a server.
+
+When you open a website, your request can pass through a proxy that decides where it goes, how it goes, and what comes back.
+
+You only see the final result. The path it took is hidden.
+
+---
+
+## Why this middle layer exists
+
+* **The first reason is protection:** On the internet, exposing everything directly is risky. A proxy can sit in front of a server and make sure the outside world never interacts with it directly. It acts as a shield, controlling what gets through and what does not.
+* **The second reason is simplicity:** Some services run on unusual addresses or ports that are not user friendly. A proxy makes everything look clean. Instead of typing something complicated, you just open a normal website and the proxy handles the rest quietly.
+* **The third reason is flexibility:** A good broker does not depend on one option. If one house is taken, they move to the next. In the same way, a proxy can direct requests to different servers depending on availability or performance. You get a smooth experience without knowing how many moving parts are involved.
+
+---
+
+## A quick football perspective
+
+There is another way to see this, especially if you follow football.
+
+A player does not usually manage transfers alone. There is an agent involved. The agent speaks to clubs, negotiates deals, filters opportunities, and controls how communication happens.
+
+> *Become a Medium member*
+
+The player focuses on playing. The agent handles everything else.
+
+Clubs often go through the agent instead of approaching the player directly. The agent becomes the point of contact, the decision maker, the filter.
+
+That role is very similar to a proxy.
+
+The player is like the user. The clubs are like servers. The agent stands in between and manages the relationship.
+
+---
+
+## The real tools behind the scenes
+
+On the internet, proxies are not just ideas. They are actual tools used every day. Some of the most common ones include:
+* **Nginx**
+* **Apache HTTP Server**
+* **HAProxy**
+
+These tools sit between users and applications, quietly managing traffic at a massive scale.
+
+### A simple look at Nginx
+
+Nginx, pronounced *engine x*, is one of the most widely used proxy servers in the world.
+
+Imagine you have an application running on your machine at port 9000. That is not something you want users to think about or even see. So you place Nginx in front of it.
+
+Now when someone visits your site, they are actually connecting to Nginx. Nginx receives the request, forwards it to your application, and returns the response.
+
+To the user, it feels like they are talking directly to your site. In reality, there is a well organized layer in between making sure everything flows properly.
+
+A very basic configuration looks like this:
+
+```nginx
+server {
+    listen 80;
+
+    location / {
+        proxy_pass http://127.0.0.1:9000;
+    }
+}
+```
+
+Even without understanding every line, the idea is clear: Accept normal web traffic, then pass it to the real service running behind the scenes.
+
+### What this configuration is actually doing
+
+* `the server block` is like telling Nginx, “this is how you should behave for incoming web requests.”
+* `the line listen 80;` means Nginx is waiting for normal web traffic. Port 80 is the standard port used when you open a website without typing anything extra.
+* `the location / part` means “for every request that comes in,” since `/` represents the root of your site.
+* `proxy_pass http://127.0.0.1:9000;` inside that block is where the real action happens. It tells Nginx to take any incoming request and forward it to an application running on your own machine at port 9000.
+
+So in simple terms, someone visits your website, Nginx receives the request, quietly sends it to your app, gets the response, and delivers it back as if it came directly from the site.
+
+---
+
+## Why this matters
+
+This is not just for large companies or complex systems.
+
+Even on a small project, using a proxy can make things cleaner and safer. You can run multiple services without exposing them. You can organize your system in a way that is easy for users but flexible for you.
+
+It gives you control over how your application is accessed without making life harder for the people using it.
+
+## The bigger picture
+
+Once you understand proxying, the internet starts to feel less like magic and more like a system built on familiar patterns.
+
+It is people connecting through layers. It is systems designed to simplify complexity. It is middlemen doing what middlemen have always done, just in a digital form.
+
+So whether you think of a Kampala broker helping you find a place, or a football agent negotiating a move, the idea is the same.
+
+A proxy is the one in the middle, making everything work better than it would if you tried to do it all yourself. And tools like Nginx are simply the modern version of that role, running quietly behind the websites we use every day.
