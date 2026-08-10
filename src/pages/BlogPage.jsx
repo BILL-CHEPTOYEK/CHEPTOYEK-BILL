@@ -29,7 +29,7 @@ export default function BlogPage() {
 
   return (
     <main className="min-h-screen bg-neutral-50 px-8 md:px-12 py-16 md:py-24">
-      <div className="max-w-2xl mx-auto">
+      <div className="max-w-3xl mx-auto">
         <Link
           to="/home"
           className="text-xs tracking-[0.2em] uppercase text-neutral-400 hover:text-neutral-700 transition-colors"
