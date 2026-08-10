@@ -40,7 +40,7 @@ export default function BlogPostPage() {
 
   return (
     <main className="min-h-screen bg-neutral-50 px-8 md:px-12 py-16 md:py-24">
-      <div className="max-2w-xl mx-auto">
+      <div className="max-w-4xl mx-auto">
         <Link
           to="/blog"
           className="text-xs tracking-[0.2em] uppercase text-neutral-400 hover:text-neutral-700 transition-colors"
