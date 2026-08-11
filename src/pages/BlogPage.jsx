@@ -40,7 +40,7 @@ export default function BlogPage() {
         <h1 className="mt-8 text-4xl md:text-5xl font-normal font-heathergreen text-neutral-900">
           Blog
         </h1>
-        <p className="mt-3 text-neutral-500">Notes on building, learning, and refining.</p>
+        <p className="mt-3 text-neutral-500">Just interesting stuff.</p>
 
         {status === "loading" && (
           <p className="mt-14 text-sm text-neutral-400">Loading posts…</p>
