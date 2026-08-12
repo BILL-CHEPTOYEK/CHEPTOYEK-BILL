@@ -124,7 +124,7 @@ This is not just for large companies or complex systems.
 
 Even on a small project, using a proxy can make things cleaner and safer. You can run multiple services without exposing them. You can organize your system in a way that is easy for users but flexible for you.
 
-It gives you control over how your application is accessed without making life harder for the people using it.
+It gives you control over how your application is accessed without making life harder for the people using it..
 
 ## The bigger picture
 
