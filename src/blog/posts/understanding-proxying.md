@@ -70,7 +70,7 @@ Clubs often go through the agent instead of approaching the player directly. The
 
 That role is very similar to a proxy.
 
-The player is like the user. The clubs are like servers. The agent stands in between and manages the relationship.
+The player is like the user. The clubs are like servers. The agent stands in between and manages the relationship..
 
 ---
 
@@ -124,7 +124,7 @@ This is not just for large companies or complex systems.
 
 Even on a small project, using a proxy can make things cleaner and safer. You can run multiple services without exposing them. You can organize your system in a way that is easy for users but flexible for you.
 
-It gives you control over how your application is accessed without making life harder for the people using it..
+It gives you control over how your application is accessed without making life harder for the people using it.
 
 ## The bigger picture
 
