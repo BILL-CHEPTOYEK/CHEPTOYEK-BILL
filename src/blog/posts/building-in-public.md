@@ -6,7 +6,7 @@ excerpt: Why I ship small, real projects instead of sitting on ideas - and what 
 
 I used to keep a long list of ideas and a short list of finished things. Flipping that ratio meant changing how I work, not just what I work on.
 
-## Ship something small first
+## Ship something small first.
 
 The projects that actually taught me something were never the ambitious ones I planned for months. They were the small, slightly embarrassing tools I built in a weekend because I was annoyed by a missing feature somewhere else.
 
