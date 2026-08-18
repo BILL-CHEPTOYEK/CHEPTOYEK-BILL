@@ -213,7 +213,7 @@ function Contact() {
       </p>
 
       <div className="mt-8">
-        <PillButton href="mailto:billcheptoyek60@gmail.com">Email me →</PillButton>
+        <PillButton href="mailto:bill@cheptoyek.com">Email me →</PillButton>
       </div>
 
       <div className="mt-6 flex items-center justify-center gap-5 text-xs tracking-[0.15em] uppercase text-neutral-400">
