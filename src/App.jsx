@@ -4,7 +4,6 @@ import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import GitHubPage from './pages/GitHubPage';
 import ToolsIndexPage from './pages/tools/ToolsIndexPage';
-import JsonFormatterPage from './pages/tools/JsonFormatterPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 
@@ -12,6 +11,7 @@ import BlogPostPage from './pages/BlogPostPage';
 // downloading for the people who actually open those pages.
 const ArchitecturePage = lazy(() => import('./pages/ArchitecturePage'));
 const ConfigDiffPage = lazy(() => import('./pages/tools/ConfigDiffPage'));
+const JsonFormatterPage = lazy(() => import('./pages/tools/JsonFormatterPage'));
 const NotesPage = lazy(() => import('./pages/NotesPage'));
 const NotePage = lazy(() => import('./pages/NotePage'));
 

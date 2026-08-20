@@ -7,12 +7,13 @@ const TOOLS = [
     name: "Config diff",
     description:
       "Structural diff for JSON, YAML, .env and INI. Ignores key order, matches arrays by identity, and calls out type-only changes. Falls back to a line diff for source code. Exports a JSON Patch.",
-    tag: "New",
   },
   {
     slug: "json-formatter",
     name: "JSON formatter",
-    description: "Format, validate, and minify JSON.",
+    description:
+      "Split-pane format, validate and minify, with a collapsible tree view. Names the mistake rather than the parser's stopping point, repairs almost-JSON - comments, single quotes, trailing commas, Python dicts, NDJSON - and warns about duplicate keys and integers too big to survive parsing.",
+    tag: "New",
   },
 ];
 

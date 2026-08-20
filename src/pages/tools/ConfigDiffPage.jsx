@@ -187,7 +187,7 @@ export default function ConfigDiffPage() {
       width="max-w-6xl"
       eyebrow="Tool"
       title="Config diff"
-      subtitle="A structural diff for JSON, YAML, .env and INI. It compares the parsed shape rather than the text, so reordering keys costs nothing, arrays are matched by identity instead of position, and the difference between 8080 and “8080” gets a category of its own. Paste anything it can't parse — source code, prose, a broken file — and it falls back to a line diff. Runs entirely in your browser."
+      subtitle="A structural diff for JSON, YAML, .env and INI. It compares the parsed shape rather than the text, so reordering keys costs nothing, arrays are matched by identity instead of position, and the difference between 8080 and “8080” gets a category of its own. Paste anything it can't parse - source code, prose, a broken file - and it falls back to a line diff. Runs entirely in your browser."
     >
       <div className="mt-8 flex flex-wrap items-center gap-2">
         <span className="text-[11px] tracking-[0.2em] uppercase text-neutral-400 mr-1">Try</span>
@@ -277,7 +277,7 @@ export default function ConfigDiffPage() {
       {fellBack && (
         <p className="mt-4 text-xs leading-relaxed text-neutral-500 bg-neutral-100 border border-neutral-200 rounded-xl px-4 py-3">
           <span className="text-neutral-800">Comparing as text.</span> One or both sides aren't
-          structured config — {parsedLeft.ok && parsedRight.ok
+          structured config - {parsedLeft.ok && parsedRight.ok
             ? "they parsed to a plain value with no keys to compare"
             : "they didn't parse as JSON, YAML, .env or INI"}
           . Set a format explicitly above if that's wrong.
@@ -363,7 +363,7 @@ export default function ConfigDiffPage() {
               <p className="px-6 py-16 text-center text-sm text-neutral-500">
                 No structural differences.
                 <span className="block mt-1 text-xs text-neutral-400">
-                  The documents may still differ as text — key order, formatting and comments are
+                  The documents may still differ as text - key order, formatting and comments are
                   not compared.
                 </span>
               </p>
@@ -425,11 +425,11 @@ export default function ConfigDiffPage() {
           ],
           [
             "Arrays match by identity",
-            "If every element carries an id, name or key, elements are paired by that value rather than by index — so a reordered list reports one move, not a rewrite of every entry. Failing that, a longest-common-subsequence pass keeps an insertion from cascading through everything after it.",
+            "If every element carries an id, name or key, elements are paired by that value rather than by index - so a reordered list reports one move, not a rewrite of every entry. Failing that, a longest-common-subsequence pass keeps an insertion from cascading through everything after it.",
           ],
           [
             "Anything else gets a line diff",
-            "Source code and prose have no structure to compare, so the tool stops pretending and falls back to a line diff with word-level highlighting — the same alignment algorithm, run over lines instead of keys.",
+            "Source code and prose have no structure to compare, so the tool stops pretending and falls back to a line diff with word-level highlighting - the same alignment algorithm, run over lines instead of keys.",
           ],
         ].map(([title, body]) => (
           <div key={title}>
@@ -440,7 +440,7 @@ export default function ConfigDiffPage() {
       </section>
 
       <p className="mt-12 pt-8 border-t border-neutral-200 text-xs leading-relaxed text-neutral-400 max-w-2xl">
-        Nothing you paste is uploaded, logged or stored — there is no backend to send it to, and{" "}
+        Nothing you paste is uploaded, logged or stored - there is no backend to send it to, and{" "}
         <a href="/architecture" className="text-neutral-600 border-b border-neutral-300 hover:border-neutral-900 transition-colors">
           the architecture page
         </a>{" "}
