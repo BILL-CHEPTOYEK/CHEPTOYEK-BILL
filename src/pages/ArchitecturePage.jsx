@@ -131,7 +131,7 @@ function Section({ id, eyebrow, title, lead, children }) {
   return (
     <section id={id} className="mt-24 md:mt-32">
       <p className="text-[11px] tracking-[0.25em] uppercase text-neutral-400">{eyebrow}</p>
-      <h2 className="mt-3 text-2xl md:text-3xl font-heathergreen text-neutral-900">{title}</h2>
+      <h2 className="mt-3 text-2xl md:text-3xl text-neutral-900">{title}</h2>
       {lead && <p className="mt-4 text-neutral-600 leading-relaxed max-w-2xl">{lead}</p>}
       {children}
     </section>
@@ -203,7 +203,7 @@ export default function ArchitecturePage() {
           return (
             <div key={stat.label} style={{ backgroundColor: stat.color }} className="px-5 py-4">
               <p className={`text-[10px] tracking-[0.18em] uppercase ${tone.label}`}>{stat.label}</p>
-              <p className={`mt-1 text-2xl md:text-3xl font-heathergreen tabular-nums ${tone.value}`}>
+              <p className={`mt-1 text-2xl md:text-3xl tabular-nums ${tone.value}`}>
                 {stat.value}
               </p>
             </div>

@@ -40,7 +40,7 @@ export default function HomePage() {
     >
       <Link
         to="/"
-        className="absolute top-6 left-6 md:top-8 md:left-8 font-heathergreen text-lg text-neutral-800 hover:text-black transition-colors z-10"
+        className="absolute top-6 left-6 md:top-8 md:left-8 text-lg text-neutral-800 hover:text-black transition-colors z-10"
       >
         Cheptoyek Bill
       </Link>
@@ -118,7 +118,7 @@ function Philosophy({ onNext }) {
   return (
     <div className="max-w-xl mx-auto text-center">
       <Eyebrow index={1}>Philosophy</Eyebrow>
-      <p className="text-3xl md:text-5xl font-normal font-heathergreen leading-tight text-neutral-900">
+      <p className="text-3xl md:text-5xl font-normal leading-tight text-neutral-900">
         I build, I learn, I refine.
       </p>
       <p className="mt-6 text-base md:text-lg leading-relaxed text-neutral-500">
@@ -143,7 +143,7 @@ function ProjectCard({ name, tagline, description, href, cta, status }) {
       className="group flex flex-col text-left border border-neutral-100 rounded-2xl p-6 md:p-8 hover:border-neutral-200 transition-colors"
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 className="text-xl md:text-2xl font-normal font-heathergreen text-neutral-900">
+        <h3 className="text-xl md:text-2xl font-normal text-neutral-900">
           {name}
         </h3>
         {status && (
@@ -191,7 +191,7 @@ function Projects() {
         <ComingSoonCard />
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 tracking-[0.15em] text-2xl sm:text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">
+      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 tracking-[0.15em] text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-900">
         <a href="/blog" className="hover:text-neutral-800 transition-colors">Blog</a>
         <Link to="/notes" className="hover:text-neutral-800 transition-colors">Notes</Link>
         <Link to="/tools" className="hover:text-neutral-800 transition-colors">Tools</Link>
@@ -206,7 +206,7 @@ function Contact() {
   return (
     <div className="max-w-xl mx-auto text-center">
       <Eyebrow index={3}>Contact</Eyebrow>
-      <p className="text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">Say hello.</p>
+      <p className="text-3xl md:text-4xl font-normal text-neutral-900">Say hello.</p>
       <p className="mt-4 text-neutral-500 max-w-sm mx-auto">
         Open to conversations about software, products, and building things
         that last.

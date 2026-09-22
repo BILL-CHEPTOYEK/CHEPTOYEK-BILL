@@ -29,7 +29,7 @@ export default function PageShell({
         )}
 
         <h1
-          className={`${eyebrow ? "mt-3" : "mt-8"} text-3xl md:text-5xl font-normal font-heathergreen text-neutral-900`}
+          className={`${eyebrow ? "mt-3" : "mt-8"} text-3xl md:text-5xl font-normal text-neutral-900`}
         >
           {title}
         </h1>

@@ -32,7 +32,7 @@ export default function LandingPage() {
       <div className="max-w-3xl w-full text-center">
 
         <h1
-          className="text-4xl md:text-6xl font-normal font-heathergreen text-neutral-900"
+          className="text-4xl md:text-6xl font-normal text-neutral-900"
         >
            {typed}
           <span className="animate-pulse">|</span>

@@ -37,7 +37,7 @@ export default function BlogPage() {
           ← Home
         </Link>
 
-        <h1 className="mt-8 text-4xl md:text-5xl font-normal font-heathergreen text-neutral-900">
+        <h1 className="mt-8 text-4xl md:text-5xl font-normal text-neutral-900">
           Blog
         </h1>
         <p className="mt-3 text-neutral-500">Just interesting stuff.</p>

@@ -25,7 +25,7 @@ export default function BlogPostPage() {
           >
             ← Blog
           </Link>
-          <h1 className="mt-8 text-3xl font-normal font-heathergreen text-neutral-900">
+          <h1 className="mt-8 text-3xl font-normal text-neutral-900">
             Post not found
           </h1>
           <p className="mt-3 text-neutral-500">
@@ -48,7 +48,7 @@ export default function BlogPostPage() {
           ← Blog
         </Link>
 
-        <h1 className="mt-8 text-3xl md:text-4xl font-normal font-heathergreen text-neutral-900">
+        <h1 className="mt-8 text-3xl md:text-4xl font-normal text-neutral-900">
           {post.title}
         </h1>
         {date && (

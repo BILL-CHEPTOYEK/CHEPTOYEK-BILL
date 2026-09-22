@@ -10,7 +10,7 @@ function SectionBlock({ section, index }) {
         <span className="text-xs tabular-nums text-neutral-300">
           {String(index + 1).padStart(2, "0")}
         </span>
-        <h2 className="text-xl font-heathergreen text-neutral-900">{section.name}</h2>
+        <h2 className="text-xl text-neutral-900">{section.name}</h2>
         <span className="text-xs text-neutral-300">
           {section.entries.length} {section.entries.length === 1 ? "note" : "notes"}
         </span>

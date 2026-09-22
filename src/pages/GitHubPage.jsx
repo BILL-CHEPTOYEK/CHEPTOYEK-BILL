@@ -60,7 +60,7 @@ export default function GitHubPage() {
           ← Home
         </Link>
 
-        <h1 className="mt-8 text-4xl md:text-5xl font-normal font-heathergreen text-neutral-900">
+        <h1 className="mt-8 text-4xl md:text-5xl font-normal text-neutral-900">
           GitHub
         </h1>
         <p className="mt-3 text-neutral-500">A live look at what I'm building.</p>
@@ -184,7 +184,7 @@ export default function GitHubPage() {
 function Stat({ label, value }) {
   return (
     <div>
-      <p className="text-2xl font-heathergreen text-neutral-900">{value}</p>
+      <p className="text-2xl text-neutral-900">{value}</p>
       <p className="mt-1 text-[11px] tracking-[0.15em] uppercase text-neutral-400">{label}</p>
     </div>
   );

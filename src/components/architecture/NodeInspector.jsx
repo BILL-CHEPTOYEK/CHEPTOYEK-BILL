@@ -22,7 +22,7 @@ export default function NodeInspector({ nodeId, onClose, onSelectFlow }) {
             {node.column === "edge" ? "Edge" : node.column} · {connections} connection
             {connections === 1 ? "" : "s"}
           </p>
-          <h3 className="mt-2 text-2xl font-heathergreen text-neutral-900">{node.label}</h3>
+          <h3 className="mt-2 text-2xl text-neutral-900">{node.label}</h3>
           <p className="mt-1 text-sm text-neutral-500">{node.summary}</p>
         </div>
         <button
