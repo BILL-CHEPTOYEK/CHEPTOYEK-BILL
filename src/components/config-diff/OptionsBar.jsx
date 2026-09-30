@@ -12,7 +12,7 @@ const STRUCTURED_TOGGLES = [
   {
     key: "looseTypes",
     label: "Ignore type-only diffs",
-    hint: 'Treat 8080 and "8080" as equal — useful when one side came from .env.',
+    hint: 'Treat 8080 and "8080" as equal - useful when one side came from .env.',
   },
   {
     key: "maskSecrets",
@@ -83,7 +83,7 @@ export default function OptionsBar({ options, onChange, mode }) {
           <input
             value={options.ignorePathsRaw}
             onChange={(event) => onChange({ ...options, ignorePathsRaw: event.target.value })}
-            placeholder="Ignore paths — metadata.**, *.timestamp"
+            placeholder="Ignore paths - metadata.**, *.timestamp"
             title="Comma-separated globs. * matches one segment, ** matches any depth."
             className="w-full rounded-full border border-neutral-200 px-4 py-1.5 font-mono text-xs text-neutral-700 placeholder:font-sans placeholder:text-neutral-300 focus:border-neutral-400 focus:outline-none transition-colors"
           />

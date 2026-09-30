@@ -5,7 +5,7 @@
  * token } in JSON at position 428" tells you where the parser gave up, which is
  * usually nowhere near where you made the mistake. The trailing comma is on the
  * line above; the unclosed brace is forty lines above. So the offset is only the
- * starting point — a second pass over the token stream looks for the handful of
+ * starting point - a second pass over the token stream looks for the handful of
  * mistakes that actually account for almost every broken JSON document, and
  * reports the cause instead of the symptom.
  */
@@ -49,7 +49,7 @@ function tokensAround(tokens, offset) {
 }
 
 /**
- * The cause, not the symptom. Ordered by how specific the evidence is — a
+ * The cause, not the symptom. Ordered by how specific the evidence is - a
  * trailing comma we can point at beats a generic "there's a quote character
  * somewhere in the file".
  */
@@ -95,7 +95,7 @@ function findCause(tokens, offset) {
     if (stray.value.startsWith('"')) {
       return {
         title: "Unterminated string",
-        detail: "This string opens but never closes — the line ends first. Check for a missing quote or an unescaped one inside the value.",
+        detail: "This string opens but never closes - the line ends first. Check for a missing quote or an unescaped one inside the value.",
         at: stray,
         repairable: false,
       };
@@ -104,7 +104,7 @@ function findCause(tokens, offset) {
     if (PYTHON_LITERALS.has(stray.value)) {
       return {
         title: `Python literal \`${stray.value}\``,
-        detail: "JSON spells these true, false and null — lowercase. This usually means the document came out of a Python repr() rather than a JSON encoder.",
+        detail: "JSON spells these true, false and null - lowercase. This usually means the document came out of a Python repr() rather than a JSON encoder.",
         at: stray,
         repairable: true,
       };
@@ -122,7 +122,7 @@ function findCause(tokens, offset) {
     if (SMART_QUOTES.test(stray.value)) {
       return {
         title: "Curly quotes",
-        detail: "These are typographic quotes, not straight ones — the usual sign that the JSON has been through a word processor, a chat client or a CMS.",
+        detail: "These are typographic quotes, not straight ones - the usual sign that the JSON has been through a word processor, a chat client or a CMS.",
         at: stray,
         repairable: true,
       };
@@ -161,7 +161,7 @@ export function looksLikeNdjson(text) {
 
 /**
  * Returns null when the text parses. Otherwise: where the parser stopped, the
- * line to show, and — when we can work it out — what actually went wrong.
+ * line to show, and - when we can work it out - what actually went wrong.
  */
 export function diagnose(text) {
   if (!text.trim()) return null;
@@ -189,7 +189,7 @@ export function diagnose(text) {
     if (!cause && /^\s*</.test(text)) {
       cause = {
         title: "This isn't JSON",
-        detail: "It starts with a tag — you're probably looking at an HTML error page or an XML response that came back where JSON was expected.",
+        detail: "It starts with a tag - you're probably looking at an HTML error page or an XML response that came back where JSON was expected.",
         at: null,
         repairable: false,
       };

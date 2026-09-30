@@ -1,6 +1,6 @@
 /**
  * The chrome both panes share. Extracted so that "input" and "output" are
- * visibly the same kind of object — the moment their headers drift apart by two
+ * visibly the same kind of object - the moment their headers drift apart by two
  * pixels the split stops reading as one tool.
  */
 

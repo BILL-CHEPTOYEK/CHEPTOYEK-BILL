@@ -22,7 +22,7 @@ function Gutter({ number, tone }) {
 
 /** A line, with the words that actually changed picked out inside it. */
 function Line({ text, parts, highlight }) {
-  if (text === null) return <span className="text-neutral-300 select-none">—</span>;
+  if (text === null) return <span className="text-neutral-300 select-none">-</span>;
 
   if (!parts) return <span>{text || " "}</span>;
 
@@ -45,7 +45,7 @@ function Line({ text, parts, highlight }) {
  * Side-by-side text diff, used when the input isn't structured config.
  *
  * Long runs of identical lines are collapsed to a marker that expands on
- * click — a 900-line file with one changed line should not cost 899 lines of
+ * click - a 900-line file with one changed line should not cost 899 lines of
  * scrolling to inspect.
  */
 export default function TextDiffView({ result, splitView }) {
@@ -69,7 +69,7 @@ export default function TextDiffView({ result, splitView }) {
                 onClick={() => setExpanded(true)}
                 className="w-full px-4 py-1.5 text-left text-[11px] font-sans text-neutral-400 bg-neutral-50 border-y border-neutral-100 hover:text-neutral-700 transition-colors"
               >
-                ··· {row.count} unchanged line{row.count === 1 ? "" : "s"} — click to expand
+                ··· {row.count} unchanged line{row.count === 1 ? "" : "s"} - click to expand
               </button>
             );
           }

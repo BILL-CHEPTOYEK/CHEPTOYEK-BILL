@@ -3,7 +3,7 @@ import { useState } from "react";
 /**
  * Valid JSON that didn't survive being parsed.
  *
- * Deliberately not an error — the document is legal and the output is real. But
+ * Deliberately not an error - the document is legal and the output is real. But
  * a duplicate key is silently dropped and an oversized integer is silently
  * rounded, and a formatter that shows you the rounded number without saying so
  * has quietly become the bug.
@@ -55,7 +55,7 @@ export default function Warnings({ duplicates, unsafeNumbers, truncated }) {
               <Row key={`d-${entry.path}-${entry.line}`}>
                 <span className="text-neutral-800">{entry.path}</span>
                 <span className="font-sans text-neutral-500">
-                  line {entry.line} — declared more than once; only the last value is kept
+                  line {entry.line} - declared more than once; only the last value is kept
                 </span>
               </Row>
             ))}
@@ -67,7 +67,7 @@ export default function Warnings({ duplicates, unsafeNumbers, truncated }) {
                   {entry.literal} → {entry.parsed}
                 </span>
                 <span className="font-sans text-neutral-500">
-                  line {entry.line} — beyond 2⁵³, so the value shifted
+                  line {entry.line} - beyond 2⁵³, so the value shifted
                 </span>
               </Row>
             ))}

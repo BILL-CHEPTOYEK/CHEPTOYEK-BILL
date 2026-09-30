@@ -4,8 +4,8 @@ import { NODE_BY_ID, flowsForNode, edgesForNode } from "../../architecture/model
  * Detail panel for a single box in the diagram.
  *
  * A diagram that only shows shapes is a decoration. Everything worth knowing
- * about a component — what it actually is, what file defines it, which
- * scenarios touch it — is one click away here.
+ * about a component - what it actually is, what file defines it, which
+ * scenarios touch it - is one click away here.
  */
 export default function NodeInspector({ nodeId, onClose, onSelectFlow }) {
   const node = NODE_BY_ID[nodeId];

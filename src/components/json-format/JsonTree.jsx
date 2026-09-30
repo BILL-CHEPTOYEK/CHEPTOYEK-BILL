@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
  * The output as something you can navigate rather than read.
  *
  * Formatting answers "is this valid, and what shape is it". A 4,000-line
- * pretty-printed response still doesn't answer "what's in it" — collapsing every
+ * pretty-printed response still doesn't answer "what's in it" - collapsing every
  * container to a single line and opening only the branch you care about does.
  * So this is a second view of the same document rather than a separate tool.
  *
@@ -205,7 +205,7 @@ function Node({ name, value, path, depth, state }) {
             onClick={() => showMore(path, limit + 500)}
             className="py-1 pl-2 text-[11px] text-neutral-400 transition-colors hover:text-neutral-900"
           >
-            {hidden.toLocaleString()} more — show 500
+            {hidden.toLocaleString()} more - show 500
           </button>
         )}
       </div>

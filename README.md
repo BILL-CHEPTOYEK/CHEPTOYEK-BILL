@@ -1,6 +1,6 @@
 # cheptoyek.com
 
-Personal site — React 19, Vite, Tailwind v4. Static, no backend, no database.
+Personal site - React 19, Vite, Tailwind v4. Static, no backend, no database.
 
 The system it runs on is documented, with an interactive diagram, at
 [`/architecture`](https://cheptoyek.com/architecture). That page is the
@@ -24,7 +24,7 @@ Node 20.19.0 is what CI pins.
 ```
 src/
   architecture/        System model, layout maths and flow playback for /architecture.
-                       Pure JS — model.js is the single source of truth for the
+                       Pure JS - model.js is the single source of truth for the
                        diagram, the node inspector and the narration.
   lib/config-diff/     The semantic diff engine behind /tools/config-diff.
                        Parsers, diff, JSON Patch and report output. No React.
@@ -45,12 +45,12 @@ Two conventions worth knowing:
 
 ## Tests
 
-There is no test runner — the two suites are plain Node scripts that exit
+There is no test runner - the two suites are plain Node scripts that exit
 non-zero on failure:
 
-- `src/lib/config-diff/diff.test.mjs` — parsing, diff semantics, array
+- `src/lib/config-diff/diff.test.mjs` - parsing, diff semantics, array
   alignment, patch and report output.
-- `src/architecture/layout.test.mjs` — diagram geometry: no overlapping nodes,
+- `src/architecture/layout.test.mjs` - diagram geometry: no overlapping nodes,
   no wire crossing an unrelated box, every node reachable by a flow.
 
 The second one exists because a hand-placed diagram breaks silently when a row
@@ -63,4 +63,4 @@ Cloudflare picks it up on the next cache miss. Asset filenames are
 content-hashed, so no purge step is needed.
 
 The `/blog` path is owned by the Cloudflare Worker in production, not by the
-router — see the "what's still wrong with it" section on `/architecture`.
+router - see the "what's still wrong with it" section on `/architecture`.

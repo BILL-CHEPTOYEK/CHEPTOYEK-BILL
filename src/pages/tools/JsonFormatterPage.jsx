@@ -21,7 +21,7 @@ const EMPTY_LINT = { duplicates: [], unsafeNumbers: [], truncated: false };
 
 const PLACEHOLDER = `Paste JSON here, or drop a file on this pane.
 
-Nearly-JSON is fine too — comments, single quotes,
+Nearly-JSON is fine too - comments, single quotes,
 trailing commas, a Python dict, a line of NDJSON.
 Anything that doesn't parse gets a Repair button.`;
 
@@ -94,7 +94,7 @@ export default function JsonFormatterPage() {
     return () => clearTimeout(timer);
   }, [notice]);
 
-  /** Replaces the whole document — samples, files, repair, unwrapping. */
+  /** Replaces the whole document - samples, files, repair, unwrapping. */
   const replace = useCallback((text) => {
     setInput(text);
     setNotice("");
@@ -160,7 +160,7 @@ export default function JsonFormatterPage() {
   const openFile = async (file) => {
     if (!file) return;
     if (file.size > 8 * 1024 * 1024) {
-      setNotice(`${file.name} is ${(file.size / 1024 / 1024).toFixed(1)} MB — too large to open in the browser.`);
+      setNotice(`${file.name} is ${(file.size / 1024 / 1024).toFixed(1)} MB - too large to open in the browser.`);
       return;
     }
     replace(await file.text());
@@ -359,7 +359,7 @@ export default function JsonFormatterPage() {
                 </button>
               </>
             ) : (
-              <span className="text-neutral-300">—</span>
+              <span className="text-neutral-300">-</span>
             )}
           </PaneFooter>
         </Pane>

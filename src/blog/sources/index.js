@@ -21,7 +21,7 @@ export async function getPosts() {
   }
 }
 
-// Post detail pages only exist for locally-authored markdown posts —
+// Post detail pages only exist for locally-authored markdown posts -
 // Blogger posts are always linked out to their original URL instead.
 export function getLocalPostBySlug(slug) {
   return getMdPostBySlug(slug);

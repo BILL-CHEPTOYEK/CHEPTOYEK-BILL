@@ -2,7 +2,7 @@
  * Line diff, for input that isn't config.
  *
  * The structural engine next door is the right tool for JSON, YAML, .env and
- * INI. Paste a Java class into it and there is no structure to compare — but
+ * INI. Paste a Java class into it and there is no structure to compare - but
  * refusing to diff at all is a worse answer than diffing the text, so this is
  * the fallback the tool drops to instead of showing a parse error.
  *

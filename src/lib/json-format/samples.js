@@ -7,13 +7,13 @@ export const SAMPLES = [
   {
     id: "api",
     label: "API response",
-    note: "A nested payload — try the tree view",
+    note: "A nested payload - try the tree view",
     text: `{"meta":{"requestId":"3f9c2a10-8e4b-4d21-9f77-1a2b3c4d5e6f","tookMs":42,"cached":false},"data":{"user":{"id":48213,"handle":"cheptoyek","displayName":"Bill Cheptoyek","verified":true,"joinedAt":"2021-06-14T09:12:33Z","location":null,"stats":{"followers":1284,"following":312,"posts":97}},"posts":[{"id":"p_9821","title":"Edge-first thinking","tags":["edge","architecture"],"published":true,"readingTimeMin":6},{"id":"p_9822","title":"Understanding proxying","tags":["networking","proxy","tls"],"published":true,"readingTimeMin":11},{"id":"p_9823","title":"Building in public","tags":["writing"],"published":false,"readingTimeMin":4}]},"links":{"self":"https://api.example.com/v1/users/48213","next":null}}`,
   },
   {
     id: "messy",
     label: "Broken JSON",
-    note: "Comments, single quotes, a trailing comma — press Repair",
+    note: "Comments, single quotes, a trailing comma - press Repair",
     text: `{
   // the port the service listens on
   name: 'edge-gateway',

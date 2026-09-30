@@ -3,7 +3,7 @@ import { parse as parseYaml } from "yaml";
 /**
  * Format detection and parsing for the four shapes config actually arrives in.
  *
- * Everything here returns a plain JS value — the diff engine below never learns
+ * Everything here returns a plain JS value - the diff engine below never learns
  * which format a document came from, which is what makes comparing a YAML
  * manifest against a JSON API response work without a special case.
  */
@@ -28,8 +28,8 @@ const meaningfulLines = (text) =>
     .filter((line) => line && !line.startsWith("#") && !line.startsWith(";") && !line.startsWith("//"));
 
 /**
- * Detection is a vote, not a cascade. Formats overlap — `a: 1` is valid YAML
- * and `A=1` is valid in three of the four — so each candidate scores the
+ * Detection is a vote, not a cascade. Formats overlap - `a: 1` is valid YAML
+ * and `A=1` is valid in three of the four - so each candidate scores the
  * document and the highest score wins.
  */
 export function detectFormat(text) {
@@ -155,7 +155,7 @@ function jsonErrorLine(text, error) {
 
 /**
  * Config has a mapping or a sequence at its root. A bare scalar means YAML
- * technically accepted the input — a one-line Java file is a valid YAML string —
+ * technically accepted the input - a one-line Java file is a valid YAML string -
  * without there being any structure to compare.
  */
 const isStructured = (value) => value !== null && typeof value === "object";
@@ -166,7 +166,7 @@ const isStructured = (value) => value !== null && typeof value === "object";
  * Never throws. A failure comes back as `{ ok: false, error }`, and anything
  * that parses to a bare scalar comes back with `structured: false`. Either way
  * the caller has what it needs to fall back to a text diff rather than putting
- * a parse error where a result should be — pasting source code into a diff tool
+ * a parse error where a result should be - pasting source code into a diff tool
  * is a reasonable thing to do, and an error page is not a reasonable answer.
  */
 export function parseConfig(text, forcedFormat = "auto") {
@@ -186,7 +186,7 @@ export function parseConfig(text, forcedFormat = "auto") {
         const value = JSON.parse(text);
         return { ok: true, value, format, structured: isStructured(value) };
       }
-      // A non-empty document that yields no keys was never .env or INI — the
+      // A non-empty document that yields no keys was never .env or INI - the
       // line-oriented parsers accept anything and simply find nothing. Without
       // this, pasting prose into both panes reports two empty objects and
       // "no differences", which is worse than being wrong loudly.

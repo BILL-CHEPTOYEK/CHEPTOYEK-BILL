@@ -6,14 +6,14 @@ export const INDENTS = [
   { id: "2", label: "2", title: "Two spaces", value: 2 },
   { id: "4", label: "4", title: "Four spaces", value: 4 },
   { id: "tab", label: "Tab", title: "Tab indentation", value: "\t" },
-  { id: "minify", label: "Min", title: "Minify — no whitespace at all", value: 0 },
+  { id: "minify", label: "Min", title: "Minify - no whitespace at all", value: 0 },
 ];
 
 export const DEFAULT_INDENT = "2";
 
 export const indentValue = (id) => INDENTS.find((option) => option.id === id)?.value ?? 2;
 
-/** Rebuilds objects with their keys in order. Arrays keep their order — that's data. */
+/** Rebuilds objects with their keys in order. Arrays keep their order - that's data. */
 function sortDeep(value) {
   if (Array.isArray(value)) return value.map(sortDeep);
   if (value === null || typeof value !== "object") return value;
@@ -31,7 +31,7 @@ export function stringify(value, { indent = 2, sortKeys = false } = {}) {
 
 const encoder = typeof TextEncoder === "undefined" ? null : new TextEncoder();
 
-/** Bytes, not characters — an emoji costs four of them and people notice. */
+/** Bytes, not characters - an emoji costs four of them and people notice. */
 export function byteSize(text) {
   if (encoder) return encoder.encode(text).length;
   return unescape(encodeURIComponent(text)).length;

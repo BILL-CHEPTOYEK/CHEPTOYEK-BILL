@@ -1,5 +1,5 @@
 /**
- * Display helpers. Purely presentational — nothing here feeds the diff.
+ * Display helpers. Purely presentational - nothing here feeds the diff.
  */
 
 const SECRET_KEY = /(pass(word|wd)?|secret|token|api[_-]?key|credential|private[_-]?key|auth|signature|salt)/i;
@@ -32,14 +32,14 @@ const TYPE_LABEL = {
   null: "null",
   object: "obj",
   array: "arr",
-  undefined: "—",
+  undefined: "-",
 };
 
 export const typeLabel = (type) => TYPE_LABEL[type] ?? type;
 
 /** Compact one-line rendering of any value, for a diff row. */
 export function formatValue(value, { masked = false, maxLength = 120 } = {}) {
-  if (value === undefined) return "—";
+  if (value === undefined) return "-";
   if (masked) return maskValue(typeof value === "string" ? value : String(value));
   if (value === null) return "null";
   if (typeof value === "string") return value === "" ? '""' : value;
@@ -52,7 +52,7 @@ export function formatValue(value, { masked = false, maxLength = 120 } = {}) {
 
 /**
  * Class names are written out in full rather than composed, because Tailwind
- * finds classes by scanning source text — anything assembled at runtime is
+ * finds classes by scanning source text - anything assembled at runtime is
  * invisible to it and silently ships unstyled.
  */
 export const KIND_META = {

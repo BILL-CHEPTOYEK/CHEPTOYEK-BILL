@@ -6,7 +6,7 @@
  * value copied out of a database column. Refusing all of that and printing
  * "Unexpected token" is technically correct and completely useless, so this
  * rewrites the common near-misses into the real thing and reports what it
- * changed — the report matters, because a silent fix is just a different way of
+ * changed - the report matters, because a silent fix is just a different way of
  * lying about the input.
  */
 
@@ -128,7 +128,7 @@ export function repair(text) {
         continue;
       }
 
-      // Unterminated. Take the rest of the line and close it — better than
+      // Unterminated. Take the rest of the line and close it - better than
       // handing back something that still won't parse.
       const lineEnd = source.indexOf("\n", index);
       const stop = lineEnd === -1 ? source.length : lineEnd;
@@ -259,7 +259,7 @@ export function tryRepair(text) {
 }
 
 /**
- * A JSON document that parses to a string which is itself JSON — what you get
+ * A JSON document that parses to a string which is itself JSON - what you get
  * from a log field, a webhook payload or a database column that stored an
  * encoded blob. Worth offering as its own action rather than doing silently,
  * because unwrapping changes what the document *is*.

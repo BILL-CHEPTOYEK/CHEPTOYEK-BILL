@@ -121,7 +121,7 @@ NODES.forEach((node) => {
 });
 ok("all nodes inside the viewBox");
 
-// 7. Every node is reachable by at least one flow — an unreachable box on a
+// 7. Every node is reachable by at least one flow - an unreachable box on a
 //    page about request paths is a box that should not be drawn.
 const reachable = new Set();
 FLOWS.forEach((flow) =>

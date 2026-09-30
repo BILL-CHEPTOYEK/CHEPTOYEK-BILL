@@ -26,7 +26,7 @@ export default function ArchitectureDiagram({ player, selectedNode, onSelectNode
   const { flow, step, visited, traversed, stepKey } = player;
 
   // On a narrow screen the diagram is wider than the viewport, so the hop being
-  // narrated can be off to the side. Pan to it as the flow advances — otherwise
+  // narrated can be off to the side. Pan to it as the flow advances - otherwise
   // playback on a phone is a caption for something you can't see.
   useEffect(() => {
     const element = scroller.current;
@@ -88,7 +88,7 @@ export default function ArchitectureDiagram({ player, selectedNode, onSelectNode
         style={{ minWidth: 940, display: "block" }}
       >
         <defs>
-          {/* One arrowhead per channel per state — SVG markers can't inherit
+          {/* One arrowhead per channel per state - SVG markers can't inherit
               the stroke colour of the path that references them. */}
           {Object.entries(CHANNELS).flatMap(([name, channel]) =>
             ["idle", "active"].map((tone) => (

@@ -135,7 +135,7 @@ check("obj to scalar", diffValues({ a: { b: 1 } }, { a: "x" }).changes[0].note, 
 {
   const java = "package org.services;\n\npublic class InvoiceResource {\n}\n";
   const parsed = parseConfig(java);
-  // Either it fails to parse, or it parses to a bare scalar — both mean "not config".
+  // Either it fails to parse, or it parses to a bare scalar - both mean "not config".
   check("java is not structured", parsed.ok && parsed.structured, false);
   check("empty stays structured", parseConfig("").structured, true);
   check("json object is structured", parseConfig('{"a":1}').structured, true);

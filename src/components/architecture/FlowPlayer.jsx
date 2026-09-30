@@ -22,7 +22,7 @@ function TransportButton({ label, onClick, disabled, children, primary }) {
  * The scenario chips.
  *
  * Kept separate from the narration below so that choosing a flow never moves
- * the diagram — the thing you are about to watch should not jump down the page
+ * the diagram - the thing you are about to watch should not jump down the page
  * at the moment you ask to watch it.
  */
 export function FlowPicker({ player }) {
@@ -102,7 +102,7 @@ export default function FlowNarration({ player }) {
         </div>
       </div>
 
-      {/* Segmented progress — each segment is also a jump target. */}
+      {/* Segmented progress - each segment is also a jump target. */}
       <div className="mt-5 flex items-center gap-1.5">
         {steps.map((item, i) => (
           <button
@@ -141,7 +141,7 @@ export default function FlowNarration({ player }) {
         <div className="min-h-[5.5rem]">
           <p className="text-[11px] tracking-[0.18em] uppercase text-neutral-400 tabular-nums">
             {String(stepIndex + 1).padStart(2, "0")} / {String(lastIndex + 1).padStart(2, "0")}
-            <span className="mx-2 text-neutral-200">—</span>
+            <span className="mx-2 text-neutral-200">-</span>
             <span className="text-neutral-700">{step?.title}</span>
           </p>
           <p className="mt-2 text-sm md:text-[0.95rem] leading-relaxed text-neutral-600">

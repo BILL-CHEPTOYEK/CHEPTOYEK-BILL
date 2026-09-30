@@ -41,7 +41,7 @@ export function renderNote(markdown, entry) {
 
   marked.use({
     renderer: {
-      // Drop raw HTML entirely — both block-level and inline.
+      // Drop raw HTML entirely - both block-level and inline.
       html: () => "",
 
       link({ href, title, text }) {
@@ -70,7 +70,7 @@ const normalise = (text) => text.toLowerCase().replace(/[^a-z0-9]/g, "");
  * These files mostly repeat their own filename as the H1
  * (`# 02-The-Accounting-Equation`), which is a worse title than the tidied-up
  * filename. So the heading is preferred only when it says something the
- * filename doesn't — and either way it leaves the body, so it isn't printed
+ * filename doesn't - and either way it leaves the body, so it isn't printed
  * twice under the page title.
  */
 export function extractTitle(markdown, fallbackTitle) {

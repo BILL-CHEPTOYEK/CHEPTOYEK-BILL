@@ -1,6 +1,6 @@
 /**
  * Worked examples, chosen so that a line diff would be actively unhelpful on
- * both of them — the first reorders every top-level key, the second compares
+ * both of them - the first reorders every top-level key, the second compares
  * two different file formats.
  */
 
@@ -112,7 +112,7 @@ public class InvoiceResource {
   {
     id: "env-vs-api",
     label: ".env vs live API response",
-    note: "Two formats, one comparison. Everything from .env arrives as a string — watch the type-only column.",
+    note: "Two formats, one comparison. Everything from .env arrives as a string - watch the type-only column.",
     left: `# what the service is configured with
 PORT=8080
 DEBUG=true

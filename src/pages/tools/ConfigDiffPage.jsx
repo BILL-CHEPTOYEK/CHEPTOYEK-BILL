@@ -75,7 +75,7 @@ export default function ConfigDiffPage() {
   const deferredRight = useDeferredValue(right);
 
   // What the result is actually computed from. While auto-compare is on this
-  // tracks the inputs; with it off, only the Compare button moves it — which is
+  // tracks the inputs; with it off, only the Compare button moves it - which is
   // what you want when the documents are big enough that every keystroke hurts.
   const [committed, setCommitted] = useState({ left: "", right: "" });
 
@@ -98,7 +98,7 @@ export default function ConfigDiffPage() {
   const bothFilled = !parsedLeft.empty && !parsedRight.empty;
 
   // Structured comparison needs two documents that parsed into an object or an
-  // array. Anything else — source code, prose, a broken YAML file — is compared
+  // array. Anything else - source code, prose, a broken YAML file - is compared
   // as text rather than refused.
   const mode = useMemo(() => {
     if (!bothFilled) return null;

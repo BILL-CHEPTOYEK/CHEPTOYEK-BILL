@@ -7,7 +7,7 @@ const DWELL_MIN_MS = 1400;
 const DWELL_PER_CHAR_MS = 13;
 const DWELL_MAX_MS = 5200;
 
-/** Longer narration gets longer on screen — autoplay should be readable. */
+/** Longer narration gets longer on screen - autoplay should be readable. */
 function dwellFor(step) {
   const estimate = DWELL_MIN_MS + (step?.text?.length ?? 0) * DWELL_PER_CHAR_MS;
   return Math.min(DWELL_MAX_MS, estimate);
@@ -32,7 +32,7 @@ export function usePrefersReducedMotion() {
 /**
  * Drives flow playback.
  *
- * Deliberately holds only discrete state — which flow, which step, playing or
+ * Deliberately holds only discrete state - which flow, which step, playing or
  * not. The packet's position between steps is animated by the renderer against
  * its own clock, so nothing here updates at frame rate and the diagram
  * re-renders once per step rather than sixty times a second.
@@ -122,7 +122,7 @@ export function useFlowPlayer({ initialFlowId = null, initialStep = null, autopl
     setPlaying(false);
   }, []);
 
-  /** Nodes the flow has reached so far — everything else dims. */
+  /** Nodes the flow has reached so far - everything else dims. */
   const visited = useMemo(() => {
     const set = new Set();
     steps.slice(0, stepIndex + 1).forEach((s) => {

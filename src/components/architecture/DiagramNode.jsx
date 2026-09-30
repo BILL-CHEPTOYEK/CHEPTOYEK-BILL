@@ -3,7 +3,7 @@ import { nodeGeometry } from "../../architecture/layout";
 
 /**
  * Left accent bar shade per band. The palette across the whole diagram is
- * greyscale on purpose — colour is reserved for the one thing that moves, so
+ * greyscale on purpose - colour is reserved for the one thing that moves, so
  * an active path reads instantly instead of competing with decoration.
  */
 const ACCENT = {
@@ -37,7 +37,7 @@ export default function DiagramNode({
     <g
       role="button"
       tabIndex={0}
-      aria-label={`${node.label} — ${node.summary}`}
+      aria-label={`${node.label} - ${node.summary}`}
       aria-pressed={selected}
       className="architecture-node"
       onClick={() => onSelect(id)}

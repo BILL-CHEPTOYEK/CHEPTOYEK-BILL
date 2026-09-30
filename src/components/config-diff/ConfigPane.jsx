@@ -5,7 +5,7 @@ const FORMAT_OPTIONS = [["auto", "Auto-detect"], ...Object.entries(FORMATS)];
 
 /**
  * One side of the comparison: a textarea, a format override, and two ways to
- * fill it that aren't typing — fetch a URL, or drop a file on it.
+ * fill it that aren't typing - fetch a URL, or drop a file on it.
  */
 export default function ConfigPane({
   label,
@@ -37,7 +37,7 @@ export default function ConfigPane({
     } catch (error) {
       // Almost always CORS. Say so, because the browser's message won't.
       setFetchError(
-        `${error.message}. If the endpoint doesn't send CORS headers the browser blocks this — there's no server here to proxy through.`
+        `${error.message}. If the endpoint doesn't send CORS headers the browser blocks this - there's no server here to proxy through.`
       );
     } finally {
       setFetching(false);
@@ -50,7 +50,7 @@ export default function ConfigPane({
   };
 
   // Once the page has fallen back to a line diff, a parse error is no longer a
-  // failure — it is the reason for the mode, and it has already been explained
+  // failure - it is the reason for the mode, and it has already been explained
   // once above. Repeating it in red here just looks broken.
   const showParseError = parsed && !parsed.ok && !textMode;
   // In text mode the detected format is whatever the guess was before it fell
@@ -134,7 +134,7 @@ export default function ConfigPane({
           readFile(event.dataTransfer.files?.[0]);
         }}
         spellCheck={false}
-        placeholder={"Paste config, drop a file, or fetch a URL.\n\nJSON, YAML, .env and INI all work —\nincluding one against another."}
+        placeholder={"Paste config, drop a file, or fetch a URL.\n\nJSON, YAML, .env and INI all work -\nincluding one against another."}
         className={`w-full h-72 md:h-96 resize-y rounded-xl border bg-white p-4 font-mono text-[12.5px] leading-relaxed text-neutral-800 focus:outline-none transition-colors ${
           dragging
             ? "border-neutral-900 bg-neutral-50"
@@ -147,7 +147,7 @@ export default function ConfigPane({
       <div className="mt-2 min-h-[1.25rem]">
         {showParseError ? (
           <p className="text-xs text-rose-600">
-            {parsed.error.line ? `Line ${parsed.error.line} — ` : ""}
+            {parsed.error.line ? `Line ${parsed.error.line} - ` : ""}
             {parsed.error.message}
           </p>
         ) : (

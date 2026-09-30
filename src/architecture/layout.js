@@ -2,7 +2,7 @@
  * Deterministic layout for the architecture diagram.
  *
  * Pure geometry: the model goes in, pixel coordinates come out. No React, no
- * DOM measurement, no randomness. That last part is deliberate — packet
+ * DOM measurement, no randomness. That last part is deliberate - packet
  * animation needs to know where a wire is at progress `t`, and computing it
  * analytically from the polyline is both cheaper and more predictable than
  * asking the browser via getPointAtLength() on every frame.
@@ -81,7 +81,7 @@ function pointsFor(edge, a, b) {
 /**
  * SVG path with rounded corners. The corner radius shortens each adjoining
  * segment slightly, so the drawn path is a hair shorter than the polyline the
- * packet walks. At r=12 the discrepancy is sub-pixel per corner — not worth
+ * packet walks. At r=12 the discrepancy is sub-pixel per corner - not worth
  * the arc-length integration it would take to remove.
  */
 function toPath(points) {

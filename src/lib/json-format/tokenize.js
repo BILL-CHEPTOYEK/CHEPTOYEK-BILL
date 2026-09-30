@@ -2,8 +2,8 @@
  * A scanner for JSON text.
  *
  * Deliberately tolerant: anything it can't classify becomes an `error` token
- * rather than throwing. Every consumer here — syntax highlighting, duplicate-key
- * detection, error diagnosis — needs to keep going past the first mistake, which
+ * rather than throwing. Every consumer here - syntax highlighting, duplicate-key
+ * detection, error diagnosis - needs to keep going past the first mistake, which
  * is exactly what `JSON.parse` refuses to do.
  */
 
@@ -28,7 +28,7 @@ function scanString(text, start) {
     }
     if (char === '"') return { index: index + 1, closed: true };
     // A raw newline can't appear inside a JSON string, so this is an
-    // unterminated quote — stop here instead of swallowing the rest of the file.
+    // unterminated quote - stop here instead of swallowing the rest of the file.
     if (char === "\n") return { index, closed: false };
     index += 1;
   }
@@ -148,7 +148,7 @@ export function positionAt(starts, offset) {
 /**
  * Regroups a token stream into one array per line, so the renderer can put a
  * line number next to each row. Safe because a JSON string can never contain a
- * literal newline — only whitespace tokens ever straddle a line boundary.
+ * literal newline - only whitespace tokens ever straddle a line boundary.
  */
 export function toLines(tokens) {
   const lines = [[]];

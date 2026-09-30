@@ -3,8 +3,8 @@
  *
  * It sits where the result would have been, because that's where you're already
  * looking. Three things, in the order you need them: what went wrong in words,
- * the line it happened on with a caret under the character, and — when the
- * mistake is one of the mechanical ones — a button that fixes it.
+ * the line it happened on with a caret under the character, and - when the
+ * mistake is one of the mechanical ones - a button that fixes it.
  */
 
 export default function ErrorCard({ error, repair, onRepair, onJump }) {
@@ -57,7 +57,7 @@ export default function ErrorCard({ error, repair, onRepair, onJump }) {
               Repair and format
             </button>
             <span className="text-[11px] text-neutral-400">
-              Rewrites the input — your original is one undo away.
+              Rewrites the input - your original is one undo away.
             </span>
           </div>
 

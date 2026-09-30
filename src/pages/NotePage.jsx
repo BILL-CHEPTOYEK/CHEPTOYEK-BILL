@@ -65,7 +65,7 @@ export default function NotePage() {
     return (
       <PageShell backTo="/notes" backLabel="Notes" title="Note not found">
         <p className="mt-4 text-neutral-500">
-          There's no note with that name. It may have been renamed in the repository — the index is
+          There's no note with that name. It may have been renamed in the repository - the index is
           built from whatever is there right now.
         </p>
       </PageShell>

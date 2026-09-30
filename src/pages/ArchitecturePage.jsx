@@ -27,7 +27,7 @@ const STATS = [
  * These colours are meant to be swapped around freely, and hard-coding white
  * type makes a pale card vanish. Relative luminance decides instead, so the
  * palette can change without anyone remembering to change the text with it.
- * Colours must be hex strings — a bare `gray-200` is a Tailwind class name, not
+ * Colours must be hex strings - a bare `gray-200` is a Tailwind class name, not
  * a value, and JavaScript reads it as subtraction.
  */
 function cardStyle(background) {
@@ -73,7 +73,7 @@ const CACHE_LAYERS = [
 const DECISIONS = [
   {
     title: "Cloudflare in front of GitHub Pages",
-    why: "Pages on its own has no programmable edge — no rewrites, no headers, no logic. Proxying the zone through Cloudflare buys all three and hides the origin as a side effect.",
+    why: "Pages on its own has no programmable edge - no rewrites, no headers, no logic. Proxying the zone through Cloudflare buys all three and hides the origin as a side effect.",
     cost: "A second vendor sits in the request path, and the proxy toggle that makes it all work lives in a dashboard rather than in this repository.",
   },
   {
@@ -84,7 +84,7 @@ const DECISIONS = [
   {
     title: "Blogger as the CMS",
     why: "Publishing should not require a build. I am not going to write an admin panel to post a few times a month, and a hosted CMS costs nothing and never needs patching.",
-    cost: "I don't own the rendering, and the feed ships no CORS headers — which is why there is a JSONP loader in a 2026 codebase.",
+    cost: "I don't own the rendering, and the feed ships no CORS headers - which is why there is a JSONP loader in a 2026 codebase.",
   },
   {
     title: "No backend, no database",
@@ -93,13 +93,13 @@ const DECISIONS = [
   },
   {
     title: "No API token in the client",
-    why: "A static bundle has no secrets — anything shipped to the browser is public, and pretending otherwise is how tokens end up on GitHub search.",
+    why: "A static bundle has no secrets - anything shipped to the browser is public, and pretending otherwise is how tokens end up on GitHub search.",
     cost: "60 GitHub API requests per hour per IP instead of 5,000.",
   },
   {
     title: "Notes read from another repo, not copied into this one",
-    why: "The accounting notes are written and revised in their own repository. Vendoring them here would mean two copies to keep in sync and a deploy standing between writing and publishing — so /notes derives its table of contents from that repo's file tree and fetches the prose at read time. Add a file there and it appears here.",
-    cost: "The page is only as available as GitHub is, the index costs a rate-limited API call, and markdown from a second repository ends up as HTML in this one — which is why the renderer drops raw HTML rather than trusting it.",
+    why: "The accounting notes are written and revised in their own repository. Vendoring them here would mean two copies to keep in sync and a deploy standing between writing and publishing - so /notes derives its table of contents from that repo's file tree and fetches the prose at read time. Add a file there and it appears here.",
+    cost: "The page is only as available as GitHub is, the index costs a rate-limited API call, and markdown from a second repository ends up as HTML in this one - which is why the renderer drops raw HTML rather than trusting it.",
   },
   {
     title: "404.html as the router fallback",
@@ -119,11 +119,11 @@ const WARTS = [
   },
   {
     title: "The blog feed executes third-party script",
-    body: "JSONP works by injecting a <script> tag, so Blogger gets script execution on my origin. The 4-second timeout bounds how long I wait — not how much I trust.",
+    body: "JSONP works by injecting a <script> tag, so Blogger gets script execution on my origin. The 4-second timeout bounds how long I wait - not how much I trust.",
   },
   {
     title: "Test coverage is one file deep",
-    body: "The config diff engine has a real suite because it is pure and the edge cases are subtle. Nothing else has anything — not the Worker's URL rewriting, not the blog source fallback, not a single component. The two pieces most likely to break silently are the two with no tests.",
+    body: "The config diff engine has a real suite because it is pure and the edge cases are subtle. Nothing else has anything - not the Worker's URL rewriting, not the blog source fallback, not a single component. The two pieces most likely to break silently are the two with no tests.",
   },
 ];
 
@@ -144,7 +144,7 @@ export default function ArchitecturePage() {
   const reduced = usePrefersReducedMotion();
   const [selectedNode, setSelectedNode] = useState(null);
 
-  // Read once, on mount — after that the player owns the state and the URL
+  // Read once, on mount - after that the player owns the state and the URL
   // follows it, rather than the two trying to drive each other.
   //
   // With no flow in the URL the page opens on the first one and plays it. A
@@ -259,7 +259,7 @@ export default function ArchitecturePage() {
             [
               "Blogger",
               "Write path",
-              "Publishing is someone else's uptime problem. The cost of that convenience is showing up twice on this page — once as a proxy, once as a JSONP call.",
+              "Publishing is someone else's uptime problem. The cost of that convenience is showing up twice on this page - once as a proxy, once as a JSONP call.",
             ],
             [
               "api.github.com",
@@ -276,7 +276,7 @@ export default function ArchitecturePage() {
         </div>
 
         <p className="mt-8 text-neutral-600 leading-relaxed max-w-2xl">
-          The moment any of this needs to store something a visitor typed, the answer changes — and
+          The moment any of this needs to store something a visitor typed, the answer changes - and
           it becomes a Worker with a KV or D1 binding rather than a server, because the edge is
           already in the request path and a server would not be.
         </p>
@@ -364,11 +364,11 @@ export default function ArchitecturePage() {
           {[
             [
               "The GitHub API, behind shared IPs",
-              "The 60/hour limit is per client IP, so it scales naturally with visitors — right up until a few hundred of them share one corporate NAT or mobile carrier gateway, and /github starts failing for all of them at once. The fix is a Worker that holds a token in a secret and caches the response: 60 per hour per visitor becomes one upstream call per minute, for everyone.",
+              "The 60/hour limit is per client IP, so it scales naturally with visitors - right up until a few hundred of them share one corporate NAT or mobile carrier gateway, and /github starts failing for all of them at once. The fix is a Worker that holds a token in a secret and caches the response: 60 per hour per visitor becomes one upstream call per minute, for everyone.",
             ],
             [
               "Blogger, as a synchronous dependency",
-              "Right now /blog is exactly as available as Blogger is. Wrapping the proxy in the Cache API with stale-while-revalidate would let the last good copy keep serving through an outage — the same trick the SPA already plays with its markdown fallback, applied one layer out.",
+              "Right now /blog is exactly as available as Blogger is. Wrapping the proxy in the Cache API with stale-while-revalidate would let the last good copy keep serving through an outage - the same trick the SPA already plays with its markdown fallback, applied one layer out.",
             ],
             [
               "Knowing any of this happened",

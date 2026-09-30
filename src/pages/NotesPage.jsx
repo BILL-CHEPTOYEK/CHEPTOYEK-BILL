@@ -64,7 +64,7 @@ export default function NotesPage() {
     <PageShell
       eyebrow="Notes"
       title="Accounting, for software engineers"
-      subtitle="Working notes on double-entry bookkeeping from the point of view of someone who has to model it in a database — the accounting equation, the chart of accounts, and what a transaction actually looks like once it's a set of rows. Written while learning, so they read like notes rather than a textbook."
+      subtitle="Working notes on double-entry bookkeeping from the point of view of someone who has to model it in a database - the accounting equation, the chart of accounts, and what a transaction actually looks like once it's a set of rows. Written while learning, so they read like notes rather than a textbook."
     >
       {state.status === "loading" && (
         <p className="mt-14 text-sm text-neutral-400">Loading the index from GitHub…</p>
@@ -98,7 +98,7 @@ export default function NotesPage() {
           <div className="mt-16 pt-8 border-t border-neutral-200">
             <p className="text-sm leading-relaxed text-neutral-500 max-w-2xl">
               {state.count} files, read straight out of the repository at the moment you loaded this
-              page — nothing is copied into this site, so the notes here and the notes on GitHub
+              page - nothing is copied into this site, so the notes here and the notes on GitHub
               cannot drift apart. The same repo also contains a working double-entry accounting
               application, which is the part these notes are the reasoning for.
             </p>

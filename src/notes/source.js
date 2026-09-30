@@ -7,8 +7,8 @@
  * derived from the repo's file tree and the prose is fetched on demand.
  *
  * Two hosts are involved, and they behave differently:
- *   api.github.com          — the file tree. Rate limited to 60/hour/IP.
- *   raw.githubusercontent.com — the file contents. Not rate limited the same
+ *   api.github.com          - the file tree. Rate limited to 60/hour/IP.
+ *   raw.githubusercontent.com - the file contents. Not rate limited the same
  *                               way, and it does send CORS headers, so a plain
  *                               fetch() works (unlike the Blogger feed).
  */
@@ -72,7 +72,7 @@ function writeCache(value) {
   try {
     sessionStorage.setItem(CACHE_KEY, JSON.stringify(value));
   } catch {
-    // Private mode, quota, whatever — the cache is an optimisation, not a
+    // Private mode, quota, whatever - the cache is an optimisation, not a
     // dependency. Losing it costs one extra request.
   }
 }
@@ -103,7 +103,7 @@ function toEntry(path, order) {
  * Fetch the note index.
  *
  * Order comes from the repo's numeric filename prefixes, which is why they are
- * there — the sequence is part of the content, not decoration.
+ * there - the sequence is part of the content, not decoration.
  */
 export async function getNoteIndex({ signal } = {}) {
   const cached = readCache();
@@ -130,7 +130,7 @@ export async function getNoteIndex({ signal } = {}) {
     .map((node) => node.path)
     .filter((path) => READABLE.test(path))
     .filter((path) => !EXCLUDED.some((pattern) => pattern.test(path)))
-    // Root-level files first — the repo's README is the introduction, and a
+    // Root-level files first - the repo's README is the introduction, and a
     // plain path sort buries it under every numbered folder.
     .sort((a, b) => {
       const rootA = a.includes("/") ? 1 : 0;
@@ -170,13 +170,13 @@ export function groupBySection(entries) {
  * Fetch one note's source text.
  *
  * `.sql` files come back wrapped in a fence so they render as code rather than
- * as an accidental wall of markdown — they are part of the material, and the
+ * as an accidental wall of markdown - they are part of the material, and the
  * schema is half the explanation in a repo about double-entry bookkeeping.
  */
 export async function getNoteContent(entry, { signal } = {}) {
   const response = await fetch(entry.rawUrl, { signal });
   if (!response.ok) {
-    throw new Error(`Couldn't load ${entry.path} — ${response.status} ${response.statusText}.`);
+    throw new Error(`Couldn't load ${entry.path} - ${response.status} ${response.statusText}.`);
   }
 
   const text = await response.text();

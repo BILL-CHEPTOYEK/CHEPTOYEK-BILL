@@ -12,7 +12,7 @@ const HEADINGS = {
 const ORDER = ["removed", "added", "changed", "type", "moved"];
 
 const render = (value, masked) => {
-  if (value === undefined) return "—";
+  if (value === undefined) return "-";
   if (masked) return `\`${maskValue(typeof value === "string" ? value : String(value))}\``;
   return `\`${typeof value === "string" ? value : JSON.stringify(value)}\``;
 };
@@ -20,7 +20,7 @@ const render = (value, masked) => {
 /**
  * Markdown summary, sized for a pull request comment.
  *
- * Secrets are masked here too — the whole point of this export is that it gets
+ * Secrets are masked here too - the whole point of this export is that it gets
  * pasted somewhere, which is exactly where an unmasked DATABASE_PASSWORD ends
  * up being a problem.
  */
@@ -28,7 +28,7 @@ export function toMarkdownReport(changes, summary, meta = {}) {
   const { leftLabel = "Left", rightLabel = "Right", maskSecrets = true } = meta;
 
   const lines = [
-    `# Config diff — ${leftLabel} → ${rightLabel}`,
+    `# Config diff - ${leftLabel} → ${rightLabel}`,
     "",
     summary.total === 0
       ? "_No structural differences._"
@@ -52,7 +52,7 @@ export function toMarkdownReport(changes, summary, meta = {}) {
       if (kind === "added") lines.push(`- \`${path}\` → ${render(change.right, masked)}`);
       else if (kind === "removed") lines.push(`- \`${path}\` (was ${render(change.left, masked)})`);
       else if (kind === "moved")
-        lines.push(`- \`${path}\` — index ${change.left} → ${change.right} (${change.note})`);
+        lines.push(`- \`${path}\` - index ${change.left} → ${change.right} (${change.note})`);
       else
         lines.push(
           `- \`${path}\`: ${render(change.left, masked)} → ${render(change.right, masked)}` +

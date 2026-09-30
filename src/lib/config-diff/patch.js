@@ -11,7 +11,7 @@ export const toPointer = (path) =>
  *
  * Exact for object-shaped documents. Array `move` operations are emitted from
  * the semantic alignment, which means a patch containing several of them is
- * order-sensitive in the way the spec intends — apply it as a whole document
+ * order-sensitive in the way the spec intends - apply it as a whole document
  * rather than cherry-picking operations out of it.
  */
 export function toJsonPatch(changes) {
@@ -37,7 +37,7 @@ export function toJsonPatch(changes) {
     });
 }
 
-/** A one-line, greppable summary per change — the format CI logs want. */
+/** A one-line, greppable summary per change - the format CI logs want. */
 export function toPlainLines(changes) {
   const symbol = { added: "+", removed: "-", changed: "~", type: "!", moved: "»" };
 

@@ -3,7 +3,7 @@ import { KIND_META } from "../../lib/config-diff/format";
 
 /**
  * Counts that double as filters. Every kind is always listed, including the
- * zeroes — a "0 removed" reads as a fact, while a missing row reads as a bug.
+ * zeroes - a "0 removed" reads as a fact, while a missing row reads as a bug.
  */
 export default function DiffSummary({ summary, active, onToggle }) {
   return (

@@ -5,7 +5,7 @@ import { useMemo, useRef } from "react";
  *
  * A textarea rather than a real editor widget on purpose. It keeps native
  * undo, native spell-check control, native selection, native mobile keyboards
- * and native accessibility — all of which a contenteditable re-implementation
+ * and native accessibility - all of which a contenteditable re-implementation
  * gets subtly wrong, and none of which is worth losing for syntax colour on the
  * side you are pasting into rather than reading.
  *

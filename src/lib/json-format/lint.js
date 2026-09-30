@@ -3,7 +3,7 @@
  *
  * Valid JSON isn't the same as JSON that survives a round trip. `JSON.parse`
  * keeps the last of a set of duplicate keys and says nothing, and it rounds any
- * integer past 2^53 to something that isn't the number you were sent — which is
+ * integer past 2^53 to something that isn't the number you were sent - which is
  * every Discord, Twitter and Twilio ID. Both are invisible in a formatter that
  * only reports parse errors, and both change your data, so they're worth a
  * warning of their own.

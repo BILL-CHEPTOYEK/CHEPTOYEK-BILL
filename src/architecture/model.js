@@ -3,7 +3,7 @@
  *
  * This file is the single source of truth for the /architecture page: the
  * diagram, the inspector and the flow narration all read from it. It holds
- * data only — no geometry (see `layout.js`) and no React.
+ * data only - no geometry (see `layout.js`) and no React.
  *
  * Everything described here is real and traceable to a file in this repo.
  * The `source` field on a node points at the file that defines it, so the
@@ -13,7 +13,7 @@
 /** Vertical bands, left to right. `label` renders as the column header. */
 export const COLUMNS = [
   { id: "client", label: "Client", note: "Runs on the visitor's device" },
-  { id: "edge", label: "Edge — Cloudflare", note: "Anycast, ~everywhere" },
+  { id: "edge", label: "Edge - Cloudflare", note: "Anycast, ~everywhere" },
   { id: "origin", label: "Origin", note: "Where the bytes actually live" },
   { id: "build", label: "Build & delivery", note: "Runs on push to main" },
 ];
@@ -49,7 +49,7 @@ export const NODES = [
     summary: "react-router owns every path except /blog.",
     source: "src/App.jsx",
     detail:
-      "React 19 with the React Compiler enabled in the Babel pipeline, so memoisation is inferred rather than hand-written — there is not a single useMemo in the routing layer. Routing is client-side, which is what forces the 404.html trick further down the page.",
+      "React 19 with the React Compiler enabled in the Babel pipeline, so memoisation is inferred rather than hand-written - there is not a single useMemo in the routing layer. Routing is client-side, which is what forces the 404.html trick further down the page.",
     facts: [
       ["Router", "react-router-dom 7, BrowserRouter"],
       ["Compiler", "babel-plugin-react-compiler"],
@@ -65,7 +65,7 @@ export const NODES = [
     summary: "Posts compiled into JS at build time. Reachable with zero network.",
     source: "src/blog/sources/mdSource.js",
     detail:
-      "`import.meta.glob('../posts/*.md', { eager: true, query: '?raw' })` inlines every post into the bundle during the build. It costs bundle bytes and buys an offline-capable, always-available fallback for the blog index — no request can fail because there is no request.",
+      "`import.meta.glob('../posts/*.md', { eager: true, query: '?raw' })` inlines every post into the bundle during the build. It costs bundle bytes and buys an offline-capable, always-available fallback for the blog index - no request can fail because there is no request.",
     facts: [
       ["Mechanism", "Vite import.meta.glob, eager"],
       ["Cost", "Post text ships to every visitor"],
@@ -80,7 +80,7 @@ export const NODES = [
     kind: "edge",
     summary: "Authoritative for cheptoyek.com. Proxied, so the origin is hidden.",
     detail:
-      "The record is proxied rather than DNS-only. Visitors resolve to a Cloudflare anycast address, never to GitHub's. That is what makes the Worker route below possible at all — a DNS-only record would hand the request straight to GitHub Pages and the Worker would never run.",
+      "The record is proxied rather than DNS-only. Visitors resolve to a Cloudflare anycast address, never to GitHub's. That is what makes the Worker route below possible at all - a DNS-only record would hand the request straight to GitHub Pages and the Worker would never run.",
     facts: [
       ["Records", "Proxied A/AAAA at the apex"],
       ["Subdomains", "blog. → Blogger, docs. → MasterDocs"],
@@ -94,7 +94,7 @@ export const NODES = [
     kind: "edge",
     summary: "TLS termination, cache, and the point where routing decisions happen.",
     detail:
-      "Every request for the apex domain lands here first. The edge terminates TLS, serves what it already has, and decides whether the path belongs to a Worker or to the origin. Free tier — the whole site's hosting bill is the domain registration.",
+      "Every request for the apex domain lands here first. The edge terminates TLS, serves what it already has, and decides whether the path belongs to a Worker or to the origin. Free tier - the whole site's hosting bill is the domain registration.",
     facts: [
       ["Terminates", "TLS 1.3 / HTTP3 at the nearest PoP"],
       ["Decides", "Worker route vs. origin fetch"],
@@ -114,7 +114,7 @@ export const NODES = [
     facts: [
       ["Routes", "cheptoyek.com/blog, /blog/*"],
       ["Rewrites", "a[href], link[href], form[action], 3xx Location"],
-      ["Streams", "HTMLRewriter — no buffering, no parse cost"],
+      ["Streams", "HTMLRewriter - no buffering, no parse cost"],
     ],
   },
   {
@@ -126,7 +126,7 @@ export const NODES = [
     summary: "Serves the gh-pages branch. Static files, no rewrite rules, no compute.",
     source: ".github/workflows/deploy.yml",
     detail:
-      "The origin is a git branch. That has a pleasant property — every deploy is a commit, so rollback is `git revert` and the served state is always diffable. It also has one sharp edge: Pages will not rewrite unknown paths to index.html, which is the whole reason flow 02 exists.",
+      "The origin is a git branch. That has a pleasant property - every deploy is a commit, so rollback is `git revert` and the served state is always diffable. It also has one sharp edge: Pages will not rewrite unknown paths to index.html, which is the whole reason flow 02 exists.",
     facts: [
       ["Branch", "gh-pages, force-pushed by CI"],
       ["Rewrites", "None. This matters."],
@@ -157,10 +157,10 @@ export const NODES = [
     summary: "Live profile and repo data, called straight from the browser.",
     source: "src/pages/GitHubPage.jsx",
     detail:
-      "Called unauthenticated and directly from the client. A static site has nowhere to hide a token, so rather than pretend otherwise the page ships with none — the rate limit becomes the trade-off instead of a leaked credential.",
+      "Called unauthenticated and directly from the client. A static site has nowhere to hide a token, so rather than pretend otherwise the page ships with none - the rate limit becomes the trade-off instead of a leaked credential.",
     facts: [
       ["Calls", "/users/:u and /users/:u/repos"],
-      ["Auth", "None — 60 req/hour/IP"],
+      ["Auth", "None - 60 req/hour/IP"],
       ["Why", "Nowhere in a static bundle is secret"],
     ],
   },
@@ -175,8 +175,8 @@ export const NODES = [
     detail:
       "The accounting notes are written and revised in their own repository, so /notes derives its structure from that repo's file tree and fetches the prose on demand. Copying the files into this one would create two copies to keep in sync and put a deploy between writing and publishing.",
     facts: [
-      ["Index from", "api.github.com — 60 req/hour/IP"],
-      ["Content from", "raw.githubusercontent.com — sends CORS"],
+      ["Index from", "api.github.com - 60 req/hour/IP"],
+      ["Content from", "raw.githubusercontent.com - sends CORS"],
       ["Cached in", "sessionStorage, for the visit"],
     ],
   },
@@ -207,7 +207,7 @@ export const NODES = [
     facts: [
       ["Node", "20.19.0, pinned"],
       ["Publish", "peaceiris/actions-gh-pages@v3"],
-      ["Gate", "None — main is the release branch"],
+      ["Gate", "None - main is the release branch"],
     ],
   },
   {
@@ -219,7 +219,7 @@ export const NODES = [
     summary: "Compiles the app and content-hashes every asset.",
     source: "vite.config.js",
     detail:
-      "Rollup emits filenames containing a content hash, which is what makes aggressive edge caching safe: a changed file is a new URL, so nothing ever needs purging. The markdown fallback is inlined here too — build time is the last moment content and code are the same thing.",
+      "Rollup emits filenames containing a content hash, which is what makes aggressive edge caching safe: a changed file is a new URL, so nothing ever needs purging. The markdown fallback is inlined here too - build time is the last moment content and code are the same thing.",
     facts: [
       ["Output", "dist/, content-hashed"],
       ["Inlines", "Blog markdown, fonts"],
@@ -233,7 +233,7 @@ export const NODES = [
  *
  * Colour here is information, not decoration: five categories, each answering
  * "what kind of hop is this" at a glance. Dash pattern reinforces the same
- * split rather than encoding a second, competing dimension — so a dotted amber
+ * split rather than encoding a second, competing dimension - so a dotted amber
  * line and a solid indigo one differ in two ways that say the same thing.
  */
 export const CHANNELS = {
@@ -281,7 +281,7 @@ export const CHANNELS = {
 
 /**
  * Edges are directed for drawing purposes, but flows may traverse them in
- * reverse — a response follows exactly the wire a request came in on, and
+ * reverse - a response follows exactly the wire a request came in on, and
  * drawing that as a second arrow would double the visual noise for no gain.
  *
  * `route` selects an orthogonal routing strategy in `layout.js`:
@@ -306,7 +306,7 @@ export const EDGES = [
   { id: "publish", from: "build", to: "pages", route: "h", turn: 0.5, label: "publish dist/", channel: "build" },
 ];
 
-/** The channel a flow step travels on — drives the packet and node colours. */
+/** The channel a flow step travels on - drives the packet and node colours. */
 export const channelOfStep = (step) => CHANNELS[EDGE_BY_ID[step.edge].channel];
 
 /**
@@ -350,7 +350,7 @@ export const FLOWS = [
         edge: "tls",
         dir: -1,
         title: "Deliver",
-        text: "The HTML shell reaches the browser. It is small — the interesting work has not started yet.",
+        text: "The HTML shell reaches the browser. It is small - the interesting work has not started yet.",
       },
       {
         edge: "boot",
@@ -380,7 +380,7 @@ export const FLOWS = [
       {
         edge: "origin-fetch",
         dir: -1,
-        title: "404 — but a useful one",
+        title: "404 - but a useful one",
         text: "Pages serves public/404.html with a 404 status. That file is not an error page; it is a three-line program.",
       },
       {
@@ -393,7 +393,7 @@ export const FLOWS = [
         edge: "boot",
         dir: 1,
         title: "Replay before React notices",
-        text: "An inline script in index.html reads the value back and calls history.replaceState() with it — before the bundle parses. React mounts believing it was always on /tools/config-diff, and the URL bar never lies.",
+        text: "An inline script in index.html reads the value back and calls history.replaceState() with it - before the bundle parses. React mounts believing it was always on /tools/config-diff, and the URL bar never lies.",
       },
     ],
   },
@@ -412,7 +412,7 @@ export const FLOWS = [
         edge: "worker-route",
         dir: 1,
         title: "Intercept",
-        text: "The route pattern cheptoyek.com/blog* matches, so the Worker runs. GitHub Pages is never consulted — it does not know this path exists.",
+        text: "The route pattern cheptoyek.com/blog* matches, so the Worker runs. GitHub Pages is never consulted - it does not know this path exists.",
       },
       {
         edge: "proxy",
@@ -436,7 +436,7 @@ export const FLOWS = [
         edge: "tls",
         dir: -1,
         title: "One origin",
-        text: "The visitor gets the blog on cheptoyek.com, under one certificate, with no iframe and no subdomain hop. Cookies, analytics and the back button all behave as if it were the same app — because as far as the browser is concerned, it is.",
+        text: "The visitor gets the blog on cheptoyek.com, under one certificate, with no iframe and no subdomain hop. Cookies, analytics and the back button all behave as if it were the same app - because as far as the browser is concerned, it is.",
       },
     ],
   },
@@ -449,7 +449,7 @@ export const FLOWS = [
         edge: "feed",
         dir: 1,
         title: "Ask via JSONP, not fetch",
-        text: "Blogger's alt=json feed sends no CORS headers, so fetch() is blocked for every visitor. alt=json-in-script is the JSONP variant — loaded through a <script> tag, which predates and sidesteps CORS entirely.",
+        text: "Blogger's alt=json feed sends no CORS headers, so fetch() is blocked for every visitor. alt=json-in-script is the JSONP variant - loaded through a <script> tag, which predates and sidesteps CORS entirely.",
       },
       {
         edge: "feed",
@@ -480,13 +480,13 @@ export const FLOWS = [
         edge: "gh-api",
         dir: -1,
         title: "Aggregate client-side",
-        text: "Forks are filtered out, languages counted, top repos ranked — all in the browser. There is no backend to cache this in, so the work happens where the data lands.",
+        text: "Forks are filtered out, languages counted, top repos ranked - all in the browser. There is no backend to cache this in, so the work happens where the data lands.",
       },
       {
         edge: "gh-api",
         dir: 1,
         title: "And the honest trade-off",
-        text: "Unauthenticated means 60 requests per hour per IP. A token would raise that to 5,000 — and would sit in a public bundle for anyone to read. The rate limit is the better bug.",
+        text: "Unauthenticated means 60 requests per hour per IP. A token would raise that to 5,000 - and would sit in a public bundle for anyone to read. The rate limit is the better bug.",
       },
     ],
   },
@@ -505,13 +505,13 @@ export const FLOWS = [
         edge: "notes-fetch",
         dir: -1,
         title: "Derive the structure from the filenames",
-        text: "Numbered folders become sections and numbered files become an order — the `01-`, `02-` prefixes in that repo are load-bearing, not decoration. Nothing about the table of contents is written down twice.",
+        text: "Numbered folders become sections and numbered files become an order - the `01-`, `02-` prefixes in that repo are load-bearing, not decoration. Nothing about the table of contents is written down twice.",
       },
       {
         edge: "notes-fetch",
         dir: 1,
         title: "Fetch the prose from raw.githubusercontent.com",
-        text: "A different host from the API, and a friendlier one: no rate limit of the same kind, and it does send CORS headers — so a plain fetch() works, with none of the JSONP contortion the Blogger feed needs.",
+        text: "A different host from the API, and a friendlier one: no rate limit of the same kind, and it does send CORS headers - so a plain fetch() works, with none of the JSONP contortion the Blogger feed needs.",
       },
       {
         edge: "notes-fetch",
@@ -548,7 +548,7 @@ export const FLOWS = [
         edge: "origin-fetch",
         dir: -1,
         title: "Propagate",
-        text: "The edge picks up the new index.html on its next miss. Because asset filenames changed, no cache purge is needed — old files simply stop being referenced.",
+        text: "The edge picks up the new index.html on its next miss. Because asset filenames changed, no cache purge is needed - old files simply stop being referenced.",
       },
     ],
   },
@@ -559,7 +559,7 @@ export const NODE_BY_ID = Object.fromEntries(NODES.map((n) => [n.id, n]));
 export const EDGE_BY_ID = Object.fromEntries(EDGES.map((e) => [e.id, e]));
 export const COLUMN_OF = (nodeId) => COLUMN_INDEX[NODE_BY_ID[nodeId].column];
 
-/** Which flows touch a given node — shown in the inspector. */
+/** Which flows touch a given node - shown in the inspector. */
 export function flowsForNode(nodeId) {
   return FLOWS.filter((flow) =>
     flow.steps.some((step) => {
