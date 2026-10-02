@@ -116,98 +116,98 @@ function PillButton({ children, onClick, href }) {
   );
 }
 
-function About({ onNext }) {
-  return (
-    <div className="max-w-5xl mx-auto w-full py-20 lg:py-0">
-      {/* <Eyebrow index={1}>About</Eyebrow> */}
-      daa
-      <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] tracking-[-0.015em] text-neutral-900 max-w-[22ch] py-10">
-        Most of the software I write,{" "}
-        <span className="text-neutral-400">you will never open.</span>
-      </h2>
+// function About({ onNext }) {
+//   return (
+//     <div className="max-w-5xl mx-auto w-full py-20 lg:py-0">
+//       {/* <Eyebrow index={1}>About</Eyebrow> */}
+//       daa
+//       <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] tracking-[-0.015em] text-neutral-900 max-w-[22ch] py-10">
+//         Most of the software I write,{" "}
+//         <span className="text-neutral-400">you will never open.</span>
+//       </h2>
 
-      {/* The container stays max-w-5xl; the meta rail absorbs the extra width so
-          the prose column lands at a readable measure instead of one wide slab. */}
-      <div className="mt-10 lg:mt-12 grid gap-10 lg:gap-16 lg:grid-cols-[13rem_minmax(0,1fr)] lg:items-start">
-        <aside className="lg:sticky lg:top-0 flex flex-row lg:flex-col items-center lg:items-start gap-5 lg:gap-0">
-          <img
-            src="/dp.jpg"
-            alt="Cheptoyek Bill"
-            className="w-14 h-14 lg:w-20 lg:h-20 shrink-0 rounded-full object-cover border border-neutral-200 grayscale"
-            loading="lazy"
-          />
-          <div className="lg:mt-5 text-sm leading-relaxed">
-            <p className="text-neutral-900">Software Engineer</p>
-            <p className="text-neutral-500">Uganda Revenue Authority</p>
-            <p className="text-neutral-500">Kampala, Uganda</p>
-          </div>
-        </aside>
+//       {/* The container stays max-w-5xl; the meta rail absorbs the extra width so
+//           the prose column lands at a readable measure instead of one wide slab. */}
+//       <div className="mt-10 lg:mt-12 grid gap-10 lg:gap-16 lg:grid-cols-[13rem_minmax(0,1fr)] lg:items-start">
+//         <aside className="lg:sticky lg:top-0 flex flex-row lg:flex-col items-center lg:items-start gap-5 lg:gap-0">
+//           <img
+//             src="/dp.jpg"
+//             alt="Cheptoyek Bill"
+//             className="w-14 h-14 lg:w-20 lg:h-20 shrink-0 rounded-full object-cover border border-neutral-200 grayscale"
+//             loading="lazy"
+//           />
+//           <div className="lg:mt-5 text-sm leading-relaxed">
+//             <p className="text-neutral-900">Software Engineer</p>
+//             <p className="text-neutral-500">Uganda Revenue Authority</p>
+//             <p className="text-neutral-500">Kampala, Uganda</p>
+//           </div>
+//         </aside>
 
-        <div className="space-y-5 text-base lg:text-lg leading-relaxed text-neutral-600">
-          <p>
-            It runs at a border. At the{" "}
-            <span className="text-neutral-900">Uganda Revenue Authority</span>, in the
-            Information Technology and Innovation Department, I work on customs solutions, most
-            of them around non-intrusive inspection: the scanning that lets an image analyst see
-            inside a sealed container without breaking a seal, and the systems that carry that
-            scan into the rest of customs.
-          </p>
-          <p>
-            A scan on its own is just a picture. Matched to the right declaration, it becomes a
-            decision.
-          </p>
-          <p>
-            Cargo doesn't wait, so the code can't either. A slow response is a queue of trucks
-            at a border post. A bad match is somebody's shipment sitting still for a day. It's
-            unglamorous work with very real edges, and that's the part I like.
-          </p>
-          <p>
-            From 22 August to 22 September 2026 I was at the Oliver Reginald Tambo School of
-            Leadership and Pan-African Centre of Excellence, on the Transformational Leadership
-            Course. A lot of it stays with me. This most of all:
-          </p>
+//         <div className="space-y-5 text-base lg:text-lg leading-relaxed text-neutral-600">
+//           <p>
+//             It runs at a border. At the{" "}
+//             <span className="text-neutral-900">Uganda Revenue Authority</span>, in the
+//             Information Technology and Innovation Department, I work on customs solutions, most
+//             of them around non-intrusive inspection: the scanning that lets an image analyst see
+//             inside a sealed container without breaking a seal, and the systems that carry that
+//             scan into the rest of customs.
+//           </p>
+//           <p>
+//             A scan on its own is just a picture. Matched to the right declaration, it becomes a
+//             decision.
+//           </p>
+//           <p>
+//             Cargo doesn't wait, so the code can't either. A slow response is a queue of trucks
+//             at a border post. A bad match is somebody's shipment sitting still for a day. It's
+//             unglamorous work with very real edges, and that's the part I like.
+//           </p>
+//           <p>
+//             From 22 August to 22 September 2026 I was at the Oliver Reginald Tambo School of
+//             Leadership and Pan-African Centre of Excellence, on the Transformational Leadership
+//             Course. A lot of it stays with me. This most of all:
+//           </p>
 
-          <blockquote className="border-l-2 border-neutral-200 pl-6 py-1">
-            <p className="font-display italic text-2xl lg:text-3xl leading-snug text-neutral-900">
-              A low level of political education breeds selfishness and mischief. It is the
-              mother of corruption in the army{" "}
-              <span className="text-neutral-400">[public service]</span>.
-            </p>
-            <cite className="mt-3 block not-italic text-xs tracking-[0.15em] uppercase text-neutral-400">
-              Yoweri Kaguta Museveni, On the Value of Political Education, 1989
-            </cite>
-          </blockquote>
+//           <blockquote className="border-l-2 border-neutral-200 pl-6 py-1">
+//             <p className="font-display italic text-2xl lg:text-3xl leading-snug text-neutral-900">
+//               A low level of political education breeds selfishness and mischief. It is the
+//               mother of corruption in the army{" "}
+//               <span className="text-neutral-400">[public service]</span>.
+//             </p>
+//             <cite className="mt-3 block not-italic text-xs tracking-[0.15em] uppercase text-neutral-400">
+//               Yoweri Kaguta Museveni, On the Value of Political Education, 1989
+//             </cite>
+//           </blockquote>
 
-          <p>
-            The mechanics stuck with me more than the phrase. Wealth smuggled out of the country
-            isn't a private win, it's a school that doesn't get built and a road that doesn't
-            get repaired. That is the exact leak I spend my days trying to close, which makes
-            matching a scan to a declaration something other than a technical chore.
-          </p>
+//           <p>
+//             The mechanics stuck with me more than the phrase. Wealth smuggled out of the country
+//             isn't a private win, it's a school that doesn't get built and a road that doesn't
+//             get repaired. That is the exact leak I spend my days trying to close, which makes
+//             matching a scan to a declaration something other than a technical chore.
+//           </p>
 
-          <p className="text-neutral-900">
-            I build, I learn, I refine. Everything else here, the tools, the notes, the diagram
-            of how this page even reached you, is the same instinct pointed at smaller problems.
-          </p>
+//           <p className="text-neutral-900">
+//             I build, I learn, I refine. Everything else here, the tools, the notes, the diagram
+//             of how this page even reached you, is the same instinct pointed at smaller problems.
+//           </p>
 
-          <p className="text-sm text-neutral-500">
-            Before this: Makerere University, a stint at Tricsoft, and a long list of side
-            projects that taught me more than they were ever supposed to.
-          </p>
+//           <p className="text-sm text-neutral-500">
+//             Before this: Makerere University, a stint at Tricsoft, and a long list of side
+//             projects that taught me more than they were ever supposed to.
+//           </p>
 
-          <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-4">
-            <PillButton onClick={onNext}>My work →</PillButton>
-            {/* CV stays dead until Bill says the PDF is current. Flip to false then. */}
-            <QuietLink href="/cv.pdf" disabled>
-              Full CV
-            </QuietLink>
-            <QuietLink href="https://github.com/BILL-CHEPTOYEK">GitHub</QuietLink>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
+//           <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-4">
+//             <PillButton onClick={onNext}>My work →</PillButton>
+//             {/* CV stays dead until Bill says the PDF is current. Flip to false then. */}
+//             <QuietLink href="/cv.pdf" disabled>
+//               Full CV
+//             </QuietLink>
+//             <QuietLink href="https://github.com/BILL-CHEPTOYEK">GitHub</QuietLink>
+//           </div>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
 
 function QuietLink({ href, children, disabled = false }) {
   if (disabled) {
