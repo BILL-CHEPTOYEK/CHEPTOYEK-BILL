@@ -4,10 +4,10 @@
  *   "hero"  - a matrix of small plus marks, the registration marks off a
  *             technical drawing. Landing page only, where there is almost no
  *             text to compete with.
- *   "home"  - soft shapes: nested quarter-arcs off the top-right corner and a
- *             loose drift of dots off the bottom-left. Used on /home.
- *   "page"  - the same soft shapes, smaller and fainter, behind PageShell so
- *             they stay out of the way of long-form reading.
+ *   "home"  - a drift of small rings off the top-left corner and two soft
+ *             blades sweeping up from the left edge. Used on /home.
+ *   "page"  - the same shapes, smaller and fainter, behind PageShell so they
+ *             stay out of the way of long-form reading.
  *
  * Plus marks rather than a ruled grid on the landing: a square grid is the
  * default everybody reaches for, and it reads as graph paper. The same lattice
@@ -20,11 +20,11 @@ const ARM = 3.6; // half-length of each arm
 
 /* Slate blue, not the sage green of the screen this borrows its shape language
    from. It picks up the blue already in the landing's role-line glyph, so the
-   palette stays closed: neutrals, one yellow accent, this. */
-const ARC_OUTER = "#e5ebf6";
-const ARC_INNER = "#d7e2f2";
-const ARC_HAIR = "#edf1f8";
-const DOT = "#dde6f3";
+   palette stays closed: neutrals, one yellow accent, this. Everything here sits
+   between #dbe4f1 and #edf2f9 - light enough that body text never fights it. */
+const RING = "#dbe4f1";
+const BLADE = "#e2eaf6";
+const BLADE_SOFT = "#edf2f9";
 
 /* Stops are front-loaded so the corner holds its weight for a while before it
    drops off. A plain two-stop fade spreads the ink evenly and ends up looking
@@ -96,23 +96,27 @@ function MarkDecor() {
   );
 }
 
-/* Quarter-arcs sharing a centre on the top-right corner. Concentric curves
-   rather than the straight tapered strokes this shape language came from - same
-   softness, different handwriting, and they sit flat against the corner instead
-   of cutting across it. */
-const ARCS = [
-  { r: 168, width: 27, color: ARC_OUTER },
-  { r: 108, width: 16, color: ARC_INNER },
-  { r: 62, width: 8, color: ARC_HAIR },
+/* Rings, not filled dots. An outline holds its shape at 4px where a filled dot
+   this pale just reads as a smudge, and it keeps the corner airy.
+   Fixed and hand-placed: generated at random it would reshuffle on every mount
+   and occasionally drop a ring under the first line of text. The drift runs on
+   the diagonal, dense at the corner and thinning out as it leaves. */
+const RINGS = [
+  [8, 10, 4], [26, 16, 2.5], [44, 8, 3], [16, 34, 3], [36, 40, 4.5],
+  [58, 28, 2], [6, 56, 2.5], [30, 62, 3], [52, 56, 3.5], [72, 46, 2.5],
+  [12, 82, 4], [34, 88, 2.5], [56, 80, 3], [76, 70, 2], [94, 60, 3],
+  [20, 108, 3], [44, 112, 2], [64, 100, 3.5], [86, 94, 2.5], [104, 84, 2],
+  [28, 134, 2.5], [52, 138, 3], [72, 128, 2], [96, 118, 2.5], [118, 106, 3],
+  [60, 160, 2], [84, 150, 2.5], [108, 142, 2], [132, 128, 2.5],
 ];
 
-/* Fixed, hand-placed. Generating it at random would reshuffle on every mount
-   and occasionally drop a dot under the first line of text. */
-const DOTS = [
-  [10, 150, 5.5], [34, 132, 3], [20, 108, 4], [48, 160, 2.5], [56, 118, 5],
-  [74, 146, 3], [40, 86, 2.5], [68, 96, 4], [92, 124, 2.5], [96, 160, 4.5],
-  [116, 136, 3], [86, 74, 3], [112, 100, 2.5], [134, 158, 3.5], [140, 118, 2.5],
-  [62, 62, 2], [158, 146, 2.5],
+/* Two long strokes on the same slope and one short one under them. Round caps
+   do the tapering by eye, so these stay plain <path> elements - no gradients,
+   nothing to get expensive at full width. */
+const BLADES = [
+  { d: "M6 116 L150 28", width: 14, color: BLADE },
+  { d: "M0 140 L118 68", width: 9, color: BLADE_SOFT },
+  { d: "M74 136 L140 98", width: 6, color: BLADE_SOFT },
 ];
 
 function SoftDecor({ page }) {
@@ -120,34 +124,48 @@ function SoftDecor({ page }) {
     <>
       <svg
         viewBox="0 0 200 200"
-        className={`absolute top-0 right-0 translate-x-[14%] -translate-y-[12%] ${
-          page ? "w-44 sm:w-56 md:w-72 opacity-60" : "w-56 sm:w-72 md:w-96 lg:w-[26rem]"
+        className={`absolute top-0 left-0 -translate-x-[6%] -translate-y-[8%] ${
+          page ? "w-40 sm:w-48 md:w-60 opacity-60" : "w-52 sm:w-64 md:w-80 lg:w-96"
+        }`}
+        fill="none"
+        stroke={RING}
+        strokeWidth="1.5"
+        aria-hidden="true"
+      >
+        {RINGS.map(([cx, cy, r]) => (
+          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={r} />
+        ))}
+      </svg>
+
+      {/* Anchored off the left edge at mid-height, the way the screen this
+          borrows from puts them - low enough to clear a headline, high enough
+          not to collide with a button row. */}
+      <svg
+        viewBox="0 0 160 160"
+        className={`absolute left-0 top-[44%] -translate-x-[22%] ${
+          page ? "w-48 sm:w-60 md:w-72 opacity-55" : "w-60 sm:w-80 md:w-[26rem]"
         }`}
         fill="none"
         strokeLinecap="round"
         aria-hidden="true"
       >
-        {ARCS.map(({ r, width, color }) => (
-          <path
-            key={r}
-            d={`M${200 - r} 0 A ${r} ${r} 0 0 0 200 ${r}`}
-            stroke={color}
-            strokeWidth={width}
-          />
+        {BLADES.map(({ d, width, color }) => (
+          <path key={d} d={d} stroke={color} strokeWidth={width} />
         ))}
       </svg>
 
+      {/* One more off the right edge, mostly out of frame. It stops the page
+          from leaning entirely to the left. */}
       <svg
-        viewBox="0 0 180 180"
-        className={`absolute bottom-0 left-0 -translate-x-[8%] translate-y-[10%] ${
-          page ? "w-36 sm:w-44 md:w-52 opacity-55" : "w-44 sm:w-56 md:w-72"
+        viewBox="0 0 120 200"
+        className={`absolute right-0 bottom-[8%] translate-x-[34%] ${
+          page ? "w-28 sm:w-36 opacity-50" : "w-36 sm:w-44 md:w-56"
         }`}
-        fill={DOT}
+        fill="none"
+        strokeLinecap="round"
         aria-hidden="true"
       >
-        {DOTS.map(([cx, cy, r]) => (
-          <circle key={`${cx}-${cy}`} cx={cx} cy={cy} r={r} />
-        ))}
+        <path d="M8 184 L104 56" stroke={BLADE_SOFT} strokeWidth="16" />
       </svg>
     </>
   );

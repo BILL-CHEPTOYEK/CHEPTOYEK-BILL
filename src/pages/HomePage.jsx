@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import Decor from "../components/Decor";
 
 const PANELS = [
   { id: "about", label: "About" },
@@ -34,37 +35,43 @@ export default function HomePage() {
 
   return (
     <main
-      className="h-[100dvh] w-screen overflow-hidden bg-white text-neutral-900 relative flex flex-col"
+      className="relative h-[100dvh] w-screen overflow-hidden bg-white text-neutral-900 flex flex-col"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}
     >
-      <Link
-        to="/"
-        className="absolute top-6 left-6 md:top-8 md:left-8 text-lg text-neutral-800 hover:text-black transition-colors z-10"
-      >
-        Cheptoyek Bill
-      </Link>
+      <Decor variant="home" />
+
+      {/* Same top rail as the landing page, down to the type size and tracking,
+          so stepping from / to /home doesn't feel like a different site. */}
+      <header className="relative z-10 px-6 md:px-12 pt-7 md:pt-9">
+        <div className="max-w-5xl mx-auto flex items-center justify-between text-[11px] tracking-[0.22em] uppercase text-neutral-400">
+          <Link to="/" className="hover:text-neutral-700 transition-colors">
+            ← Cheptoyek Bill
+          </Link>
+          <span>Kampala, Uganda</span>
+        </div>
+      </header>
 
       <ArrowButton side="left" disabled={index === 0} onClick={() => goTo(index - 1)} />
       <ArrowButton side="right" disabled={index === PANELS.length - 1} onClick={() => goTo(index + 1)} />
 
       {/* items-start + my-auto, not items-center: a centered flex child that
           overflows its scroll container has an unreachable top edge. */}
-      <div className="flex-1 flex items-start justify-center px-6 md:px-12 overflow-y-auto scrollbar-hide">
-        <div key={index} className="animate-panel-in w-full my-auto">
+      <div className="relative z-10 flex-1 flex items-start justify-center px-6 md:px-12 overflow-y-auto scrollbar-hide">
+        <div key={index} className="animate-panel-in w-full my-auto py-12 md:py-16">
           {index === 0 && <About onNext={() => goTo(1)} />}
           {index === 1 && <Projects />}
           {index === 2 && <Contact />}
         </div>
       </div>
 
-      <nav className="pb-8 md:pb-10 flex items-center justify-center gap-6 md:gap-10">
+      <nav className="relative z-10 pb-8 md:pb-10 flex items-center justify-center gap-6 md:gap-10">
         {PANELS.map((panel, i) => (
           <button
             key={panel.id}
             onClick={() => goTo(i)}
-            className={`text-xs tracking-[0.15em] uppercase transition-colors ${
-              i === index ? "text-neutral-900" : "text-neutral-300 hover:text-neutral-500"
+            className={`text-[11px] tracking-[0.22em] uppercase transition-colors ${
+              i === index ? "text-neutral-900" : "text-neutral-300 hover:text-neutral-600"
             }`}
           >
             <span className="tabular-nums">{String(i + 1).padStart(2, "0")}</span>
@@ -84,27 +91,41 @@ function ArrowButton({ side, disabled, onClick }) {
       aria-label={side === "left" ? "Previous" : "Next"}
       className={`absolute top-1/2 -translate-y-1/2 ${
         side === "left" ? "left-2 md:left-6" : "right-2 md:right-6"
-      } w-9 h-9 flex items-center justify-center text-neutral-300 hover:text-neutral-700 transition-colors disabled:opacity-0 disabled:pointer-events-none z-10`}
+      } w-9 h-9 flex items-center justify-center text-neutral-300 hover:text-neutral-700 transition-colors disabled:opacity-0 disabled:pointer-events-none z-20`}
     >
       {side === "left" ? "‹" : "›"}
     </button>
   );
 }
 
-function Eyebrow({ index, children, flush = false }) {
+/* Every panel opens the same way: numbered eyebrow, display headline, the
+   yellow rule. The rule is the one piece of colour the landing page and
+   PageShell also use, so it ties the three together. */
+function PanelHead({ index, label, children, className = "" }) {
   return (
-    <p className={`text-xs tracking-[0.3em] uppercase text-neutral-400 ${flush ? "" : "mb-6"}`}>
-      {String(index).padStart(2, "0")} - {children}
-    </p>
+    <>
+      <p className="text-[11px] tracking-[0.25em] uppercase text-neutral-400">
+        {String(index).padStart(2, "0")} - {label}
+      </p>
+      <h2
+        className={`mt-4 font-hero text-3xl sm:text-4xl lg:text-5xl leading-[1.05] tracking-[-0.02em] text-neutral-900 ${className}`}
+      >
+        {children}
+      </h2>
+      <div className="mt-5 h-[3px] w-14 rounded-full bg-[#e9c84f]" />
+    </>
   );
 }
 
-function PillButton({ children, onClick, href }) {
+/* Landing-page buttons: square-ish corners, dark fill for the one action that
+   matters, a bordered neutral for everything else. The old rounded-full pills
+   were the only control on the site shaped like that. */
+function PrimaryButton({ children, onClick, href }) {
   const className =
-    "inline-block px-7 py-2.5 bg-black text-white text-sm rounded-full font-medium hover:bg-neutral-800 transition-all duration-300 hover:scale-105";
+    "inline-block px-8 py-3 rounded-md bg-neutral-900 text-white text-sm font-medium hover:bg-neutral-700 transition-colors";
   if (href) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className={className}>
+      <a href={href} className={className}>
         {children}
       </a>
     );
@@ -116,98 +137,18 @@ function PillButton({ children, onClick, href }) {
   );
 }
 
-// function About({ onNext }) {
-//   return (
-//     <div className="max-w-5xl mx-auto w-full py-20 lg:py-0">
-//       {/* <Eyebrow index={1}>About</Eyebrow> */}
-//       daa
-//       <h2 className="font-display text-4xl sm:text-5xl lg:text-6xl font-normal leading-[1.08] tracking-[-0.015em] text-neutral-900 max-w-[22ch] py-10">
-//         Most of the software I write,{" "}
-//         <span className="text-neutral-400">you will never open.</span>
-//       </h2>
-
-//       {/* The container stays max-w-5xl; the meta rail absorbs the extra width so
-//           the prose column lands at a readable measure instead of one wide slab. */}
-//       <div className="mt-10 lg:mt-12 grid gap-10 lg:gap-16 lg:grid-cols-[13rem_minmax(0,1fr)] lg:items-start">
-//         <aside className="lg:sticky lg:top-0 flex flex-row lg:flex-col items-center lg:items-start gap-5 lg:gap-0">
-//           <img
-//             src="/dp.jpg"
-//             alt="Cheptoyek Bill"
-//             className="w-14 h-14 lg:w-20 lg:h-20 shrink-0 rounded-full object-cover border border-neutral-200 grayscale"
-//             loading="lazy"
-//           />
-//           <div className="lg:mt-5 text-sm leading-relaxed">
-//             <p className="text-neutral-900">Software Engineer</p>
-//             <p className="text-neutral-500">Uganda Revenue Authority</p>
-//             <p className="text-neutral-500">Kampala, Uganda</p>
-//           </div>
-//         </aside>
-
-//         <div className="space-y-5 text-base lg:text-lg leading-relaxed text-neutral-600">
-//           <p>
-//             It runs at a border. At the{" "}
-//             <span className="text-neutral-900">Uganda Revenue Authority</span>, in the
-//             Information Technology and Innovation Department, I work on customs solutions, most
-//             of them around non-intrusive inspection: the scanning that lets an image analyst see
-//             inside a sealed container without breaking a seal, and the systems that carry that
-//             scan into the rest of customs.
-//           </p>
-//           <p>
-//             A scan on its own is just a picture. Matched to the right declaration, it becomes a
-//             decision.
-//           </p>
-//           <p>
-//             Cargo doesn't wait, so the code can't either. A slow response is a queue of trucks
-//             at a border post. A bad match is somebody's shipment sitting still for a day. It's
-//             unglamorous work with very real edges, and that's the part I like.
-//           </p>
-//           <p>
-//             From 22 August to 22 September 2026 I was at the Oliver Reginald Tambo School of
-//             Leadership and Pan-African Centre of Excellence, on the Transformational Leadership
-//             Course. A lot of it stays with me. This most of all:
-//           </p>
-
-//           <blockquote className="border-l-2 border-neutral-200 pl-6 py-1">
-//             <p className="font-display italic text-2xl lg:text-3xl leading-snug text-neutral-900">
-//               A low level of political education breeds selfishness and mischief. It is the
-//               mother of corruption in the army{" "}
-//               <span className="text-neutral-400">[public service]</span>.
-//             </p>
-//             <cite className="mt-3 block not-italic text-xs tracking-[0.15em] uppercase text-neutral-400">
-//               Yoweri Kaguta Museveni, On the Value of Political Education, 1989
-//             </cite>
-//           </blockquote>
-
-//           <p>
-//             The mechanics stuck with me more than the phrase. Wealth smuggled out of the country
-//             isn't a private win, it's a school that doesn't get built and a road that doesn't
-//             get repaired. That is the exact leak I spend my days trying to close, which makes
-//             matching a scan to a declaration something other than a technical chore.
-//           </p>
-
-//           <p className="text-neutral-900">
-//             I build, I learn, I refine. Everything else here, the tools, the notes, the diagram
-//             of how this page even reached you, is the same instinct pointed at smaller problems.
-//           </p>
-
-//           <p className="text-sm text-neutral-500">
-//             Before this: Makerere University, a stint at Tricsoft, and a long list of side
-//             projects that taught me more than they were ever supposed to.
-//           </p>
-
-//           <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-4">
-//             <PillButton onClick={onNext}>My work →</PillButton>
-//             {/* CV stays dead until Bill says the PDF is current. Flip to false then. */}
-//             <QuietLink href="/cv.pdf" disabled>
-//               Full CV
-//             </QuietLink>
-//             <QuietLink href="https://github.com/BILL-CHEPTOYEK">GitHub</QuietLink>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
+function SecondaryButton({ href, children }) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block px-7 py-3 rounded-md border border-neutral-200 text-sm font-medium text-neutral-700 hover:border-neutral-400 hover:text-neutral-900 transition-colors"
+    >
+      {children}
+    </a>
+  );
+}
 
 function QuietLink({ href, children, disabled = false }) {
   if (disabled) {
@@ -231,28 +172,81 @@ function QuietLink({ href, children, disabled = false }) {
   );
 }
 
+function About({ onNext }) {
+  return (
+    <div className="max-w-5xl mx-auto w-full">
+      <PanelHead index={1} label="About" className="max-w-[22ch]">
+        Most of the software I write,{" "}
+        <span className="text-neutral-400">you will never open.</span>
+      </PanelHead>
+
+      {/* The container stays max-w-5xl; the meta rail absorbs the extra width so
+          the prose column lands at a readable measure instead of one wide slab. */}
+      <div className="mt-10 lg:mt-12 grid gap-10 lg:gap-16 lg:grid-cols-[13rem_minmax(0,1fr)] lg:items-start">
+        <aside className="lg:sticky lg:top-0 flex flex-row lg:flex-col items-center lg:items-start gap-5 lg:gap-0">
+          <img
+            src="/dp.jpg"
+            alt="Cheptoyek Bill"
+            className="w-14 h-14 lg:w-20 lg:h-20 shrink-0 rounded-full object-cover border border-neutral-200 grayscale"
+            loading="lazy"
+          />
+          <div className="lg:mt-5 text-sm leading-relaxed">
+            <p className="text-neutral-900">Software Engineer</p>
+            <p className="text-neutral-500">Uganda Revenue Authority</p>
+            <p className="text-neutral-500">Kampala, Uganda</p>
+          </div>
+        </aside>
+
+        <div className="space-y-5 text-base lg:text-lg leading-relaxed text-neutral-600">
+          <p>
+            It runs at a border.
+          </p>
+          <p>
+            Cargo doesn't wait, so the code can't either. A slow response isn't a red line on a
+            dashboard. It's a queue at a border post, and somebody's shipment standing still for
+            a day.
+          </p>
+          <p className="text-neutral-900">
+            I build, I learn, I refine. Everything else here, the tools, the notes, the diagram
+            of how this page even reached you, is the same instinct pointed at smaller problems.
+          </p>
+
+          <p className="text-sm text-neutral-500">
+            Alumni-Makerere University..
+          </p>
+
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-4 pt-4">
+            <PrimaryButton onClick={onNext}>My work →</PrimaryButton>
+            {/* CV stays dead until Bill says the PDF is current. Flip to false then. */}
+            <QuietLink href="/cv.pdf" disabled>
+              Full CV
+            </QuietLink>
+            <QuietLink href="https://github.com/BILL-CHEPTOYEK">GitHub</QuietLink>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function ProjectCard({ name, tagline, description, href, cta, status }) {
   return (
     <a
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex flex-col text-left border border-neutral-100 rounded-2xl p-6 md:p-8 hover:border-neutral-200 transition-colors"
+      className="group flex flex-col text-left border border-neutral-200 rounded-xl p-6 md:p-8 bg-white/70 hover:border-neutral-400 transition-colors"
     >
       <div className="flex items-center justify-between gap-3">
-        <h3 className="text-xl md:text-2xl font-normal text-neutral-900">
-          {name}
-        </h3>
+        <h3 className="text-xl md:text-2xl font-normal text-neutral-900">{name}</h3>
         {status && (
-          <span className="shrink-0 text-[10px] tracking-[0.15em] uppercase text-neutral-400 border border-neutral-100 rounded-full px-2.5 py-1">
+          <span className="shrink-0 text-[10px] tracking-[0.15em] uppercase text-neutral-400 border border-neutral-200 rounded-full px-2.5 py-1">
             {status}
           </span>
         )}
       </div>
       <p className="mt-1 text-sm text-neutral-500">{tagline}</p>
-      <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600">
-        {description}
-      </p>
+      <p className="mt-4 text-sm md:text-base leading-relaxed text-neutral-600">{description}</p>
       <span className="mt-5 inline-block w-fit text-sm font-medium text-neutral-900 border-b border-neutral-900 group-hover:text-neutral-500 group-hover:border-neutral-300 transition-colors">
         {cta} ↗
       </span>
@@ -262,7 +256,7 @@ function ProjectCard({ name, tagline, description, href, cta, status }) {
 
 function ComingSoonCard() {
   return (
-    <div className="flex flex-col items-center justify-center text-center border border-dashed border-neutral-100 rounded-2xl p-6 md:p-8">
+    <div className="flex flex-col items-start justify-center border border-dashed border-neutral-200 rounded-xl p-6 md:p-8">
       <p className="text-[11px] tracking-[0.2em] uppercase text-neutral-300">Next up</p>
       <p className="mt-3 text-sm md:text-base leading-relaxed text-neutral-500 max-w-xs">
         More projects are in the works. Check back soon.
@@ -271,12 +265,25 @@ function ComingSoonCard() {
   );
 }
 
+/* The rest of the site, as a list rather than the big link wall it used to be.
+   Each row says what the thing is, which the bare word never did. */
+const ELSEWHERE = [
+  { to: "/blog", label: "Blog", note: "Longer pieces. Just interesting stuff." },
+  { to: "/notes", label: "Notes", note: "Working notes, currently on double-entry bookkeeping." },
+  { to: "/tools", label: "Tools", note: "A JSON formatter and a config diff. Both run in the browser." },
+  { to: "/architecture", label: "Architecture", note: "How this site is hosted, cached and shipped." },
+  { to: "/github", label: "GitHub", note: "Repositories, pulled live." },
+];
+
 function Projects() {
   return (
-    <div className="max-w-5xl mx-auto text-center">
-      <Eyebrow index={2}>Projects</Eyebrow>
+    <div className="max-w-5xl mx-auto w-full">
+      <PanelHead index={2} label="Projects">
+        Things I have built{" "}
+        <span className="text-neutral-400">and kept running.</span>
+      </PanelHead>
 
-      <div className="grid gap-5 md:gap-6 sm:grid-cols-2">
+      <div className="mt-10 lg:mt-12 grid gap-5 md:gap-6 sm:grid-cols-2">
         <ProjectCard
           name="MasterDocs"
           tagline="Master your documents."
@@ -288,35 +295,64 @@ function Projects() {
         <ComingSoonCard />
       </div>
 
-      <div className="mt-10 flex flex-wrap items-center justify-center gap-x-6 gap-y-2 tracking-[0.15em] text-2xl sm:text-3xl md:text-4xl font-normal text-neutral-900">
-        <a href="/blog" className="hover:text-neutral-800 transition-colors">Blog</a>
-        <Link to="/notes" className="hover:text-neutral-800 transition-colors">Notes</Link>
-        <Link to="/tools" className="hover:text-neutral-800 transition-colors">Tools</Link>
-        <Link to="/architecture" className="hover:text-neutral-800 transition-colors">Architecture</Link>
-        <Link to="/github" className="hover:text-neutral-800 transition-colors">GitHub</Link>
-      </div>
+      <p className="mt-12 text-[11px] tracking-[0.25em] uppercase text-neutral-400">Elsewhere</p>
+      <ul className="mt-5 border-t border-neutral-100">
+        {ELSEWHERE.map(({ to, label, note }) => {
+          const external = to.startsWith("/blog");
+          const Row = (
+            <>
+              <span className="text-lg md:text-xl text-neutral-900 group-hover:text-neutral-500 transition-colors">
+                {label}
+              </span>
+              <span className="text-sm text-neutral-500 sm:text-right">{note}</span>
+            </>
+          );
+          const className =
+            "group grid gap-1 sm:grid-cols-[10rem_minmax(0,1fr)] sm:items-baseline py-3.5 border-b border-neutral-100";
+          return (
+            <li key={to}>
+              {external ? (
+                <a href={to} className={className}>
+                  {Row}
+                </a>
+              ) : (
+                <Link to={to} className={className}>
+                  {Row}
+                </Link>
+              )}
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 }
 
 function Contact() {
   return (
-    <div className="max-w-xl mx-auto text-center">
-      <Eyebrow index={3}>Contact</Eyebrow>
-      <p className="text-3xl md:text-4xl font-normal text-neutral-900">Say hello.</p>
-      <p className="mt-4 text-neutral-500 max-w-sm mx-auto">
-        Open to conversations about software, products, and building things
-        that last.
-      </p>
+    <div className="max-w-5xl mx-auto w-full">
+      <PanelHead index={3} label="Contact">
+        Say hello.
+      </PanelHead>
 
-      <div className="mt-8">
-        <PillButton href="mailto:bill@cheptoyek.com">Email me →</PillButton>
-      </div>
+      <div className="mt-10 lg:mt-12 grid gap-10 lg:gap-16 lg:grid-cols-[13rem_minmax(0,1fr)] lg:items-start">
+        <aside className="text-sm leading-relaxed">
+          <p className="text-neutral-900">bill@cheptoyek.com</p>
+          <p className="text-neutral-500">Kampala, Uganda</p>
+          <p className="text-neutral-500">UTC+3</p>
+        </aside>
 
-      <div className="mt-6 flex items-center justify-center gap-5 text-xs tracking-[0.15em] uppercase text-neutral-400">
-        <a href="https://github.com/BILL-CHEPTOYEK" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-800 transition-colors">GitHub</a>
-        {/* <a href="https://linkedin.com/in/bill-cheptoyek" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-800 transition-colors">LinkedIn</a> */}
-        {/* <a href="https://twitter.com/trojan__bill" target="_blank" rel="noopener noreferrer" className="hover:text-neutral-800 transition-colors">X</a> */}
+        <div>
+          <p className="text-base lg:text-lg leading-relaxed text-neutral-600 max-w-xl">
+            Open to conversations about software, products, and building things that last. Mail
+            is the surest way to reach me.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <PrimaryButton href="mailto:bill@cheptoyek.com">Email me →</PrimaryButton>
+            <SecondaryButton href="https://github.com/BILL-CHEPTOYEK">GitHub</SecondaryButton>
+          </div>
+        </div>
       </div>
     </div>
   );
