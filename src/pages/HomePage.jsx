@@ -192,7 +192,7 @@ function About({ onNext }) {
           />
           <div className="lg:mt-5 text-sm leading-relaxed">
             <p className="text-neutral-900">Software Engineer</p>
-            <p className="text-neutral-500">Uganda Revenue Authority</p>
+            <p className="text-neutral-500">URA</p>
             <p className="text-neutral-500">Kampala, Uganda</p>
           </div>
         </aside>
@@ -202,9 +202,7 @@ function About({ onNext }) {
             It runs at a border.
           </p>
           <p>
-            Cargo doesn't wait, so the code can't either. A slow response isn't a red line on a
-            dashboard. It's a queue at a border post, and somebody's shipment standing still for
-            a day.
+            Cargo doesn't wait, so the code can't either.
           </p>
           <p className="text-neutral-900">
             I build, I learn, I refine. Everything else here, the tools, the notes, the diagram

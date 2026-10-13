@@ -36,7 +36,7 @@ export default function LandingPage() {
             style={rise(220)}
           >
             <MarkIcon />
-            Software Engineer, Uganda Revenue Authority
+            Software Engineer, URA
           </p>
 
           <div
