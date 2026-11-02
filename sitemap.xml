@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  The static routes only.
+
+  /notes/:slug is enumerated from a GitHub repository at page load, so it
+  cannot be listed here without going stale the moment a note is added. And
+  /blog/:slug is not served by the router in production - the Cloudflare Worker
+  owns that path and proxies it to Blogger - so a local post slug here would
+  point at a URL that resolves to something else.
+
+  No <lastmod>: a date nobody remembers to update is worse than no date, and
+  Google ignores <priority> and <changefreq> outright.
+
+  Add a route to App.jsx, add it here.
+-->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://cheptoyek.com/</loc></url>
+  <url><loc>https://cheptoyek.com/home</loc></url>
+  <url><loc>https://cheptoyek.com/architecture</loc></url>
+  <url><loc>https://cheptoyek.com/tools</loc></url>
+  <url><loc>https://cheptoyek.com/tools/json-formatter</loc></url>
+  <url><loc>https://cheptoyek.com/tools/config-diff</loc></url>
+  <url><loc>https://cheptoyek.com/notes</loc></url>
+  <url><loc>https://cheptoyek.com/github</loc></url>
+  <url><loc>https://cheptoyek.com/blog</loc></url>
+</urlset>
