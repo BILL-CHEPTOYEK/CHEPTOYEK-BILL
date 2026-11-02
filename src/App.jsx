@@ -2,13 +2,15 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
-import GitHubPage from './pages/GitHubPage';
 import ToolsIndexPage from './pages/tools/ToolsIndexPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
 
-// Split out of the main bundle: the diagram and the diff engine are only worth
-// downloading for the people who actually open those pages.
+// Split out of the main bundle: the diagram, the diff engine and the charting
+// library are only worth downloading for the people who actually open those
+// pages. /github is lazy for the same reason the others are - it pulls in
+// chart.js, which is larger than everything on the landing page put together.
+const GitHubPage = lazy(() => import('./pages/GitHubPage'));
 const ArchitecturePage = lazy(() => import('./pages/ArchitecturePage'));
 const ConfigDiffPage = lazy(() => import('./pages/tools/ConfigDiffPage'));
 const JsonFormatterPage = lazy(() => import('./pages/tools/JsonFormatterPage'));

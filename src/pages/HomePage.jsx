@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import Decor from "../components/Decor";
+import useDocumentMeta from "../components/useDocumentMeta";
 
 const PANELS = [
   { id: "about", label: "About" },
@@ -11,6 +12,11 @@ const PANELS = [
 export default function HomePage() {
   const [index, setIndex] = useState(0);
   const touchStart = useRef(null);
+
+  useDocumentMeta(
+    "Home",
+    "Software engineer at URA in Kampala, Uganda. Most of the software I write, you will never open. It runs at a border."
+  );
 
   const goTo = (next) => setIndex(Math.max(0, Math.min(PANELS.length - 1, next)));
 

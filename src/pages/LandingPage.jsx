@@ -1,17 +1,24 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Decor from "../components/Decor";
+import useDocumentMeta from "../components/useDocumentMeta";
 
 /* Entrance stagger. One keyframe (.animate-rise), different delays, so the eye
    lands on the name first and the buttons last. */
 const rise = (ms) => ({ animationDelay: `${ms}ms` });
 
 export default function LandingPage() {
+  // The site name is the whole title here, so it isn't suffixed with itself.
+  useDocumentMeta(
+    "Cheptoyek Bill",
+    "Software engineer at URA, Kampala, Uganda. Building software that uplifts humanity."
+  );
+
   return (
     /* No overflow-hidden here on purpose - Decor clips itself, and clipping
        main would cut the content off on a short landscape phone. */
     <main className="relative min-h-[100dvh] bg-white text-neutral-900 flex flex-col">
-      <Decor />
+      <Decor variant="home" />
 
       {/* A small element at the top edge so the page has a lid and the headline
           reads as deliberately low rather than as fallen. */}

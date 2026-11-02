@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { Link, useParams } from "react-router-dom";
 import { marked } from "marked";
 import { getLocalPostBySlug } from "../blog/sources";
+import useDocumentMeta from "../components/useDocumentMeta";
 
 function formatDate(value) {
   if (!value) return null;
@@ -15,6 +16,10 @@ export default function BlogPostPage() {
   const post = getLocalPostBySlug(slug);
   const html = useMemo(() => (post ? marked.parse(post.content) : ""), [post]);
 
+  // Above the early return, because a hook cannot be called conditionally. The
+  // excerpt is written for exactly this and is already in the frontmatter.
+  useDocumentMeta(post ? post.title : "Post not found", post ? post.excerpt : "");
+
   if (!post) {
     return (
       <main className="min-h-screen bg-neutral-50 px-6 py-16 md:py-24">
@@ -25,7 +30,7 @@ export default function BlogPostPage() {
           >
             ← Blog
           </Link>
-          <h1 className="mt-8 text-3xl font-normal text-neutral-900">
+          <h1 className="mt-8 font-hero text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em] text-neutral-900">
             Post not found
           </h1>
           <p className="mt-3 text-neutral-500">
@@ -48,7 +53,9 @@ export default function BlogPostPage() {
           ← Blog
         </Link>
 
-        <h1 className="mt-8 text-3xl md:text-4xl font-normal text-neutral-900">
+        {/* A step down from the shell's default size: post titles are long and
+            arbitrary, and Archivo Black at md:text-5xl wraps to three lines. */}
+        <h1 className="mt-8 font-hero text-3xl md:text-4xl leading-[1.05] tracking-[-0.02em] text-neutral-900">
           {post.title}
         </h1>
         {date && (

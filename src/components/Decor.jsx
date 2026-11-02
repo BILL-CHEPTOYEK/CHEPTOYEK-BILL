@@ -1,17 +1,20 @@
 /**
- * Page backgrounds. Two families, picked by `variant`:
+ * Page backgrounds, picked by `variant`:
  *
- *   "hero"  - a matrix of small plus marks, the registration marks off a
- *             technical drawing. Landing page only, where there is almost no
- *             text to compete with.
  *   "home"  - a drift of small rings off the top-left corner and two soft
- *             blades sweeping up from the left edge. Used on /home.
+ *             blades sweeping up from the left edge. Used on / and /home, which
+ *             share a background so stepping between them doesn't read as two
+ *             different sites.
  *   "page"  - the same shapes, smaller and fainter, behind PageShell so they
  *             stay out of the way of long-form reading.
+ *   "hero"  - a matrix of small plus marks, the registration marks off a
+ *             technical drawing. Currently unused: the landing page moved to
+ *             "home". Kept because it is the only variant that works under
+ *             almost no text, which is what the landing page is.
  *
- * Plus marks rather than a ruled grid on the landing: a square grid is the
- * default everybody reaches for, and it reads as graph paper. The same lattice
- * drawn as crosses keeps the engineering feel without the association.
+ * Plus marks rather than a ruled grid in "hero": a square grid is the default
+ * everybody reaches for, and it reads as graph paper. The same lattice drawn as
+ * crosses keeps the engineering feel without the association.
  */
 
 const MARK = "#171717";

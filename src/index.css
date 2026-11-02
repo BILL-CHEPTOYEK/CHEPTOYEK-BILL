@@ -1,18 +1,17 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
-/* @font-face {
-  font-family: "Heathergreen";
-  src: url("/fonts/Heathergreen.otf") format("truetype");
-  font-weight: normal;
-  font-style: normal;
-}
+/* The two faces, both SIL Open Font License 1.1, loaded in index.html.
+   Inter: https://github.com/rsms/inter
+   Archivo Black: https://github.com/Omnibus-Type/ArchivoBlack
 
+   `--font-hero` has to live in @theme rather than in a plain :root block -
+   Tailwind generates the `font-hero` utility from the theme key, and the three
+   pages that set display titles use that class. Defined anywhere else, the
+   class is never emitted and the titles silently fall back to the body face. */
 @theme {
-  --font-heathergreen: "Heathergreen", cursive;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-} */
+  --font-hero: "Archivo Black", "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
 
 body {
   font-family: var(--font-sans);
@@ -30,6 +29,17 @@ body {
 }
 .animate-panel-in {
   animation: panelIn 500ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* The landing page entrance. `both` is the load-bearing part: each element
+   carries its own animation-delay, and the fill mode is what holds it at
+   opacity 0 through that delay instead of showing it and then animating it. */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-rise {
+  animation: rise 650ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 /* Hide scrollbar (used by the paged /home view) */
@@ -70,6 +80,11 @@ body {
   .animate-panel-in {
     animation: none;
   }
+  /* Dropping the animation also drops the fill mode, so these land at their
+     natural opacity rather than staying stuck at the keyframe's 0. */
+  .animate-rise {
+    animation: none;
+  }
 }
 
 /* Article typography for the /blog reading view */
@@ -83,20 +98,25 @@ body {
   margin-top: 1.4em;
 }
 
+/* Article headings use the display face, the same one carrying the page titles,
+   so a post reads as part of the site rather than as a separate document.
+   Archivo Black ships one weight and it is already black, hence 400 and the
+   tightened tracking - at heading sizes the default spacing looks loose. */
 .doc-content h1,
 .doc-content h2,
 .doc-content h3,
 .doc-content h4 {
-  font-family: var(--font-heathergreen);
+  font-family: var(--font-hero);
   font-weight: 400;
+  letter-spacing: -0.02em;
   color: #171717;
-  line-height: 1.3;
+  line-height: 1.25;
   margin-top: 2em;
 }
 
-.doc-content h1 { font-size: 1.9rem; }
-.doc-content h2 { font-size: 1.5rem; }
-.doc-content h3 { font-size: 1.2rem; }
+.doc-content h1 { font-size: 1.75rem; }
+.doc-content h2 { font-size: 1.375rem; }
+.doc-content h3 { font-size: 1.125rem; }
 
 .doc-content strong { color: #171717; font-weight: 600; }
 

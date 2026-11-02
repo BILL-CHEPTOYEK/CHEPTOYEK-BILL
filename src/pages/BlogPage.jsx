@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { getPosts } from "../blog/sources";
+import useDocumentMeta from "../components/useDocumentMeta";
 
 function formatDate(value) {
   if (!value) return null;
@@ -12,6 +13,8 @@ function formatDate(value) {
 export default function BlogPage() {
   const [posts, setPosts] = useState([]);
   const [status, setStatus] = useState("loading");
+
+  useDocumentMeta("Blog", "Just interesting stuff.");
 
   useEffect(() => {
     let cancelled = false;
@@ -37,7 +40,7 @@ export default function BlogPage() {
           ← Home
         </Link>
 
-        <h1 className="mt-8 text-4xl md:text-5xl font-normal text-neutral-900">
+        <h1 className="mt-8 font-hero text-3xl md:text-5xl leading-[1.02] tracking-[-0.02em] text-neutral-900">
           Blog
         </h1>
         <p className="mt-3 text-neutral-500">Just interesting stuff.</p>

@@ -1,40 +1,58 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import useDocumentMeta from "../components/useDocumentMeta";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const USERNAME = "BILL-CHEPTOYEK";
 const CHART_COLORS = ["#171717", "#404040", "#737373", "#a3a3a3", "#d4d4d4", "#e5e5e5"];
 
+/**
+ * Unlike axios, fetch resolves on 4xx and 5xx rather than rejecting, so the
+ * status has to be checked by hand. It matters here: unauthenticated GitHub
+ * API calls are capped at 60 an hour per IP, and the 403 that arrives after
+ * that would otherwise be parsed as if it were a profile.
+ */
+async function getJson(url, signal) {
+  const response = await fetch(url, {
+    signal,
+    headers: { Accept: "application/vnd.github+json" },
+  });
+  if (!response.ok) throw new Error(`GitHub responded ${response.status}`);
+  return response.json();
+}
+
 export default function GitHubPage() {
   const [profile, setProfile] = useState(null);
   const [repos, setRepos] = useState([]);
   const [status, setStatus] = useState("loading");
 
+  useDocumentMeta("GitHub", "A live look at what I'm building.");
+
   useEffect(() => {
-    let cancelled = false;
+    const controller = new AbortController();
 
     (async () => {
       try {
-        const [profileRes, reposRes] = await Promise.all([
-          axios.get(`https://api.github.com/users/${USERNAME}`),
-          axios.get(`https://api.github.com/users/${USERNAME}/repos?sort=updated&per_page=100`),
+        const [profileData, reposData] = await Promise.all([
+          getJson(`https://api.github.com/users/${USERNAME}`, controller.signal),
+          getJson(
+            `https://api.github.com/users/${USERNAME}/repos?sort=updated&per_page=100`,
+            controller.signal
+          ),
         ]);
-        if (cancelled) return;
-        setProfile(profileRes.data);
-        setRepos(reposRes.data.filter((repo) => !repo.fork));
+        setProfile(profileData);
+        setRepos(reposData.filter((repo) => !repo.fork));
         setStatus("ready");
-      } catch {
-        if (!cancelled) setStatus("error");
+      } catch (error) {
+        // An abort is this component unmounting, not a failure to report.
+        if (error.name !== "AbortError") setStatus("error");
       }
     })();
 
-    return () => {
-      cancelled = true;
-    };
+    return () => controller.abort();
   }, []);
 
   const languageCounts = repos.reduce((acc, repo) => {
@@ -60,7 +78,7 @@ export default function GitHubPage() {
           ← Home
         </Link>
 
-        <h1 className="mt-8 text-4xl md:text-5xl font-normal text-neutral-900">
+        <h1 className="mt-8 font-hero text-3xl md:text-5xl leading-[1.02] tracking-[-0.02em] text-neutral-900">
           GitHub
         </h1>
         <p className="mt-3 text-neutral-500">A live look at what I'm building.</p>
