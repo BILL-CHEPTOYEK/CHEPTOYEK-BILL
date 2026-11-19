@@ -128,11 +128,28 @@ body {
 }
 .doc-content a:hover { color: #737373; border-color: #d4d4d4; }
 
+/* The markers have to be named. Tailwind's preflight sets `list-style: none`
+   on every ul and ol, which is right for navigation and wrong for prose - the
+   indent survived the reset, so note lists were rendering as unexplained
+   hanging paragraphs. */
 .doc-content ul,
 .doc-content ol {
   padding-left: 1.4em;
+  list-style-position: outside;
 }
+.doc-content ul { list-style-type: disc; }
+.doc-content ol { list-style-type: decimal; }
+.doc-content ul ul { list-style-type: circle; }
+.doc-content ::marker { color: #a3a3a3; }
+
 .doc-content li + li { margin-top: 0.5em; }
+
+/* A nested list is part of the item above it, not a new block, so it takes a
+   tighter gap than the `* + *` rhythm would give it. */
+.doc-content li > ul,
+.doc-content li > ol {
+  margin-top: 0.5em;
+}
 
 .doc-content blockquote {
   border-left: 2px solid #e5e5e5;
@@ -162,6 +179,45 @@ body {
   background: none;
   padding: 0;
   color: inherit;
+}
+
+/* GFM tables. The notes are about double-entry bookkeeping, so they are full
+   of them, and unstyled they arrive as columns of text with nothing separating
+   one from the next.
+
+   `display: block` with `width: max-content` is what keeps a wide table from
+   widening the whole page: the table keeps its natural width, the element is
+   capped at the column, and the overflow scrolls inside itself. The row and
+   cell boxes still lay out as a table - only the outer box changes. */
+.doc-content table {
+  display: block;
+  width: max-content;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: 0.9375em;
+  line-height: 1.6;
+}
+
+.doc-content th,
+.doc-content td {
+  border: 1px solid #e5e5e5;
+  padding: 0.5em 0.85em;
+  text-align: left;
+  vertical-align: top;
+}
+
+.doc-content th {
+  background: #fafafa;
+  color: #171717;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Figures in these notes are nearly always a number, and a column of numbers
+   only reads as a column when the digits line up. */
+.doc-content td {
+  font-variant-numeric: tabular-nums;
 }
 
 .doc-content img {

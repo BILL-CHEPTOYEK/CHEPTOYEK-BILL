@@ -33,13 +33,23 @@
     <meta name="twitter:description" content="Software engineer building software that uplifts humanity." />
     <meta name="twitter:image" content="https://cheptoyek.com/dp.jpg" />
 
+    <!-- The other half of public/404.html: put the path the visitor actually
+         asked for back in the address bar before the router reads it. Wrapped
+         in a try for the same reason the 404 side is - a browser with storage
+         locked down throws on the read, and an exception in this script would
+         take the whole restore with it. Only a same-origin path is accepted;
+         replaceState throws outright on a cross-origin URL. -->
     <script>
       (function () {
-        const redirect = sessionStorage.redirect;
-
-        if (redirect) {
+        try {
+          const redirect = sessionStorage.redirect;
           sessionStorage.removeItem("redirect");
-          history.replaceState(null, null, redirect);
+
+          if (redirect && redirect.startsWith("/") && !redirect.startsWith("//")) {
+            history.replaceState(null, "", redirect);
+          }
+        } catch (error) {
+          // No storage, or nothing stashed. The app still mounts at "/".
         }
       })();
     </script>

@@ -1,15 +1,32 @@
 <!doctype html>
-<html>
+<html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>Redirecting - cheptoyek.com</title>
 <script>
-  sessionStorage.redirect =
-    location.pathname +
-    location.search +
-    location.hash;
+  // GitHub Pages serves this file for every path it has no file for, which is
+  // every client-side route. Stash where the visitor was going, hand over to
+  // index.html, and let the router take it from there.
+  //
+  // The stash is in a try: storage throws rather than no-ops when the browser
+  // has it locked down, and an exception here used to take the redirect with
+  // it and leave the visitor on this blank page for good. Losing the deep link
+  // costs them a trip through the landing page. Losing the redirect costs them
+  // the site.
+  try {
+    sessionStorage.redirect = location.pathname + location.search + location.hash;
+  } catch (error) {
+    // No storage. Still redirect.
+  }
 
   location.replace("/");
 </script>
 </head>
-<body></body>
+<body>
+<noscript>
+  <p>This page has moved. <a href="/">Go to cheptoyek.com</a>.</p>
+</noscript>
+</body>
 </html>

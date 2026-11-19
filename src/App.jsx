@@ -1,10 +1,12 @@
 import { lazy, Suspense } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
 import LandingPage from './pages/LandingPage';
 import HomePage from './pages/HomePage';
 import ToolsIndexPage from './pages/tools/ToolsIndexPage';
 import BlogPage from './pages/BlogPage';
 import BlogPostPage from './pages/BlogPostPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 // Split out of the main bundle: the diagram, the diff engine and the charting
 // library are only worth downloading for the people who actually open those
@@ -24,6 +26,7 @@ function RouteFallback() {
 export default function App() {
   return (
     <BrowserRouter basename="/">
+      <ScrollToTop />
       <Suspense fallback={<RouteFallback />}>
         <Routes>
           <Route path="/" element={<LandingPage />} />
@@ -37,6 +40,9 @@ export default function App() {
           <Route path="/github" element={<GitHubPage />} />
           <Route path="/blog" element={<BlogPage />} />
           <Route path="/blog/:slug" element={<BlogPostPage />} />
+          {/* Pages serves 404.html, which bounces unknown paths back into the
+              app, so without this a typo'd URL rendered a blank page. */}
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
     </BrowserRouter>
